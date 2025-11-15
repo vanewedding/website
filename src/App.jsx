@@ -1,21 +1,22 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+//Layouts
+import DefaultLayout from "./layouts/DefaultLayout";
+//Pages
+import HomePage from "./pages/home/HomePage";
+//Hooks
+import ScrollToTop from "./components/technical/scrollToTop/ScrollToTop";
 
-function App() {
-	const [count, setCount] = useState(0);
-
+export default function App() {
 	return (
-		<>
-			<div>
-				<h1 class="text-3xl font-bold underline">
-					Hello world!
-					<h2> Ciao bubino</h2>
-				</h1>
-			</div>
-		</>
+		<BrowserRouter>
+			<ScrollToTop />
+			<Routes>
+				<Route path="/it/" element={<DefaultLayout />}>
+					<Route index element={<HomePage />} />
+				</Route>
+
+				<Route path="/eng/" element={<DefaultLayout />}></Route>
+			</Routes>
+		</BrowserRouter>
 	);
 }
-
-export default App;

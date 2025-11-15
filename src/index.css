@@ -1,1 +1,157 @@
-@import "tailwindcss";
+/* ========================== */
+/* GENERAL RULES */
+/* ========================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* ========================== */
+/* ROOT VARIABLES */
+/* ========================== */
+:root {
+	/* fonts */
+	--font-family: "Bodoni Moda", serif;
+	--font-weight-regular: 300;
+	--font-weight-light: 150;
+	--font-size-base: 18px;
+
+	/* colors */
+	--primary-brown: #311b04;
+	--secondary-brown: #612d06;
+	--terziary-brown: #7a3907;
+
+	--primary-white: #f7f1e7;
+	--secondary-white: #fefdfc;
+
+	--primary-gold: #b8860b;
+	--primary-red: #c0392b;
+
+	/* dynamic colors for theme */
+	--bg-color: var(--primary-white);
+	--text-color: var(--primary-brown);
+
+	/* scrollbar */
+	/*-ms-overflow-style: none;
+  scrollbar-width: none;*/
+}
+
+:root::-webkit-scrollbar {
+	display: none;
+}
+
+/* ========================== */
+/* BODY DEFAULT STYLES */
+/* ========================== */
+body {
+	font-family: var(--font-family);
+	font-weight: var(--font-weight-regular);
+	font-size: var(--font-size-base);
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+/* ========================== */
+/* DARK / LIGHT MODE AUTOMATIC */
+/* ========================== */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: var(--primary-brown);
+		--text-color: var(--primary-white);
+	}
+}
+
+/* ========================== */
+/* RESPONSIVE FONT SIZE */
+/* ========================== */
+@media (max-width: 576px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+/* ========================== */
+/* MAIN ELEMENTS */
+/* ========================== */
+main {
+	position: relative;
+}
+/*
+main.inverted {
+  background-color: var(--primary-brown);
+  color: var(--primary-white);
+}
+
+#pageWrapper.noScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+*/
+/* HEADINGS */
+h1 {
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2.45rem;
+	font-weight: var(--font-weight-light);
+}
+h3 {
+	font-size: 1.95rem;
+	font-weight: var(--font-weight-light);
+}
+h4 {
+	font-size: 1.56rem;
+	font-weight: var(--font-weight-regular);
+}
+h5 {
+	font-size: 1.25rem;
+	font-weight: var(--font-weight-regular);
+}
+h6 {
+	font-size: 1rem;
+	font-weight: var(--font-weight-light);
+}
+
+/* LISTS & LINKS */
+ul li {
+	list-style: none;
+}
+li a,
+a {
+	text-decoration: none;
+}
+
+/* BUTTONS */
+button {
+	all: unset;
+}
+
+/* ========================== */
+/* SWIPER LIBRARY */
+/* ========================== */
+/*
+.swiper-pagination {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: lightgray;
+  opacity: 0.5;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.swiper-pagination-bullet-active {
+  width: 0.8rem;
+  height: 0.8rem;
+  opacity: 1;
+}
+*/
