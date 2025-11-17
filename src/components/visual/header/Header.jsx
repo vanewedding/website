@@ -1,7 +1,8 @@
+import Navbar from "../navbar/Navbar";
 export default function Header() {
-	return (
-		<header>
-			<p>Questo è l'header mbare</p>
-		</header>
-	);
+  return (
+    <header>
+      <Navbar />
+    </header>
+  );
 }
