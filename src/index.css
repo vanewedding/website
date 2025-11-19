@@ -1,36 +1,21 @@
 @import "tailwindcss";
-/* ========================== */
-/* GENERAL RULES */
-/* ========================== */
 
-/* ========================== */
-/* ROOT VARIABLES */
-/* ========================== */
-:root {
-	/* fonts */
+@theme {
 	--font-family: "Bodoni Moda", serif;
 	--font-weight-regular: 300;
 	--font-weight-light: 150;
 	--font-size-base: 18px;
 
-	/* colors */
-	--primary-brown: #311b04;
-	--secondary-brown: #612d06;
-	--terziary-brown: #7a3907;
+	--color-bordeaux: #4b1822;
+	--color-brand-pink: #f3cad2;
+	--color-off-white: #fffafa;
+	--color-overlay-black: #00000066;
+	--color-overlay-white: #fffafa66;
+	--color-overlay-light-white: #fffafa38;
+	--color-pure-white: #ffffff;
 
-	--primary-white: #f7f1e7;
-	--secondary-white: #fefdfc;
-
-	--primary-gold: #b8860b;
-	--primary-red: #c0392b;
-
-	/* dynamic colors for theme */
-	--bg-color: var(--primary-white);
-	--text-color: var(--primary-brown);
-
-	/* scrollbar */
-	/*-ms-overflow-style: none;
-  scrollbar-width: none;*/
+	--bg-color: var(--color-off-white);
+	--text-color: var(--color-bordeaux);
 }
 
 :root::-webkit-scrollbar {

@@ -24,7 +24,7 @@ export default function Navbar() {
 			ref={ref}
 			className={`w-full flex items-center justify-between transition-all duration-500 ${
 				isScrolled
-					? "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4"
+					? "bg-overlay-white shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4"
 					: "py-4 md:py-6"
 			}`}
 		>
@@ -35,8 +35,8 @@ export default function Navbar() {
 					<NavLink
 						key={link.id}
 						to={it ? link.pathIt : link.pathEng}
-						className={`group flex flex-col gap-0.5 ${
-							isScrolled ? "text-gray-700" : "text-white"
+						className={`group flex flex-col gap-0.5 font-bold ${
+							isScrolled ? "text-gray-700" : "text-off-white"
 						}`}
 					>
 						{link.id === 1 ? (
