@@ -1,4 +1,7 @@
 import LogoProva from "../assets/LogoProva.svg";
+import fb from "../assets/svg/fb.svg";
+import ig from "../assets/svg/ig.svg";
+import wa from "../assets/svg/wa.svg";
 export const navLinks = [
 	{
 		id: 1,
@@ -34,16 +37,16 @@ export const socials = [
 	{
 		id: 1,
 		url: "https://wa.me/393281323219",
-		svg: LogoProva,
+		svg: wa,
 	},
 	{
 		id: 2,
 		url: "https://www.facebook.com/vanessafronterre",
-		svg: LogoProva,
+		svg: fb,
 	},
 	{
 		id: 3,
 		url: "https://www.instagram.com/vane.wedding",
-		svg: LogoProva,
+		svg: ig,
 	},
 ];
