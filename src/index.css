@@ -2,11 +2,12 @@
 
 @theme {
 	--font-family: "Bodoni Moda", serif;
-	--font-weight-regular: 300;
-	--font-weight-light: 150;
+	--font-weight-regular: 400;
+	--font-weight-light: 200;
 	--font-size-base: 18px;
 
 	--text-base: 18px;
+	--letter-spacing: 0.01rem;
 
 	--color-bordeaux: #4b1822;
 	--color-brand-pink: #f3cad2;
@@ -16,7 +17,7 @@
 	--color-overlay-light-white: #fffafa38;
 	--color-pure-white: #ffffff;
 
-	--bg-color: var(--color-off-white);
+	--bg-color: var(--color-pure-white);
 	--text-color: var(--color-bordeaux);
 }
 
@@ -33,6 +34,7 @@ body {
 	font-size: var(--font-size-base);
 	background-color: var(--bg-color);
 	color: var(--text-color);
+	letter-spacing: var(--letter-spacing);
 }
 
 /* ========================== */
@@ -40,8 +42,8 @@ body {
 /* ========================== */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg-color: var(--primary-brown);
-		--text-color: var(--primary-white);
+		--bg-color: var(--color-bordeaux);
+		--text-color: var(--color-off-white);
 	}
 }
 
@@ -77,11 +79,11 @@ h1 {
 }
 h2 {
 	font-size: 2.45rem;
-	font-weight: var(--font-weight-light);
+	font-weight: var(--font-weight-bold);
 }
 h3 {
-	font-size: 1.95rem;
-	font-weight: var(--font-weight-light);
+	font-size: 1rem;
+	font-weight: var(--font-weight-semibold);
 }
 h4 {
 	font-size: 1.56rem;
