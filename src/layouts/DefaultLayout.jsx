@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "../components/visual/header/Header";
-import Footer from "../components/visual/footer/Footer";
-import ScrollToTopButton from "../components/visual/scrollToTopButton/ScrollToTopBtn";
+import Header from "../components/visual/Header";
+import Footer from "../components/visual/Footer";
+import ScrollToTopButton from "../components/visual/ScrollToTopBtn";
 //import Loader from "../components/visual/loader/Loader";
 //import GlobalContext from "../context/GlobalContext";
 //import { useContext } from "react";

@@ -1,5 +1,5 @@
 // import Context
-import GlobalContext from "./globalContext";
+import GlobalContext from "./GlobalContext";
 
 // import hooks
 import useLang from "../hooks/useLang";
