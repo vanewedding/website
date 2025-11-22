@@ -14,7 +14,6 @@
     transform: translateY(20px);
     /* inizialmente un po’ più in basso */
     transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 998;
 
 }
 
