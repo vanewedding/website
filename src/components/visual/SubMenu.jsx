@@ -1,0 +1,27 @@
+import { Link } from "react-router-dom";
+
+export default function SubMenu({ submenuItems, it }) {
+  return (
+    <section
+      className="
+            absolute top-16 flex flex-col  items-center gap-4 
+            p-4 w-64  bg-brand-pink 
+            border-b-2 rounded-b-lg  border-l-2 border-r-2  border-off-white drop-shadow-xl shadow-overlay-black
+            transition-all duration-300 opacity-0 pointer-events-none
+            group-hover:opacity-100 group-hover:pointer-events-auto 
+            overflow-y-scroll max-h-screen
+          "
+    >
+      {submenuItems.map((sublink) => (
+        <Link
+          key={sublink.id}
+          to={it ? sublink.pathIt : sublink.pathEng}
+          className="font-semibold text-off-white
+          transition-all duration-300 hover:font-black"
+        >
+          {it ? sublink.nameIt : sublink.nameEng}
+        </Link>
+      ))}
+    </section>
+  );
+}
