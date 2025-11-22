@@ -10,7 +10,6 @@ export default function Navbar() {
   const switchLang = useSwitchLang();
   const { lang, it, eng } = useContext(GlobalContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
   return (
     <nav
@@ -42,9 +41,7 @@ export default function Navbar() {
             </NavLink>
 
             {/* submenu */}
-            {link.submenu && (
-              <SubMenu submenuItems={link.submenuItems} it={it} />
-            )}
+            {link.submenu && <SubMenu link={link} it={it} />}
           </div>
         ))}
       </div>
@@ -150,6 +147,27 @@ export default function Navbar() {
 
       {/* Desktop Right */}
       <div className="z-100 flex items-center gap-4 lg:gap-8">
+        <section className="hidden lg:flex justify-center items-center gap-6 my-3">
+          {langs.map((l) => (
+            <button
+              key={l.id}
+              onClick={() => {
+                switchLang(l.lang);
+                setIsMenuOpen(false);
+              }}
+              className={`${
+                l.lang === lang ? "pointer-events-none" : ""
+              } text-base size-6 cursor-pointer`}
+            >
+              <img
+                src={l.svg}
+                className={`transition-opacity duration-300 
+					${l.lang === lang ? "opacity-100" : "opacity-25 hover:opacity-100"}`}
+              />
+            </button>
+          ))}
+        </section>
+
         {socials.map((social) => (
           <a
             key={social.id}
