@@ -1,8 +1,7 @@
-import { navLinks, socials } from "../../../data/data";
+import { navLinks, socials, langs } from "../../../data/data";
 import { NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { useSwitchLang } from "../../../hooks/useSwitchLang";
-import LogoProva from "../../../assets/LogoProva.svg";
 
 import GlobalContext from "../../../context/globalContext";
 
@@ -10,6 +9,7 @@ export default function Navbar({ isScrolled }) {
 	const switchLang = useSwitchLang();
 	const { lang, it, eng } = useContext(GlobalContext);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
 	return (
 		<nav
@@ -22,17 +22,39 @@ export default function Navbar({ isScrolled }) {
 					<NavLink
 						key={link.id}
 						to={it ? link.pathIt : link.pathEng}
-						className={`flex justify-center font-semibold transition-all duration-300 hover:font-black ${
+						className={`flex justify-center  ${
 							isScrolled ? "text-gray-700" : "text-off-white"
-						}  ${link.id != 1 ? "min-w-40" : ""}`}
+						}  ${link.id != 1 ? "min-w-40" : ""} 
+						${link.submenu === true ? "hover:display-block" : "display:none"}`}
 					>
 						{link.id === 1 ? (
 							<div className="size-12">
-								<img src={LogoProva} alt="Logo" />
+								<img src={link.svg} alt="Logo" />
 							</div>
 						) : (
 							<>
-								{it ? link.nameIt : link.nameEng}
+								<div className="font-semibold transition-all duration-300 hover:font-black">
+									{it ? link.nameIt : link.nameEng}
+								</div>
+								{link.submenu === true ? (
+									<section
+										className={`hidden bg-brand-pink absolute top-16 items-center gap-4 p-4 w-64
+										border-b-2 border-l-2 border-r-2 rounded-b-lg shadow-overlay-black drop-shadow-xl
+										hover:flex flex-col`}
+									>
+										{link.submenuItems.map((sublink) => (
+											<NavLink
+												key={sublink.id}
+												to={it ? sublink.pathIt : sublink.pathEng}
+												className="font-semibold transition-all duration-300 hover:font-black"
+											>
+												{it ? sublink.nameIt : sublink.nameEng}
+											</NavLink>
+										))}
+									</section>
+								) : (
+									""
+								)}
 								{/*<div
 									className={`${
 										isScrolled ? "bg-gray-700" : "bg-white"
@@ -90,25 +112,29 @@ export default function Navbar({ isScrolled }) {
 					</NavLink>
 				))}
 
-				<button
-					className={`${it ? "text-off-white" : "text-overlay-light-white"} `}
-					onClick={() => {
-						switchLang("it");
-						setIsMenuOpen(false);
-					}}
-				>
-					ITALIANO
-				</button>
-
-				<button
-					className={`${eng ? "text-off-white" : "text-overlay-light-white"} `}
-					onClick={() => {
-						switchLang("eng");
-						setIsMenuOpen(false);
-					}}
-				>
-					INGLESE
-				</button>
+				<section className="flex justify-center items-center gap-6">
+					{langs.map((l) => (
+						<button
+							key={l.id}
+							onClick={() => {
+								switchLang(l.lang);
+								setIsMenuOpen(false);
+							}}
+							className={`${
+								l.lang === lang ? "pointer-events-none" : ""
+							} text-base size-6 cursor-pointer`}
+						>
+							<img
+								src={l.svg}
+								className={`${
+									l.lang === lang
+										? "opacity-100"
+										: "opacity-25 hover:opacity-100 transition-opacity"
+								} ${isMenuOpen ? " duration-300" : "opacity-0"}`}
+							/>
+						</button>
+					))}
+				</section>
 			</div>
 
 			{/* Desktop Right */}
