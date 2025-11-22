@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function SubMenu({ submenuItems, it }) {
+export default function SubMenu({ link, it }) {
   return (
     <section
       className="
@@ -12,10 +12,14 @@ export default function SubMenu({ submenuItems, it }) {
             overflow-y-scroll max-h-screen
           "
     >
-      {submenuItems.map((sublink) => (
+      {link.submenuItems.map((sublink) => (
         <Link
           key={sublink.id}
-          to={it ? sublink.pathIt : sublink.pathEng}
+          to={
+            it
+              ? `${link.pathIt}/${sublink.slug}`
+              : `${link.pathEng}/${sublink.slug}`
+          }
           className="font-semibold text-off-white
           transition-all duration-300 hover:font-black"
         >
