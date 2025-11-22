@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./PrivacyPolicyPage.module.css";
-import useLang from "../../hooks/useLang";
+import useLang from "../hooks/useLang";
 
 export default function PrivacyPolicyPage() {
   const lang = useLang();
