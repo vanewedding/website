@@ -40,12 +40,12 @@ body {
 /* ========================== */
 /* DARK / LIGHT MODE AUTOMATIC */
 /* ========================== */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--bg-color: var(--color-bordeaux);
 		--text-color: var(--color-off-white);
 	}
-}
+} */
 
 /* ========================== */
 /* RESPONSIVE FONT SIZE */
