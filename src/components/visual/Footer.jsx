@@ -2,7 +2,7 @@ import { useContext } from "react";
 import FormCalltoAction from "../../sections/FormCallToAction";
 import BottomSection from "../../sections/BottomSection";
 import GlobalContext from "../../context/GlobalContext";
-import { footerData } from "../../data/footer";
+import { footerData, bottomSection } from "../../data/footer";
 
 export default function Footer() {
 	const { it } = useContext(GlobalContext);
@@ -10,7 +10,7 @@ export default function Footer() {
 		<footer className="w-full h-60 ">
 			<FormCalltoAction footerData={footerData} it={it} />
 
-			<BottomSection />
+			<BottomSection bottomSection={bottomSection} it={it} />
 		</footer>
 	);
 }
