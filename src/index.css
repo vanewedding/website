@@ -102,10 +102,10 @@ h6 {
 ul li {
 	list-style: none;
 }
-li a,
+/*li a,
 a {
 	text-decoration: none;
-}
+} */
 
 /* BUTTONS
 button {
