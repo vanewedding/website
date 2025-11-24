@@ -1,3 +1,3 @@
 export default function BottomSection() {
-	return <section>{/* Content for the bottom section */}</section>;
+  return <section className="bg-brand-pink h-50"></section>;
 }
