@@ -19,6 +19,20 @@
 
 	--bg-color: var(--color-pure-white);
 	--text-color: var(--color-bordeaux);
+
+	--animate-infinite-scroll: infinite-scroll 50s linear infinite;
+
+	@keyframes infinite-scroll {
+		from {
+		transform: translateX(0);
+		}
+
+		to {
+		transform: translateX(-100%);
+		}
+ 	}
+     
+      
 }
 
 :root::-webkit-scrollbar {
@@ -140,3 +154,5 @@ button {
   opacity: 1;
 }
 */
+
+
