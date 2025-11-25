@@ -20,7 +20,7 @@
 	--bg-color: var(--color-pure-white);
 	--text-color: var(--color-bordeaux);
 
-	--animate-infinite-scroll: infinite-scroll 50s linear infinite;
+	--animate-infinite-scroll: infinite-scroll 100s linear infinite;
 
 	@keyframes infinite-scroll {
 		from {

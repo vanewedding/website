@@ -1,10 +1,10 @@
-export default function ServiceSection() {
+export default function GallerySection() {
   return (
     <section>
       questa e la zona servizi con il carosello immagini
       <div>
         {/* test scorrimento per mariagrazia */}
-        <div class="w-full inline-flex flex-nowrap">
+        {/* <div class="w-full inline-flex flex-nowrap">
           <ul class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
             <li>
               <img src="./facebook.svg" alt="Facebook" />
@@ -60,7 +60,7 @@ export default function ServiceSection() {
               <img src="./sass.svg" alt="Sass" />
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </section>
   );

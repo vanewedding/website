@@ -1,5 +1,5 @@
 import HeroSection from "../sections/HeroSection";
-import ServiceSection from "../sections/ServiceSection";
+import GallerySection from "../sections/GallerySection";
 import StudioSection from "../sections/StudioSection";
 import PresentationSection from "../sections/PresentationSection";
 
@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ServiceSection />
+      <GallerySection />
       <StudioSection />
       <PresentationSection />
     </>
