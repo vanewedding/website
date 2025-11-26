@@ -15,10 +15,10 @@ export default function HeroSection({ it }) {
 			<img
 				src={herobg}
 				alt="hero"
-				className="absolute h-full w-full object-cover object-center -z-10 brightness-50"
+				className="absolute h-full w-full object-cover object-[90%_10%] -z-10 brightness-50"
 			/>
 			{/* logo */}
-			<img src={logo} alt="logo" className="size-16" />
+			<img src={logo} alt="logo" className="size-16 lg:size-32" />
 			<div className="w-full">
 				<Title
 					text={it ? hero.titleIt : hero.titleEng}
