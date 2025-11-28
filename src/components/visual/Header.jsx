@@ -9,7 +9,7 @@ export default function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
 		<header
-			className={`w-full h-16 sticky top-0 left-0 flex items-center px-4 z-100 text-off-white  ${
+			className={` w-full h-16 sticky top-0 left-0 flex items-center px-4 z-100 text-off-white  ${
 				isScrolled
 					? "bg-brand-pink"
 					: isMenuOpen

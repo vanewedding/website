@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+
 @theme {
 	--font-family: "Bodoni Moda", serif;
 	--font-weight-regular: 400;

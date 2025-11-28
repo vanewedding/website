@@ -72,7 +72,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 
 			{/* Mobile Menu */}
 			<div
-				className={`fixed top-16 left-0 flex flex-col items-center lg:hidden
+				className={`no-scrollbar fixed top-16 left-0 flex flex-col items-center lg:hidden
 			 h-[calc(100vh-4rem)] w-full py-4  text-off-white text-base font-semibold 
 			transition-all duration-800 overflow-y-auto 
 			${isMenuOpen ? `translate-y-0 ${bgColor}` : "-translate-y-full "}`}
