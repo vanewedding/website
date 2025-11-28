@@ -26,7 +26,7 @@ export const footerData = {
 	},
 
 	image: footer,
-	buttonText: {
+	buttonData: {
 		it: "SCRIVIMI LE TUE IDEE",
 		eng: "WRITE ME YOUR IDEAS",
 		url: "/form",

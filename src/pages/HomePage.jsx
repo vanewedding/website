@@ -10,7 +10,7 @@ export default function HomePage() {
 	return (
 		<>
 			<HeroSection it={it} />
-			<GallerySection />
+			<GallerySection it={it} />
 			<StudioSection />
 			<PresentationSection />
 		</>

@@ -30,7 +30,7 @@
 	--bg-color: var(--color-pure-white);
 	--text-color: var(--color-bordeaux);
 
-	--animate-infinite-scroll: infinite-scroll 100s linear infinite;
+	--animate-infinite-scroll: infinite-scroll 150s linear infinite;
 
 	@keyframes infinite-scroll {
 		from {
@@ -38,7 +38,7 @@
 		}
 
 		to {
-			transform: translateX(-100%);
+			transform: translateX(-50%);
 		}
 	}
 
