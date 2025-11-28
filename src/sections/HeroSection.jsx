@@ -24,10 +24,11 @@ export default function HeroSection({ it }) {
 					text={it ? hero.titleIt : hero.titleEng}
 					colorBg="bg-off-white"
 					colorTxt="text-off-white"
+					textSize="text-md lg:text-xl"
 				/>
 			</div>
 			{/* testo */}
-			<p className="text-off-white text-center text-sm  whitespace-pre-line">
+			<p className="text-off-white text-center text-md lg:text-lg  whitespace-pre-line">
 				{it ? hero.textIt : hero.textEng}
 			</p>
 			{/* scroll down */}
