@@ -6,11 +6,11 @@ import PresentationSection from "../sections/PresentationSection";
 import GlobalContext from "../context/GlobalContext";
 
 export default function HomePage() {
-	const { it } = useContext(GlobalContext);
+	const { it, isMobile } = useContext(GlobalContext);
 	return (
 		<>
 			<HeroSection it={it} />
-			<GallerySection it={it} />
+			<GallerySection it={it} isMobile={isMobile} />
 			<StudioSection />
 			<PresentationSection />
 		</>

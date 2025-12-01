@@ -3,6 +3,7 @@ import gallery2 from "/img/gallery2.jpg";
 import gallery3 from "/img/gallery3.jpg";
 import gallery4 from "/img/gallery4.jpg";
 import gallery5 from "/img/gallery5.jpg";
+import gallery6 from "/img/gallery6.jpg";
 
 export const hero = {
 	titleIt: "BENVENUTI",
@@ -24,11 +25,7 @@ export const gallery = {
 		{ src: gallery3, alt: "Gallery photo 3" },
 		{ src: gallery4, alt: "Gallery photo 4" },
 		{ src: gallery5, alt: "Gallery photo 5" },
-		{ src: gallery1, alt: "Gallery photo 1" },
-		{ src: gallery2, alt: "Gallery photo 2" },
-		{ src: gallery3, alt: "Gallery photo 3" },
-		{ src: gallery4, alt: "Gallery photo 4" },
-		{ src: gallery5, alt: "Gallery photo 5" },
+		{ src: gallery6, alt: "Gallery photo 6" },
 	],
 	buttonData: {
 		it: "SFOGLIA LA GALLERY",

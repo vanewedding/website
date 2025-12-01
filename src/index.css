@@ -61,6 +61,14 @@
 	display: none;
 }
 
+:root {
+	--swiper-theme-color: var(--color-off-white) !important;
+	--swiper-pagination-bullet-inactive-color: var(--color-off-white) !important;
+	--swiper-pagination-bullet-inactive-opacity: 0.25 !important;
+	--swiper-pagination-bullet-size: 8px !important;
+	--swiper-pagination-bullet-horizontal-gap: 8px !important;
+}
+
 /* ========================== */
 /* BODY DEFAULT STYLES */
 /* ========================== */
@@ -167,11 +175,5 @@ button {
   transition: 0.3s ease;
   display: inline-block;
   vertical-align: middle;
-}
-
-.swiper-pagination-bullet-active {
-  width: 0.8rem;
-  height: 0.8rem;
-  opacity: 1;
 }
 */
