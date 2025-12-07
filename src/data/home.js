@@ -15,19 +15,26 @@ import logo1 from "../assets/svg/ita.svg";
 import logo2 from "../assets/svg/ita.svg";
 
 export const hero = {
-  titleIt: "BENVENUTI",
-  titleEng: "WELCOME",
-  textIt:
-    "Sono Vanessa, Wedding & Event Creator.\nLasciate che vi aiuti a rendere unico il vostro giorno.",
-  textEng:
-    "I am Vanessa, Wedding & Event Creator.\nLet me help you make your day unique.",
-  scrollIt: "ESPLORA IL SITO WEB",
-  scrollEng: "EXPLORE THE WEBSITE",
+  title: {
+    it: "BENVENUTI",
+    eng: "WELCOME",
+  },
+  text: {
+    it: "Sono Vanessa, Wedding & Event Creator.\nLasciate che vi aiuti a rendere unico il vostro giorno.",
+    eng: "I am Vanessa, Wedding & Event Creator.\nLet me help you make your day unique.",
+  },
+  scroll: {
+    it: "ESPLORA IL SITO WEB",
+    eng: "EXPLORE THE WEBSITE",
+  },
 };
 
 export const gallery = {
-  titleIt: "LASCIATI ISPIRARE",
-  titleEng: "GET INSPIRED",
+  title: {
+    it: "LASCIATI ISPIRARE",
+    eng: "GET INSPIRED",
+  },
+
   photos: [
     { src: gallery1, alt: "Gallery photo 1" },
     { src: gallery2, alt: "Gallery photo 2" },
@@ -44,8 +51,10 @@ export const gallery = {
 };
 
 export const studio = {
-  titleIt: "LO STUDIO DI PROGETTAZIONE",
-  titleEng: "THE DESIGN STUDIO",
+  title: {
+    it: "LO STUDIO DI PROGETTAZIONE",
+    eng: "THE DESIGN STUDIO",
+  },
   photos: [
     { src: studio1, alt: "Studio photo 1" },
     { src: studio2, alt: "Studio photo 2" },
@@ -74,7 +83,13 @@ export const studio = {
       eng: "Via R. Morandi 1, Pozzallo(RG)\n Ground floor",
     },
   },
-  image: maps,
+  images: [
+    {
+      id: 1,
+      src: maps,
+      alt: "mappa",
+    },
+  ],
   buttonData: {
     it: "APRI SULLA MAPPA",
     eng: "SEE ON MAP",
@@ -82,8 +97,10 @@ export const studio = {
   },
 };
 export const aboutMe = {
-  titleIt: "MI PRESENTO",
-  titleEng: "THIS IS ME",
+  title: {
+    it: "MI PRESENTO",
+    eng: "THIS IS ME",
+  },
   line1: {
     mobile: {
       it: "VANESSA FRONTERRÉ",

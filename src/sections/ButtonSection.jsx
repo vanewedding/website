@@ -17,6 +17,7 @@ export default function ButtonSection({
     >
       {/* mobile */}
       <div className="lg:hidden">
+        {/* layout con testo */}
         <p className="text-sm text-center mt-1">
           {it ? data.line1.mobile.it : data.line1.mobile.eng}
         </p>
@@ -41,6 +42,7 @@ export default function ButtonSection({
           />
         </div>
       </div>
+
       {/* DESKTOP */}
       <div className="hidden lg:flex items-center gap-6 px-4 my-4">
         {/* immagine */}

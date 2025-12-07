@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import ButtonSection from "../../sections/ButtonSection";
+import SectionVariant from "../../sections/SectionVariant";
 import BottomSection from "../../sections/BottomSection";
 import GlobalContext from "../../context/GlobalContext";
 import { footerData, bottomSection } from "../../data/footer";
@@ -15,12 +16,15 @@ export default function Footer() {
         colorBg="bg-bordeaux"
         colorTxt="text-bordeaux"
       />
-      <ButtonSection
+      <SectionVariant
+        style={""}
         data={footerData}
         it={it}
-        isInternal={true}
         isDark={false}
         isMask={true}
+        linkType="internal"
+        mobileLayout="text-image-button"
+        desktopLayout="text-right"
       />
 
       <BottomSection bottomSection={bottomSection} it={it} />

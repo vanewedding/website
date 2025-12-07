@@ -31,7 +31,7 @@ export const footerData = {
     },
   },
 
-  image: footer,
+  images: [{ id: 1, src: footer, alt: "footer img" }],
   buttonData: {
     it: "SCRIVIMI LE TUE IDEE",
     eng: "WRITE ME YOUR IDEAS",

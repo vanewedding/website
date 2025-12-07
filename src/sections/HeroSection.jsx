@@ -21,7 +21,7 @@ export default function HeroSection({ it }) {
       <img src={logo} alt="logo" className="size-16 lg:size-32 z-1" />
       <div className="w-full z-1">
         <Title
-          text={it ? hero.titleIt : hero.titleEng}
+          text={it ? hero.title.it : hero.title.eng}
           colorBg="bg-off-white"
           colorTxt="text-off-white"
           textSize="text-md lg:text-xl"
@@ -29,12 +29,12 @@ export default function HeroSection({ it }) {
       </div>
       {/* testo */}
       <p className="text-off-white text-center text-md lg:text-lg  whitespace-pre-line z-1">
-        {it ? hero.textIt : hero.textEng}
+        {it ? hero.text.it : hero.text.eng}
       </p>
       {/* scroll down */}
       <div className="absolute bottom-4 flex flex-col items-center gap-4 z-1">
         <p className="text-off-white text-center text-sm">
-          {it ? hero.scrollIt : hero.scrollEng}
+          {it ? hero.scroll.it : hero.scroll.eng}
         </p>
         <img src={arrow} className="size-6 animate-bouncy"></img>
       </div>

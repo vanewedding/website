@@ -8,7 +8,7 @@ export default function GallerySection({ it, isMobile }) {
   return (
     <section>
       <Title
-        text={it ? gallery.titleIt : gallery.titleEng}
+        text={it ? gallery.title.it : gallery.title.eng}
         colorBg="bg-bordeaux"
         colorText="text-bordeaux"
       ></Title>

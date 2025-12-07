@@ -17,7 +17,7 @@ export default function ButtonSection({
     >
       {/* mobile */}
       <div className="lg:hidden px-4">
-        {/* box img Propic */}
+        {/*  immagine pro pic*/}
         <div className="flex justify-center my-6">
           <img
             src={data.imgPropic.src}
