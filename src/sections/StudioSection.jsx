@@ -1,7 +1,6 @@
 import Slider from "../components/visual/Slider";
 import Title from "../components/visual/Title";
-import ButtonSection from "./ButtonSection";
-import SectionVariant from "./SectionVariant";
+import VariantComposer from "../components/visual/VariantComposer";
 
 import { studio } from "../data/home";
 export default function StudioSection({ it, isMobile }) {
@@ -13,15 +12,7 @@ export default function StudioSection({ it, isMobile }) {
         colorText="text-bordeaux"
       ></Title>
       <Slider photos={studio.photos} isMobile={isMobile} />
-      {/* <ButtonSection
-        it={it}
-        data={studio}
-        isInternal={false}
-        isDark={true}
-        isMask={false}
-        style={"mt-8"}
-      ></ButtonSection> */}
-      <SectionVariant
+      <VariantComposer
         style={"mt-8"}
         data={studio}
         it={it}
@@ -30,6 +21,7 @@ export default function StudioSection({ it, isMobile }) {
         isMask={false}
         mobileLayout="image-button"
         desktopLayout="text-right"
+        customStyleImg="max-h-64"
       />
     </section>
   );

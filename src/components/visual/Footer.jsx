@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import ButtonSection from "../../sections/ButtonSection";
-import SectionVariant from "../../sections/SectionVariant";
+import VariantComposer from "./VariantComposer";
 import BottomSection from "../../sections/BottomSection";
 import GlobalContext from "../../context/GlobalContext";
 import { footerData, bottomSection } from "../../data/footer";
@@ -16,7 +15,7 @@ export default function Footer() {
         colorBg="bg-bordeaux"
         colorTxt="text-bordeaux"
       />
-      <SectionVariant
+      <VariantComposer
         style={""}
         data={footerData}
         it={it}

@@ -1,8 +1,7 @@
 import Title from "../components/visual/Title";
 import { aboutMe } from "../data/home";
-import BottomSection2 from "./ButtonSection2";
-import SectionVariant from "./SectionVariant";
-export default function Aboutme(it, isMobile) {
+import VariantComposer from "../components/visual/VariantComposer";
+export default function Aboutme(it) {
   return (
     <section>
       <Title
@@ -11,14 +10,15 @@ export default function Aboutme(it, isMobile) {
         colorText="text-bordeaux"
       ></Title>
 
-      <SectionVariant
+      <VariantComposer
         data={aboutMe}
         it={it}
         linkType="internal"
         isDark={false}
         isMask={false}
-        mobileLayout="image-button"
+        mobileLayout="propic-layout"
         desktopLayout="text-left-logo"
+        customStyleImg=""
       />
     </section>
   );
