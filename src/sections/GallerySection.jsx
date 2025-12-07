@@ -5,19 +5,19 @@ import Button from "../components/visual/Button";
 import { gallery } from "../data/home";
 
 export default function GallerySection({ it, isMobile }) {
-	return (
-		<section className="h-screen">
-			<Title
-				text={it ? gallery.titleIt : gallery.titleEng}
-				colorBg="bg-bordeaux"
-				colorText="text-bordeaux"
-			></Title>
+  return (
+    <section>
+      <Title
+        text={it ? gallery.titleIt : gallery.titleEng}
+        colorBg="bg-bordeaux"
+        colorText="text-bordeaux"
+      ></Title>
 
-			<Slider photos={gallery.photos} isMobile={isMobile} />
+      <Slider photos={gallery.photos} isMobile={isMobile} />
 
-			<div className="flex justify-center mt-4">
-				<Button data={gallery.buttonData} it={it} isDark={false} />
-			</div>
-		</section>
-	);
+      <div className="flex justify-center mt-4">
+        <Button data={gallery.buttonData} it={it} isDark={false} />
+      </div>
+    </section>
+  );
 }

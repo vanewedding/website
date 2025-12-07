@@ -27,7 +27,7 @@
 	--color-overlay-light-white: #fffafa38;
 	--color-pure-white: #ffffff;
 
-	--bg-color: var(--color-pure-white);
+	--bg-color: var(--color-off-white);
 	--text-color: var(--color-bordeaux);
 
 	--animate-infinite-scroll: infinite-scroll 150s linear infinite;
@@ -67,6 +67,7 @@
 	--swiper-pagination-bullet-inactive-opacity: 0.25 !important;
 	--swiper-pagination-bullet-size: 8px !important;
 	--swiper-pagination-bullet-horizontal-gap: 8px !important;
+	background-color: var(--bg-color);
 }
 
 /* ========================== */

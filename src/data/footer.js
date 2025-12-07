@@ -6,73 +6,79 @@ import wa from "../assets/svg/wa.svg";
 import mail from "../assets/svg/mail.svg";
 
 export const footerData = {
-	title: {
-		it: "PROGETTIAMO IL TUO GIORNO",
-		eng: "LET'S DESIGN YOUR DAY",
-	},
-	line1: {
-		it: "Il primo passo è fissare un appuntamento.",
-		eng: "The first step is to schedule an appointment.",
-	},
-	line2: {
-		mobile: {
-			it: "Ma prima, rispondi ad alcune domande:",
-			eng: "But first, answer a few questions:",
-		},
-		desktop: {
-			it: "Ma prima, ho preparato un questionario per te.\nRispondi ad alcune domande: mi aiuteranno a prepararmi meglio per il nostro primo incontro",
-			eng: "But first, I’ve prepared a form for you.\nAnswer a few questions: they will help me get ready for our first meeting.",
-		},
-	},
+  title: {
+    it: "PROGETTIAMO IL TUO GIORNO",
+    eng: "LET'S DESIGN YOUR DAY",
+  },
+  line1: {
+    mobile: {
+      it: "Il primo passo è fissare un appuntamento.",
+      eng: "The first step is to schedule an appointment.",
+    },
+    desktop: {
+      it: "Il primo passo è fissare un appuntamento.",
+      eng: "The first step is to schedule an appointment.",
+    },
+  },
+  line2: {
+    mobile: {
+      it: "Ma prima, rispondi ad alcune domande:",
+      eng: "But first, answer a few questions:",
+    },
+    desktop: {
+      it: "Ma prima, ho preparato un questionario per te.\nRispondi ad alcune domande: mi aiuteranno a prepararmi meglio per il nostro primo incontro",
+      eng: "But first, I’ve prepared a form for you.\nAnswer a few questions: they will help me get ready for our first meeting.",
+    },
+  },
 
-	image: footer,
-	buttonData: {
-		it: "SCRIVIMI LE TUE IDEE",
-		eng: "WRITE ME YOUR IDEAS",
-		url: "/form",
-	},
+  image: footer,
+  buttonData: {
+    it: "SCRIVIMI LE TUE IDEE",
+    eng: "WRITE ME YOUR IDEAS",
+    url: "/form",
+  },
 };
 
 export const bottomSection = {
-	logo: {
-		svg: logoLiteWhite,
-		alt: "Logo",
-	},
-	links: [
-		{
-			id: 1,
-			svg: mail,
-			alt: "email adress",
-			url: "mailto:vanessafronterre83@gmail.com",
-		},
-		{
-			id: 2,
-			svg: wa,
-			alt: "whatsapp",
-			url: "https://wa.me/393281323219",
-		},
-		{
-			id: 3,
-			svg: fb,
-			alt: "facebook",
-			url: "https://www.facebook.com/vanessafronterre",
-		},
-		{
-			id: 4,
-			svg: ig,
-			alt: "instagram",
-			url: "https://www.instagram.com/vane.wedding",
-		},
-	],
-	address: {
-		line1: "Via Rodolfo Morandi, 1",
-		line2: "97016 Pozzallo (RG), Sicilia, Italia",
-	},
-	iva: "Vanè Wedding and event creator P.IVA xxxxxxxxxxx",
+  logo: {
+    svg: logoLiteWhite,
+    alt: "Logo",
+  },
+  links: [
+    {
+      id: 1,
+      svg: mail,
+      alt: "email adress",
+      url: "mailto:vanessafronterre83@gmail.com",
+    },
+    {
+      id: 2,
+      svg: wa,
+      alt: "whatsapp",
+      url: "https://wa.me/393281323219",
+    },
+    {
+      id: 3,
+      svg: fb,
+      alt: "facebook",
+      url: "https://www.facebook.com/vanessafronterre",
+    },
+    {
+      id: 4,
+      svg: ig,
+      alt: "instagram",
+      url: "https://www.instagram.com/vane.wedding",
+    },
+  ],
+  address: {
+    line1: "Via Rodolfo Morandi, 1",
+    line2: "97016 Pozzallo (RG), Sicilia, Italia",
+  },
+  iva: "Vanè Wedding and event creator P.IVA xxxxxxxxxxx",
 
-	cookies: "/cookie-policy",
+  cookies: "/cookie-policy",
 
-	privacy: "/privacy-policy",
+  privacy: "/privacy-policy",
 
-	madeby: "Made by MeG Siti & Social",
+  madeby: "Made by MeG Siti & Social",
 };
