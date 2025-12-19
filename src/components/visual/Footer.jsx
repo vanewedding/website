@@ -21,7 +21,6 @@ export default function Footer() {
         it={it}
         isDark={false}
         isMask={true}
-        linkType="internal"
         mobileLayout="text-image-button"
         desktopLayout="text-right"
       />

@@ -4,6 +4,7 @@ import fb from "../assets/svg/fb.svg";
 import ig from "../assets/svg/ig.svg";
 import wa from "../assets/svg/wa.svg";
 import mail from "../assets/svg/mail.svg";
+import { LINK_TYPE } from "../constants/enum";
 
 export const footerData = {
   title: {
@@ -36,6 +37,7 @@ export const footerData = {
     it: "SCRIVIMI LE TUE IDEE",
     eng: "WRITE ME YOUR IDEAS",
     url: "/form",
+    linkType: LINK_TYPE.FULL,
   },
 };
 
@@ -50,24 +52,28 @@ export const bottomSection = {
       svg: mail,
       alt: "email adress",
       url: "mailto:vanessafronterre83@gmail.com",
+      linkType: LINK_TYPE.EXTERNAL,
     },
     {
       id: 2,
       svg: wa,
       alt: "whatsapp",
       url: "https://wa.me/393281323219",
+      linkType: LINK_TYPE.EXTERNAL,
     },
     {
       id: 3,
       svg: fb,
       alt: "facebook",
       url: "https://www.facebook.com/vanessafronterre",
+      linkType: LINK_TYPE.EXTERNAL,
     },
     {
       id: 4,
       svg: ig,
       alt: "instagram",
       url: "https://www.instagram.com/vane.wedding",
+      linkType: LINK_TYPE.EXTERNAL,
     },
   ],
   address: {

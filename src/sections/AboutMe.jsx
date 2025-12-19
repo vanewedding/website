@@ -13,7 +13,6 @@ export default function Aboutme(it) {
       <VariantComposer
         data={aboutMe}
         it={it}
-        linkType="internal"
         isDark={false}
         isMask={false}
         mobileLayout="propic-layout"
