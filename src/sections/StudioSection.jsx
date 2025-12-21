@@ -11,7 +11,14 @@ export default function StudioSection({ it, isMobile }) {
         colorBg="bg-bordeaux"
         colorText="text-bordeaux"
       ></Title>
-      <Slider photos={studio.photos} isMobile={isMobile} />
+      <Slider
+        photos={studio.photos}
+        isMobile={isMobile}
+        isAutoplay={false}
+        isNavigation={true}
+        isPagination={true}
+        showThumbs={false}
+      />
       <VariantComposer
         style={"mt-8"}
         data={studio}

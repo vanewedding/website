@@ -4,48 +4,82 @@ import {
   Autoplay,
   Pagination,
   Navigation,
+  Thumbs,
+  FreeMode,
 } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/thumbs";
 import arrow from "../../assets/svg/arrow.svg";
+import { useState } from "react";
 
-export default function Slider({ photos, isMobile }) {
-  const autoplayConfig = isMobile
-    ? false
-    : {
-        delay: 2000,
-        disableOnInteraction: false,
-      };
-  const navigationConfig = isMobile
-    ? {
-        nextEl: ".next-btn",
-        prevEl: ".prev-btn",
-      }
-    : false;
-  const paginationConfig = isMobile
-    ? {
-        clickable: true,
-        dynamicBullets: false,
-      }
-    : false;
+export default function Slider({
+  photos,
+  isAutoplay = false,
+  isNavigation = false,
+  isPagination = false,
+  isMobile = false,
+  showThumbs = false,
+  isSingleSlide = false,
+  isMaskTop = true,
+}) {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const autoplayConfig =
+    isMobile && isAutoplay
+      ? {
+          delay: 2000,
+          disableOnInteraction: false,
+        }
+      : false;
+  const navigationConfig =
+    isMobile && isNavigation
+      ? {
+          nextEl: ".next-btn",
+          prevEl: ".prev-btn",
+        }
+      : false;
+  const paginationConfig =
+    isMobile && isPagination
+      ? {
+          clickable: true,
+          dynamicBullets: false,
+        }
+      : false;
   const spaceBetween = isMobile ? 0 : 36;
   return (
     <>
       <section className="pt-4 w-screen overflow-visible lg:block">
         <Swiper
-          modules={[EffectCoverflow, Autoplay, Navigation, Pagination]}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[
+            EffectCoverflow,
+            Autoplay,
+            Navigation,
+            Pagination,
+            Thumbs,
+            FreeMode,
+          ]}
           effect="coverflow"
           grabCursor={true}
           centeredSlides={false}
           loop={true}
-          breakpoints={{
-            1280: { slidesPerView: 5 },
-            1024: { slidesPerView: 5 },
-            768: { slidesPerView: 3 },
-            566: { slidesPerView: 3 },
-          }}
+          breakpoints={
+            isSingleSlide
+              ? {
+                  1280: { slidesPerView: 1 },
+                  1024: { slidesPerView: 1 },
+                  768: { slidesPerView: 1 },
+                  566: { slidesPerView: 1 },
+                }
+              : {
+                  1280: { slidesPerView: 5 },
+                  1024: { slidesPerView: 5 },
+                  768: { slidesPerView: 3 },
+                  566: { slidesPerView: 3 },
+                }
+          }
           slidesPerView={1}
           spaceBetween={spaceBetween}
           coverflowEffect={{
@@ -58,12 +92,11 @@ export default function Slider({ photos, isMobile }) {
           navigation={navigationConfig}
           pagination={paginationConfig}
           speed={2000} // velocità della transizione
-          className={
-            "relative " +
-            (isMobile
-              ? "w-screen h-[75vh] mask-t-from-80%"
-              : "w-full mask-x-from-90%")
-          }
+          className={`
+            relative              
+            ${isMobile ? "w-screen h-[75vh] " : "w-full mask-x-from-90%"}
+            ${isMaskTop ? "mask-t-from-80%" : false}
+            `}
         >
           {photos.map((photo, idx) => (
             <SwiperSlide key={idx}>
@@ -99,6 +132,30 @@ export default function Slider({ photos, isMobile }) {
             </>
           )}
         </Swiper>
+
+        {showThumbs && (
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            modules={[Navigation, Thumbs, FreeMode]}
+            spaceBetween={5}
+            slidesPerView={5}
+            freeMode={true}
+            watchSlidesProgress={true}
+            className="mt-2 mask-x-from-90%"
+          >
+            {photos.map((photo, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="h-20 cursor-pointer">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </section>
     </>
   );

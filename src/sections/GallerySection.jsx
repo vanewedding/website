@@ -1,4 +1,3 @@
-import PhotoSlider from "../components/visual/PhotoSlider";
 import Slider from "../components/visual/Slider";
 import Title from "../components/visual/Title";
 import Button from "../components/visual/Button";
@@ -13,7 +12,14 @@ export default function GallerySection({ it, isMobile }) {
         colorText="text-bordeaux"
       ></Title>
 
-      <Slider photos={gallery.photos} isMobile={isMobile} />
+      <Slider
+        photos={gallery.photos}
+        isMobile={isMobile}
+        isAutoplay={false}
+        isNavigation={true}
+        isPagination={true}
+        showThumbs={false}
+      />
 
       <div className="flex justify-center mt-4">
         <Button data={gallery.buttonData} it={it} isDark={false} />

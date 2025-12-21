@@ -1,5 +1,5 @@
 export default function Title({
-  text,
+  text = "",
   colorBg,
   colorTxt,
   textSize,

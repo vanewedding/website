@@ -1,4 +1,5 @@
 import gallery1 from "/img/gallery1.jpg";
+import gallery2 from "../assets/img/footer.jpg";
 import { LINK_TYPE } from "../constants/enum";
 export const galleryData = {
   title: {
@@ -267,4 +268,36 @@ export const galleryData = {
       },
     },
   ],
+};
+
+export const albumData = {
+  wedding: {
+    title: {
+      it: "WEDDING",
+      eng: "WEDDING",
+    },
+    photos: [
+      { id: 1, src: gallery1, alt: "Wedding" },
+      { id: 2, src: gallery2, alt: "Wedding" },
+      { id: 3, src: gallery1, alt: "Wedding" },
+      { id: 4, src: gallery2, alt: "Wedding" },
+      { id: 5, src: gallery1, alt: "Wedding" },
+      { id: 6, src: gallery1, alt: "Wedding" },
+      { id: 7, src: gallery1, alt: "Wedding" },
+      { id: 8, src: gallery2, alt: "Wedding" },
+      { id: 9, src: gallery1, alt: "Wedding" },
+      { id: 10, src: gallery1, alt: "Wedding" },
+    ],
+  },
+  birthday: {
+    title: {
+      it: "COMPLEANNO",
+      eng: "BIRTHDAY",
+    },
+    photos: [
+      { id: 1, src: gallery1, alt: "Birthday" },
+      { id: 2, src: gallery1, alt: "Birthday" },
+      // altre immagini...
+    ],
+  },
 };
