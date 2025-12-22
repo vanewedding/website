@@ -29,7 +29,7 @@ export default function GalleryPage() {
           mobileLayout="title-image-button"
           desktopLayout="title-image-button"
           isRounded={false}
-          customStyleImg="h-screen"
+          customStyleImg="h-[calc(100vh-8rem)]"
         />
         <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:m-4">
           {album.map((data) =>
@@ -44,7 +44,8 @@ export default function GalleryPage() {
                 isPink={false}
                 mobileLayout="title-image-button"
                 desktopLayout="title-image"
-                customStyleImg=""
+                customStyleImg="h-screen lg:h-100 lg:rounded-2xl"
+                customStyleBox=""
               />
             ) : null
           )}

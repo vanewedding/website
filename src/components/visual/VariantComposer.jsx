@@ -16,6 +16,7 @@ export default function VariantComposer({
   mobileLayout = "image-button",
   desktopLayout = "text-right",
   customStyleImg,
+  customStyleBox,
 }) {
   console.log(data);
   // ---------------- MOBILE ----------------
@@ -62,6 +63,7 @@ export default function VariantComposer({
                       listSize={data.images.length}
                       isMask={isMask}
                       customStyleImg={customStyleImg}
+                      customStyleBox={customStyleBox}
                     />
                   </>
                 ))}
@@ -163,7 +165,7 @@ export default function VariantComposer({
             {/* DESKTOP */}
             <Link
               to={data.buttonData.url}
-              className="relative hidden lg:block hover:scale-102 transition-all duration-300 ease-in-out"
+              className="relative hidden lg:block hover:scale-104 transition-all duration-300 ease-in-out"
             >
               {/* immagine */}
               <div className="m-3 flex gap-6 justify-end">
@@ -176,6 +178,7 @@ export default function VariantComposer({
                     isMask={isMask}
                     isRounded={isRounded}
                     customStyleImg={customStyleImg}
+                    customStyleBox={customStyleBox}
                     isDesktopOverlay={true}
                     isDesktopMask={isDesktopMask}
                   />
