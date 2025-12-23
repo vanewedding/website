@@ -3,6 +3,7 @@ import TitleButtonGroup from "./TitleButtonGroup";
 import Image from "./Image";
 import { Link } from "react-router-dom";
 import Title from "./Title";
+import Slider from "./Slider";
 
 export default function VariantComposer({
 	style = "",
@@ -12,13 +13,14 @@ export default function VariantComposer({
 	isMask = false,
 	isDesktopMask,
 	isPink = false,
-	isRounded,
+	isDesktopRounded = true,
+	isMobileRounded = true,
 	mobileLayout = "image-button",
 	desktopLayout = "text-right",
 	customStyleImg,
 	customStyleBox,
-	hasButton = false,
-	hasLine2 = false,
+	hasButton = true,
+	hasLine2 = true,
 	isShadowed = false,
 	isMargin = true,
 }) {
@@ -173,7 +175,7 @@ export default function VariantComposer({
 											alt={img.alt}
 											listSize={data.images.length}
 											isMask={isMask}
-											isRounded={isRounded}
+											isMobileRounded={isMobileRounded}
 											customStyleImg={customStyleImg}
 											isDesktopOverlay={true}
 											isDesktopMask={isDesktopMask}
@@ -196,11 +198,27 @@ export default function VariantComposer({
 									/>
 								</div>
 							</div>
-							<h3 className="mt-6 w-auto px-2 text-center self-center text-bordeaux">
+							<p className="mt-6 w-auto px-6 text-center self-center text-bordeaux">
 								{it ? data.line2.desktop.it : data.line2.desktop.eng}
-							</h3>
+							</p>
 						</div>
 					</>
+				);
+			case "slider":
+				return (
+					<div className="lg:hidden py-6">
+						<Slider
+							photos={data.images}
+							isMobile={true}
+							isAutoplay={false}
+							isNavigation={true}
+							isPagination={true}
+							showThumbs={false}
+						/>
+						<p className="mt-6 w-auto px-6 text-center self-center text-bordeaux">
+							{it ? data.line1.mobile.it : data.line1.mobile.eng}
+						</p>
+					</div>
 				);
 		}
 	};
@@ -224,7 +242,7 @@ export default function VariantComposer({
 										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
-										isRounded={isRounded}
+										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
 										customStyleBox={customStyleBox}
 										isDesktopOverlay={true}
@@ -257,10 +275,11 @@ export default function VariantComposer({
 										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
-										isRounded={isRounded}
+										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
 										isDesktopOverlay={true}
 										isDesktopMask={isDesktopMask}
+										isShadowed={isShadowed}
 									/>
 								))}
 							</div>
@@ -291,7 +310,7 @@ export default function VariantComposer({
 										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
-										isRounded={isRounded}
+										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
 										isShadowed={isShadowed}
 									/>
@@ -325,10 +344,14 @@ export default function VariantComposer({
 								<p className="text-lg">
 									{it ? data.line1.desktop.it : data.line1.desktop.eng}
 								</p>
-								<p className="text-sm  m-5 whitespace-pre-line">
-									{it ? data.line2.desktop.it : data.line2.desktop.eng}
-								</p>
-								<Button data={data.buttonData} it={it} isDark={isDark} />
+								{hasLine2 && (
+									<p className="text-sm  m-5 whitespace-pre-line">
+										{it ? data.line2.desktop.it : data.line2.desktop.eng}
+									</p>
+								)}
+								{hasButton && (
+									<Button data={data.buttonData} it={it} isDark={isDark} />
+								)}
 							</div>
 							{/* immagine */}
 							<div className="flex-[0.60] my-4 flex gap-6 justify-end">
@@ -339,8 +362,9 @@ export default function VariantComposer({
 										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
-										isRounded={isRounded}
+										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
+										isShadowed={isShadowed}
 									/>
 								))}
 							</div>
@@ -387,7 +411,9 @@ export default function VariantComposer({
 										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
-										isRounded={isRounded}
+										isShadowed={isShadowed}
+										isDesktopRounded={isDesktopRounded}
+										isMobileRounded={isMobileRounded}
 										customStyleImg={customStyleImg}
 									/>
 								))}
@@ -409,7 +435,7 @@ export default function VariantComposer({
 										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
-										isRounded={isRounded}
+										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
 										customStyleBox={customStyleBox}
 										isDesktopOverlay={true}

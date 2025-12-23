@@ -23,6 +23,8 @@ export default function Footer() {
 				isMask={true}
 				mobileLayout="text-image-button"
 				desktopLayout="text-right"
+				isDesktopRounded={true}
+				isShadowed={true}
 			/>
 
 			<BottomSection bottomSection={bottomSection} it={it} />

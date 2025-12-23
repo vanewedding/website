@@ -4,6 +4,7 @@ import GlobalContext from "../context/GlobalContext";
 import {
 	aboutData,
 	aboutWeddingData,
+	aboutContestData,
 	aboutCataniaData,
 	aboutVaneData,
 } from "../data/about";
@@ -33,6 +34,7 @@ export default function AboutPage() {
 					customStyleImg="h-[calc((100vh-6rem))] object-cover object-[85%_15%]"
 				/>
 			</section>
+
 			<section className="mb-6">
 				<Title
 					isLogo={true}
@@ -51,14 +53,31 @@ export default function AboutPage() {
 					isRounded={true}
 					hasButton={false}
 					hasLine2={false}
-					mobileLayout=""
+					mobileLayout="slider"
 					desktopLayout="text-right"
 					customStyleImg="rounded-xl"
 					isShadowed={true}
 					isMargin={false}
 				/>
-				{/* <VariantComposer /> */}
+				<VariantComposer
+					style=""
+					data={aboutContestData}
+					it
+					isDark={true}
+					isMask={false}
+					isDesktopMask={false}
+					isPink={false}
+					isRounded={true}
+					hasButton={false}
+					hasLine2={false}
+					mobileLayout=""
+					desktopLayout="text-left"
+					customStyleImg="rounded-xl"
+					isShadowed={true}
+					isMargin={false}
+				/>
 			</section>
+
 			<section className="">
 				<Title
 					isLogo={true}
@@ -66,8 +85,25 @@ export default function AboutPage() {
 					colorBg={"bg-bordeaux"}
 					customBoxStyle="w-100"
 				/>
-				{/* <VariantComposer /> */}
+				<VariantComposer
+					style=""
+					data={aboutCataniaData}
+					it
+					isDark={false}
+					isMask={false}
+					isDesktopMask={false}
+					isPink={false}
+					isRounded={true}
+					hasButton={false}
+					hasLine2={false}
+					mobileLayout="slider"
+					desktopLayout="text-right"
+					customStyleImg="rounded-xl"
+					isShadowed={true}
+					isMargin={false}
+				/>
 			</section>
+
 			<section className="">
 				<Title
 					isLogo={true}
@@ -75,7 +111,22 @@ export default function AboutPage() {
 					colorBg={"bg-bordeaux"}
 					customBoxStyle="w-48"
 				/>
-				{/* <VariantComposer /> */}
+				<VariantComposer
+					style=""
+					data={aboutVaneData}
+					it
+					isDark={false}
+					isMask={false}
+					isDesktopMask={false}
+					isPink={false}
+					isDesktopRounded={true}
+					hasButton={false}
+					hasLine2={false}
+					mobileLayout="slider"
+					desktopLayout="text-left"
+					isShadowed={true}
+					isMargin={false}
+				/>
 			</section>
 		</>
 	);
