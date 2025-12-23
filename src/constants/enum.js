@@ -3,3 +3,8 @@ export const LINK_TYPE = {
   FULL: "FULL", // link interno completo /it/pagina o /eng/pagina
   EXTERNAL: "EXTERNAL", // link esterno, apre nuova finestra
 };
+
+export const CHANNELS = {
+  WHATSAPP: "WHATSAPP",
+  EMAIL: "EMAIL",
+};
