@@ -10,7 +10,7 @@ export default function Title({
       <div className={`h-0.5 w-full ${colorBg}`} />
       <h3
         className={`${colorTxt} w-auto ${
-          isWrap ? "" : "whitespace-nowrap"
+          isWrap ? "" : " whitespace-pre"
         } px-2 text-center self-center`}
       >
         {text}

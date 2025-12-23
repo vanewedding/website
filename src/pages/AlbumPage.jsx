@@ -7,6 +7,7 @@ import Image from "../components/visual/Image";
 import Slider from "../components/visual/Slider";
 import { RiLayoutMasonryFill, RiLayoutBottomFill } from "react-icons/ri";
 import GlobalContext from "../context/GlobalContext";
+import useBodyScrollLock from "../hooks/useBodyScrollLock";
 
 export default function AlbumPage() {
   const { it, isMobile, isTablet } = useContext(GlobalContext);
@@ -20,6 +21,8 @@ export default function AlbumPage() {
   const [isLightBoxOpen, setIsLightBoxOpen] = useState(false);
 
   console.log(activePicture);
+  useBodyScrollLock(isLightBoxOpen);
+
   // inizializza Macy
   useEffect(() => {
     if (!album || !containerRef.current) return;
@@ -42,7 +45,6 @@ export default function AlbumPage() {
   }, [album, activeLayout]);
 
   if (!album) return <div className="m-6">Album non trovato</div>;
-
   return (
     <>
       <section className="my-6">
@@ -51,7 +53,7 @@ export default function AlbumPage() {
           colorBg={"bg-bordeaux"}
         />
         <div className="my-3">
-          {/* pulsanti layout */}
+          {/* MOBILE E TABLET */}
           {isMobile || isTablet ? (
             <>
               {/* Layout condizionale */}
@@ -125,6 +127,7 @@ export default function AlbumPage() {
               </div>
             </>
           ) : (
+            // DESKTOP
             <div ref={containerRef}>
               {album.photos.map((img) => (
                 <div
@@ -153,28 +156,32 @@ export default function AlbumPage() {
           )}
           {/* Lightbox */}
           {isLightBoxOpen && (
-            <div className="z-10 overflow-hidden fixed top-[calc(50%+4rem)] left-1/2 -translate-x-1/2 -translate-y-1/2 h-full bg-black/80 w-full ">
-              <div className="flex justify-end mr-6 mt-6">
-                <svg
-                  className="size-8 cursor-pointer text-off-white"
-                  fill=""
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  onClick={() => setIsLightBoxOpen(false)}
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
+            <>
+              <div className="relative w-screen h-screen">
+                <div className="fixed top-16 w-screen h-screen bg-black/85 ">
+                  <div className="absolute right-0 mr-6 mt-6">
+                    <svg
+                      className="size-8 cursor-pointer text-off-white"
+                      fill=""
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      onClick={() => setIsLightBoxOpen(false)}
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </div>
+                  <div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
+                    <img
+                      src={album.photos[activePicture - 1].src}
+                      alt={album.photos[activePicture - 1].alt}
+                      className="h-5/6 rounded-xl object-cover"
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="h-5/6 flex justify-center items-center p-6">
-                <img
-                  src={album.photos[activePicture - 1].src}
-                  alt={album.photos[activePicture - 1].alt}
-                  className="h-full rounded-xl"
-                />
-              </div>
-            </div>
+            </>
           )}
         </div>
       </section>

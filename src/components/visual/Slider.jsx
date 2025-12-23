@@ -23,7 +23,7 @@ export default function Slider({
   isMobile = false,
   showThumbs = false,
   isSingleSlide = false,
-  activePicture = 0,
+  activePicture = 1,
   isMaskTop = true,
   isMaskHorizontal = true,
   isOrginalSize = false,
@@ -106,8 +106,8 @@ export default function Slider({
 		 
         `} // rimosso w-screen
       >
-        {photos.map((photo, idx) => (
-          <SwiperSlide key={idx}>
+        {photos.map((photo) => (
+          <SwiperSlide key={photo.id}>
             <div className="h-full ">
               <img
                 src={photo.src}
@@ -148,7 +148,7 @@ export default function Slider({
           className="mt-2 mask-x-from-90%"
         >
           {photos.map((photo, idx) => (
-            <SwiperSlide key={idx}>
+            <SwiperSlide key={photo.id}>
               <div className="h-20 cursor-pointer">
                 <img
                   src={photo.src}
