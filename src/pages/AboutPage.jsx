@@ -1,7 +1,12 @@
 import { useContext } from "react";
 import VariantComposer from "../components/visual/VariantComposer";
 import GlobalContext from "../context/GlobalContext";
-import { aboutData } from "../data/about";
+import {
+	aboutData,
+	aboutWeddingData,
+	aboutCataniaData,
+	aboutVaneData,
+} from "../data/about";
 import Title from "../components/visual/Title";
 
 export default function AboutPage() {
@@ -25,8 +30,52 @@ export default function AboutPage() {
 					isRounded
 					mobileLayout="logo-title-image"
 					desktopLayout="logo-title-image"
-					customStyleImg="h-[calc((100vh-8rem))] object-cover"
+					customStyleImg="h-[calc((100vh-6rem))] object-cover object-[85%_15%]"
 				/>
+			</section>
+			<section className="mb-6">
+				<Title
+					isLogo={true}
+					logo={aboutWeddingData.logo}
+					colorBg={"bg-bordeaux"}
+					customBoxStyle="w-136"
+				/>
+				<VariantComposer
+					style=""
+					data={aboutWeddingData}
+					it
+					isDark={false}
+					isMask={false}
+					isDesktopMask={false}
+					isPink={false}
+					isRounded={true}
+					hasButton={false}
+					hasLine2={false}
+					mobileLayout=""
+					desktopLayout="text-right"
+					customStyleImg="rounded-xl"
+					isShadowed={true}
+					isMargin={false}
+				/>
+				{/* <VariantComposer /> */}
+			</section>
+			<section className="">
+				<Title
+					isLogo={true}
+					logo={aboutCataniaData.logo}
+					colorBg={"bg-bordeaux"}
+					customBoxStyle="w-100"
+				/>
+				{/* <VariantComposer /> */}
+			</section>
+			<section className="">
+				<Title
+					isLogo={true}
+					logo={aboutVaneData.logo}
+					colorBg={"bg-bordeaux"}
+					customBoxStyle="w-48"
+				/>
+				{/* <VariantComposer /> */}
 			</section>
 		</>
 	);
