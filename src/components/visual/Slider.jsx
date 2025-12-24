@@ -23,7 +23,7 @@ export default function Slider({
   isMobile = false,
   showThumbs = false,
   isSingleSlide = false,
-  activePicture = 1,
+  activePicture = 0,
   isMaskTop = true,
   isMaskHorizontal = true,
   isOrginalSize = false,
@@ -52,7 +52,7 @@ export default function Slider({
   const speedConfig = customSpeed;
 
   return (
-    <section className="pt-4 w-screen overflow-visible lg:block h-">
+    <section className="pt-4 w-screen overflow-visible lg:block lg:max-h-80">
       {/* MAIN SWIPER */}
       <Swiper
         thumbs={{ swiper: thumbsSwiper }}
@@ -98,7 +98,7 @@ export default function Slider({
         speed={speedConfig}
         onSlideChange={(swiper) => setActiveThumb(swiper.realIndex)} // qui aggiorniamo l'activeThumb
         className={`
-          relative              
+          relative         
           ${isMobile ? "" : "w-full "} 
           ${isMaskTop ? "mask-t-from-80%" : ""}
 		  ${isMaskHorizontal ? "mask-x-from-90%" : ""}
@@ -106,8 +106,8 @@ export default function Slider({
 		 
         `} // rimosso w-screen
       >
-        {photos.map((photo) => (
-          <SwiperSlide key={photo.id}>
+        {photos.map((photo, idx) => (
+          <SwiperSlide key={idx}>
             <div className="h-full ">
               <img
                 src={photo.src}
@@ -148,7 +148,7 @@ export default function Slider({
           className="mt-2 mask-x-from-90%"
         >
           {photos.map((photo, idx) => (
-            <SwiperSlide key={photo.id}>
+            <SwiperSlide key={idx}>
               <div className="h-20 cursor-pointer">
                 <img
                   src={photo.src}
