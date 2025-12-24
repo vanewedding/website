@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { eventTimeOptions, eventTypeOptions } from "../data/form";
 import GlobalContext from "../context/GlobalContext";
 import Title from "../components/visual/Title";
 import DatePicker from "react-datepicker";
@@ -6,20 +7,25 @@ import "react-datepicker/dist/react-datepicker.css";
 import wa from "../assets/svg/wa.svg";
 import mail from "../assets/svg/mail.svg";
 import { CHANNELS } from "../constants/enum";
+import "react-datepicker/dist/react-datepicker.css";
+import "../styles/datepicker.css";
 
 export default function FormPage() {
   const { it } = useContext(GlobalContext);
   const labels = {
-    eventType: it ? "Tipo di evento" : "Type of event",
-    guestNumber: it ? "Numero di invitati" : "Number of guests",
-    eventDay: it ? "Giorno dell'evento" : "Event day",
-    eventTime: it ? "Momento dell'evento" : "Time of day",
-    location: it ? "Location" : "Location",
-    otherInfo: it ? "Altre informazioni" : "Additional information",
-    name: it ? "Nome" : "Name",
-    phoneNumber: it ? "Telefono" : "Phone number",
-    email: it ? "Email" : "Email",
-    submit: it ? "Conferma" : "Submit",
+    eventType: (it ? "Tipo di evento" : "Type of event").toUpperCase(),
+    guestNumber: (it ? "Numero di invitati" : "Number of guests").toUpperCase(),
+    eventDay: (it ? "Giorno dell'evento" : "Event day").toUpperCase(),
+    eventTime: (it ? "Momento dell'evento" : "Time of day").toUpperCase(),
+    location: (it ? "Location" : "Location").toUpperCase(),
+    otherInfo: (it
+      ? "Altre informazioni"
+      : "Additional information"
+    ).toUpperCase(),
+    name: (it ? "Nome" : "Name").toUpperCase(),
+    phoneNumber: (it ? "Telefono" : "Phone number").toUpperCase(),
+    // email: (it ? "Email" : "Email").toUpperCase(),
+    submit: (it ? "Conferma" : "Submit").toUpperCase(),
   };
   const initialFormData = {
     eventType: "",
@@ -30,7 +36,7 @@ export default function FormPage() {
     otherInfo: "",
     name: "",
     phoneNumber: "",
-    email: "",
+    // email: "",
   };
   const [activeChannel, setActiveChannel] = useState(CHANNELS.WHATSAPP);
   const [startDate, setStartDate] = useState(); // Gestisci la data
@@ -57,28 +63,41 @@ export default function FormPage() {
   }
 
   // function to validate the input fields
+  // function to validate the input fields
   const validateInput = (event) => {
     const inputValue = event.target.name;
+
     if (inputValue === "eventType" && !event.target.value) {
-      event.target.setCustomValidity(`Specifica il tipo di evento`);
+      event.target.setCustomValidity(
+        it ? "Specifica il tipo di evento" : "Specify the type of event"
+      );
     } else if (inputValue === "eventDay" && !event.target.value) {
-      event.target.setCustomValidity(`Inserisci il giorno dell'evento `);
+      event.target.setCustomValidity(
+        it ? "Inserisci il giorno dell'evento" : "Enter the event day"
+      );
     } else if (inputValue === "eventTime" && !event.target.value) {
       event.target.setCustomValidity(
-        `Specifica se l'evento sarà di mattina o di sera`
+        it
+          ? "Specifica se l'evento sarà di mattina o di sera"
+          : "Specify if the event is in the morning or evening"
       );
     } else if (inputValue === "location" && !event.target.value) {
-      event.target.setCustomValidity(`inserisci il luogo dell'evento`);
+      event.target.setCustomValidity(
+        it ? "Inserisci il luogo dell'evento" : "Enter the event location"
+      );
     } else if (inputValue === "guestNumber" && !event.target.value) {
       event.target.setCustomValidity(
-        `inserisci il numero approssimativo degli invitati`
+        it
+          ? "Inserisci il numero approssimativo degli invitati"
+          : "Enter the approximate number of guests"
       );
     } else {
       event.target.setCustomValidity("");
     }
   };
+
   const inputValueStyle =
-    "bg-brand-pink p-2 my-2 rounded-xl w-full resize-none";
+    "focus:border-brand-pink focus:outline-none bg-off-white border-bordeaux border-2 p-2 my-2 rounded-xl w-full resize-none";
   const gridRowStyle = "grid grid-cols-1 md:grid-cols-3 gap-6 mb-6";
   const singleColRowStyle = "grid grid-cols-1 mb-6";
   const labelStyle = "block mb-1";
@@ -106,7 +125,7 @@ export default function FormPage() {
     if (formData.otherInfo) messageLines.push(`- Note: ${formData.otherInfo}`);
     if (formData.phoneNumber)
       messageLines.push(`- Telefono: ${formData.phoneNumber}`);
-    if (formData.email) messageLines.push(`- Email: ${formData.email}`);
+    // if (formData.email) messageLines.push(`- Email: ${formData.email}`);
 
     const message = messageLines.join("\n");
 
@@ -138,7 +157,7 @@ export default function FormPage() {
     if (formData.otherInfo) messageLines.push(`- Note: ${formData.otherInfo}`);
     if (formData.phoneNumber)
       messageLines.push(`- Telefono: ${formData.phoneNumber}`);
-    if (formData.email) messageLines.push(`- Email: ${formData.email}`);
+    // if (formData.email) messageLines.push(`- Email: ${formData.email}`);
 
     // unisci usando CRLF per il mailto
     const message = messageLines.join("\r\n");
@@ -170,7 +189,7 @@ export default function FormPage() {
           colorBg="bg-bordeaux"
           className="p-3"
         />
-        <form onSubmit={sendData} className="m-8 border-2 border-black p-4">
+        <form onSubmit={sendData} className="m-8 border-2 border-bordeaux  p-4">
           {/* EVENT TYPE | GUEST NUMBER */}
           <div className={gridRowStyle}>
             <div className="md:col-span-2">
@@ -184,11 +203,11 @@ export default function FormPage() {
                 onInput={validateInput}
                 className={inputValueStyle}
               >
-                <option value="">
-                  {it ? "Seleziona il tipo di evento" : "Select event type"}
-                </option>
-                <option value="wedding">Wedding</option>
-                <option value="diciottesimo">Diciottesimo</option>
+                {eventTypeOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {it ? opt.labelIt : opt.labelEn}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -235,9 +254,11 @@ export default function FormPage() {
                 onInput={validateInput}
                 className={inputValueStyle}
               >
-                <option value="">{it ? "Seleziona" : "Select"}</option>
-                <option value="mattina">{it ? "Mattina" : "Morning"}</option>
-                <option value="sera">{it ? "Sera" : "Evening"}</option>
+                {eventTimeOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {it ? opt.labelIt : opt.labelEn}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -315,7 +336,7 @@ export default function FormPage() {
           </div>
 
           {/* EMAIL */}
-          <div className={singleColRowStyle + " mb-8"}>
+          {/* <div className={singleColRowStyle + " mb-8"}>
             <label className={labelStyle}>{labels.email}</label>
             <input
               type="email"
@@ -328,7 +349,7 @@ export default function FormPage() {
               className={inputValueStyle}
               placeholder={it ? "Inserisci la tua email" : "Enter your email"}
             />
-          </div>
+          </div> */}
 
           {/* CHANNEL */}
           <div className="flex justify-center gap-6 my-8">

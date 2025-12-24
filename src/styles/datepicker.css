@@ -1,0 +1,101 @@
+/* src/styles/datepicker.css */
+
+/* Calendario principale */
+.react-datepicker {
+  background-color:var(--color-off-white) ; /* rosa chiaro */
+  border: 2px solid var(--color-bordeaux); /* bordo bordeaux */
+  border-radius: 0.5rem;
+}
+
+/* Header del calendario */
+.react-datepicker__header {
+  background-color: var(--color-bordeaux); /* bordeaux */
+  color: var(--color-bordeaux);
+  border-bottom: 1px solid var(--color-bordeaux); /* linea sottile rosa */
+}
+
+/* Giorni della settimana */
+.react-datepicker__day-name {
+  color: var(--color-bordeaux); /* bordeaux */
+  font-weight: 600;
+}
+
+/* Giorni normali */
+.react-datepicker__day {
+  color: var(--color-bordeaux);
+}
+
+/* Giorno selezionato */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--color-bordeaux); /* bordeaux più chiaro */
+  color: var(--color-off-white);
+  border-radius: 0.5rem;
+}
+/* Giorni al passaggio del mouse */
+.react-datepicker__day:hover {
+  background-color: var(--color-bordeaux); /* rosa vivace */
+  color: var(--color-bordeaux);
+  border-radius: 0.5rem;
+}
+
+.react-datepicker__navigation--previous:hover{
+    color: red;
+}
+
+.react-datepicker__navigation{
+    align-items: start;
+    background: none;
+}
+
+/* frecce di navigazione principale */
+.react-datepicker__navigation-icon::before,
+.react-datepicker__year-read-view--down-arrow,
+.react-datepicker__month-read-view--down-arrow,
+.react-datepicker__month-year-read-view--down-arrow {
+  border-color: var(--color-off-white); /* bordeaux scuro */
+  transition: border-color 0.2s ease;
+}
+
+.react-datepicker__navigation--previous:hover {
+  border-color: var(--color-off-white);
+
+}
+
+.react-datepicker__navigation--next::before {
+  border-color: var(--color-off-white);
+}
+
+/* hover sulle frecce */
+.react-datepicker__navigation-icon:hover::before,
+.react-datepicker__year-read-view--down-arrow:hover,
+.react-datepicker__month-read-view--down-arrow:hover,
+.react-datepicker__month-year-read-view--down-arrow:hover {
+  border-color: var(--color-brand-pink) !important; /* rosa vivace */
+}
+
+.react-datepicker__navigation:hover *::before {
+  border-color: var(--color-brand-pink);
+}
+
+.react-datepicker__day:not([aria-disabled="true"]):hover,
+.react-datepicker__month-text:not([aria-disabled="true"]):hover,
+.react-datepicker__quarter-text:not([aria-disabled="true"]):hover,
+.react-datepicker__year-text:not([aria-disabled="true"]):hover {
+  background-color: var(--color-bordeaux); /* rosa vivace */
+  opacity: 75%;
+  color: var(--color-off-white); /* testo bianco */
+  border-radius: 0.5rem; /* arrotondato come il resto */
+  transition: background-color 0.2s ease;
+}
+
+/* Mesi/anno selezionati */
+.react-datepicker__current-month,
+.react-datepicker__navigation-icon::before {
+  color: var(--color-off-white);
+}
+
+/* Pulsanti next/prev */
+.react-datepicker__navigation {
+  top: 10px;
+}
