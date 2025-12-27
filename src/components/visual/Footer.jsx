@@ -6,28 +6,30 @@ import { footerData, bottomSection } from "../../data/footer";
 import Title from "./Title";
 
 export default function Footer() {
-	const { it } = useContext(GlobalContext);
-	return (
-		<footer className="w-full h-60 ">
-			{/* Titolo */}
-			<Title
-				text={it ? footerData.title.it : footerData.title.eng}
-				colorBg="bg-bordeaux"
-				colorTxt="text-bordeaux"
-			/>
-			<VariantComposer
-				style={""}
-				data={footerData}
-				it={it}
-				isDark={false}
-				isMask={true}
-				mobileLayout="text-image-button"
-				desktopLayout="text-right"
-				isDesktopRounded={true}
-				isShadowed={true}
-			/>
+  const { it, isFormPage } = useContext(GlobalContext);
+  return (
+    <footer className="w-full">
+      <div className={`${isFormPage ? "hidden" : ""}`}>
+        {/* Titolo */}
+        <Title
+          text={it ? footerData.title.it : footerData.title.eng}
+          colorBg="bg-bordeaux"
+          colorTxt="text-bordeaux"
+        />
+        <VariantComposer
+          style={""}
+          data={footerData}
+          it={it}
+          isDark={false}
+          isMask={true}
+          mobileLayout="text-image-button"
+          desktopLayout="text-right"
+          isDesktopRounded={true}
+          isShadowed={true}
+        />
+      </div>
 
-			<BottomSection bottomSection={bottomSection} it={it} />
-		</footer>
-	);
+      <BottomSection bottomSection={bottomSection} it={it} />
+    </footer>
+  );
 }

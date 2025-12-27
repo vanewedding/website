@@ -9,6 +9,8 @@ import mail from "../assets/svg/mail.svg";
 import { CHANNELS } from "../constants/enum";
 import "react-datepicker/dist/react-datepicker.css";
 import "../styles/datepicker.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 export default function FormPage() {
   const { it } = useContext(GlobalContext);
@@ -23,9 +25,13 @@ export default function FormPage() {
       : "Additional information"
     ).toUpperCase(),
     name: (it ? "Nome" : "Name").toUpperCase(),
-    phoneNumber: (it ? "Telefono" : "Phone number").toUpperCase(),
+    phoneNumber: (it ? "Recapito telefonico" : "Phone number").toUpperCase(),
     // email: (it ? "Email" : "Email").toUpperCase(),
-    submit: (it ? "Conferma" : "Submit").toUpperCase(),
+    submitWa: (it
+      ? "Continua su whatsapp"
+      : "Continue on whatsapp"
+    ).toUpperCase(),
+    submitEmail: it ? "scrivimi via email" : "send me an email",
   };
   const initialFormData = {
     eventType: "",
@@ -41,7 +47,6 @@ export default function FormPage() {
   const [activeChannel, setActiveChannel] = useState(CHANNELS.WHATSAPP);
   const [startDate, setStartDate] = useState(); // Gestisci la data
   const [formData, setFormData] = useState(initialFormData);
-  const [errorMessage, setErrorMessage] = useState("");
 
   function handleDateChange(date) {
     // 'date' è un oggetto Date che rappresenta la data selezionata dal DatePicker.
@@ -97,15 +102,16 @@ export default function FormPage() {
   };
 
   const inputValueStyle =
-    "focus:border-brand-pink focus:outline-none bg-off-white border-bordeaux border-2 p-2 my-2 rounded-xl w-full resize-none";
+    "focus:border-brand-pink focus:outline-none  focus-within:border-brand-pink focus-within:ring-2 focus-within:ring-brand-pink bg-off-white border-bordeaux border-2 p-2 my-2 rounded-xl w-full resize-none";
   const gridRowStyle = "grid grid-cols-1 md:grid-cols-3 gap-6 mb-6";
   const singleColRowStyle = "grid grid-cols-1 mb-6";
   const labelStyle = "block mb-1";
-  const channelStyle =
-    "p-3 rounded-full w-16 flex justify-center items-center cursor-pointer bg-brand-pink";
+  // const activeChannelStyle =
+  //   "p-3 rounded-full w-16 flex justify-center items-center cursor-pointer border-1 border-bordeaux  bg-brand-pink pointer-events-none";
+  // const channelStyle =
+  //   "p-3 rounded-full w-16 flex transition-all duration-300 justify-center items-center cursor-pointer border-1 border-bordeaux/20  bg-brand-pink/30 hover:bg-brand-pink ";
   const submitButtonStyle =
-    "px-6 py-3 rounded-xl bg-bordeaux cursor-pointer text-white font-semibold hover:opacity-90 transition";
-
+    "px-6 py-3 rounded-xl border-bordeaux border-2  text-bordeaux cursor-pointer font-semibold hover:opacity-90 hover:text-brand-pink hover:border-brand-pink active:text-brand-pink active:border-brand-pink transition";
   // whastapp sender
   const sendWhatsAppMessage = () => {
     let greeting = formData.name
@@ -130,7 +136,7 @@ export default function FormPage() {
     const message = messageLines.join("\n");
 
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = "393348358349";
+    const phoneNumber = CELL_PHONE;
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
       "_blank"
@@ -179,17 +185,20 @@ export default function FormPage() {
     } else {
       sendEmailMessage();
     }
-    setFormData(initialFormData);
+    //setFormData(initialFormData);
   }
   return (
     <>
       <section className="my-6">
         <Title
-          text={it ? "QUESTIONARIO" : "QUESTIONNAIRE"}
+          text={it ? "SCRIVIMI" : "WRITE ME"}
           colorBg="bg-bordeaux"
           className="p-3"
         />
-        <form onSubmit={sendData} className="m-8 border-2 border-bordeaux  p-4">
+        <form
+          onSubmit={sendData}
+          className="lg:m-8 lg:border-2  lg:border-bordeaux  p-6 "
+        >
           {/* EVENT TYPE | GUEST NUMBER */}
           <div className={gridRowStyle}>
             <div className="md:col-span-2">
@@ -236,7 +245,7 @@ export default function FormPage() {
                 onSelect={handleDateChange}
                 dateFormat="dd/MM/yyyy"
                 placeholderText={
-                  it ? "Inserisci la data dell'evento" : "Select event date"
+                  it ? "Seleziona la data dell'evento" : "Select event date"
                 }
                 className={inputValueStyle}
                 wrapperClassName="w-full"
@@ -276,9 +285,7 @@ export default function FormPage() {
               onInput={validateInput}
               className={inputValueStyle}
               placeholder={
-                it
-                  ? "Dove si terrà l'evento?"
-                  : "Where will the event take place?"
+                it ? "Inserisci il luogo dell'evento" : "Enter event location"
               }
             />
           </div>
@@ -318,19 +325,21 @@ export default function FormPage() {
                 placeholder={it ? "Inserisci il tuo nome" : "Enter your name"}
               />
             </div>
-
             <div>
               <label className={labelStyle}>{labels.phoneNumber}</label>
-              <input
-                type="text"
+              <PhoneInput
                 name="phoneNumber"
                 value={formData.phoneNumber}
-                onChange={setFieldValue}
-                required
                 onInvalid={validateInput}
                 onInput={validateInput}
-                className={inputValueStyle}
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, phoneNumber: value }))
+                }
                 placeholder={it ? "Numero di telefono" : "Phone number"}
+                defaultCountry="IT"
+                international
+                className={inputValueStyle}
+                required
               />
             </div>
           </div>
@@ -352,47 +361,75 @@ export default function FormPage() {
           </div> */}
 
           {/* CHANNEL */}
-          <div className="flex justify-center gap-6 my-8">
-            <div
-              onClick={() => setActiveChannel(CHANNELS.WHATSAPP)}
-              className={`${
-                activeChannel === "whatsapp" ? "pointer-events-none" : ""
-              } ${channelStyle} cursor-pointer`}
-            >
-              <img
-                src={wa}
-                alt="choose whatsapp"
-                className={`transition-opacity duration-300 w-full ${
+          {/* <div className="m-8 ">
+            <h3 className="text-center my-4">
+              {it ? "CONTATTAMI TRAMITE" : "CONTACT ME VIA"}
+            </h3>
+            <div className="flex justify-center gap-6">
+              <div
+                onClick={() => setActiveChannel(CHANNELS.WHATSAPP)}
+                className={`${
                   activeChannel === CHANNELS.WHATSAPP
-                    ? ""
-                    : "opacity-25 hover:opacity-100"
+                    ? activeChannelStyle
+                    : channelStyle
                 }`}
-              />
-            </div>
+              >
+                <img
+                  src={wa}
+                  alt="choose whatsapp"
+                  className={`transition-opacity duration-300 w-full ${
+                    activeChannel === CHANNELS.WHATSAPP
+                      ? ""
+                      : "opacity-25 hover:opacity-100"
+                  }`}
+                />
+              </div>
 
-            <div
-              onClick={() => setActiveChannel(CHANNELS.EMAIL)}
-              className={`${
-                activeChannel === CHANNELS.EMAIL ? "pointer-events-none" : ""
-              } ${channelStyle} cursor-pointer`}
-            >
-              <img
-                src={mail}
-                alt="choose email"
-                className={`transition-opacity duration-300 w-full ${
+              <div
+                onClick={() => setActiveChannel(CHANNELS.EMAIL)}
+                className={`${
                   activeChannel === CHANNELS.EMAIL
-                    ? ""
-                    : "opacity-25 hover:opacity-100"
+                    ? activeChannelStyle
+                    : channelStyle
                 }`}
-              />
+              >
+                <img
+                  src={mail}
+                  alt="choose email"
+                  className={`transition-opacity duration-300 w-full ${
+                    activeChannel === CHANNELS.EMAIL
+                      ? ""
+                      : "opacity-100 hover:opacity-100"
+                  }`}
+                />
+              </div>
             </div>
-          </div>
+          </div> */}
 
           {/* SUBMIT */}
-          <div className="flex justify-center">
-            <button type="submit" className={submitButtonStyle}>
-              {it ? "Conferma" : "Submit"}
-            </button>
+          <div className="mt-12">
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                onClick={() => setActiveChannel(CHANNELS.WHATSAPP)}
+                className={submitButtonStyle}
+              >
+                {labels.submitWa}
+              </button>
+            </div>
+
+            <div className="flex justify-center gap-2">
+              <p className="text-center my-4">{it ? "Oppure" : "Or"}</p>
+              <button
+                onClick={() => setActiveChannel(CHANNELS.EMAIL)}
+                type="submit"
+                className={
+                  "transition-all duration-200 cursor-pointer underline  underline-offset-2 decoration-2 hover:text-brand-pink active:text-brand-pink"
+                }
+              >
+                {labels.submitEmail}
+              </button>
+            </div>
           </div>
         </form>
       </section>

@@ -29,7 +29,11 @@ export const eventTypeOptions = [
 ];
 
 export const eventTimeOptions = [
-  { value: "", labelIt: "Seleziona", labelEn: "Select" },
+  {
+    value: "",
+    labelIt: "Seleziona la fascia oraria",
+    labelEn: "Select time of day",
+  },
   { value: "mattina", labelIt: "Mattina", labelEn: "Morning" },
   { value: "sera", labelIt: "Sera", labelEn: "Evening" },
 ];

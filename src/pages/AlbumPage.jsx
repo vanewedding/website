@@ -44,7 +44,14 @@ export default function AlbumPage() {
     return () => macyInstance.remove(); // cleanup
   }, [album, activeLayout]);
 
-  if (!album) return <div className="m-6">Album non trovato</div>;
+  if (!album)
+    return (
+      <div className="m-6">
+        {it
+          ? "Non ci sono ancora foto in questo album"
+          : "There are still no picutres in this album"}
+      </div>
+    );
 
   return (
     <>

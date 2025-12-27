@@ -19,9 +19,15 @@ export default function GlobalContextProvider({ children }) {
   const location = useLocation();
   console.log(useLocation().pathname);
   const [isHome, setIsHome] = useState(false);
+  const [isFormPage, setIsFormPage] = useState(false);
 
   useEffect(() => {
     setIsHome(location.pathname == "/it/" || location.pathname == "/eng/");
+  }, [location]);
+  useEffect(() => {
+    setIsFormPage(
+      location.pathname == "/it/form" || location.pathname == "/eng/form"
+    );
   }, [location]);
 
   useEffect(() => {
@@ -30,7 +36,7 @@ export default function GlobalContextProvider({ children }) {
 
   return (
     <GlobalContext.Provider
-      value={{ lang, it, eng, isMobile, isTablet, isHome }}
+      value={{ lang, it, eng, isMobile, isTablet, isHome, isFormPage }}
     >
       {children}
     </GlobalContext.Provider>

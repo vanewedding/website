@@ -7,7 +7,6 @@ export default function Button({
   isDark = true,
   isPink = false,
   isAbsolute = false,
-
   variant = "link", // link | switch
   value,
   isActive = false,
@@ -16,10 +15,11 @@ export default function Button({
 }) {
   // temi base
   const darkTheme = isPink
-    ? "backdrop-blur-sm text-brand-pink border-brand-pink"
-    : "backdrop-blur-sm text-off-white border-off-white";
+    ? "backdrop-blur-sm text-brand-pink border-brand-pink hover:backdrop-blur-lg hover:bg-off-white hover:text-brand-pink active:bg-off-white active:text-brand-pink"
+    : "backdrop-blur-sm text-off-white border-off-white hover:backdrop-blur-lg hover:bg-off-white hover:text-brand-pink active:bg-off-white active:text-brand-pink";
 
-  const lightTheme = "bg-off-white text-bordeaux border-bordeaux";
+  const lightTheme =
+    "bg-off-white text-bordeaux border-bordeaux hover:bg-none hover:text-brand-pink hover:border-brand-pink active:text-brand-pink active:border-brand-pink";
 
   // stato attivo ha priorità
   const activeClass = isActive

@@ -24,6 +24,8 @@ export const navLinks = [
     nameEng: "GALLERY",
     svg: "",
     submenu: true,
+    submenuNameIt: "ALBUMS",
+    submenuNameEng: "ALBUMS",
     submenuItems: [
       {
         id: 1,
@@ -101,8 +103,8 @@ export const navLinks = [
     id: 4,
     pathIt: "/it/form",
     pathEng: "/eng/form",
-    nameIt: "QUESTIONARIO",
-    nameEng: "FORM",
+    nameIt: "SCRIVIMI",
+    nameEng: "WRITE ME",
     svg: "",
     submenu: false,
     submenuItems: [],

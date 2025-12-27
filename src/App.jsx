@@ -42,7 +42,7 @@ export default function App() {
     if (totalImages === 0) {
       // se non ci sono immagini, comunque aspetta almeno 1s
       const elapsed = performance.now() - startTime;
-      const remaining = Math.max(3000 - elapsed, 0);
+      const remaining = Math.max(1000 - elapsed, 0);
       setTimeout(() => setIsLoading(false), remaining);
       return;
     }
@@ -51,7 +51,7 @@ export default function App() {
       loadedImages++;
       if (loadedImages === totalImages) {
         const elapsed = performance.now() - startTime;
-        const remaining = Math.max(3000 - elapsed, 0); // minimo 1s
+        const remaining = Math.max(1000 - elapsed, 0); // minimo 1s
         setTimeout(() => setIsLoading(false), remaining);
       }
     };

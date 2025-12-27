@@ -9,6 +9,15 @@
 		scrollbar-width: none;
 	}
 }
+@layer base {
+  :focus-visible {
+    outline: none; /* esempio colore rosa */
+  }
+}
+.PhoneInput input {
+  padding: 0.5rem; /* uguale a p-2 */
+  height: 2rem;  /* opzionale, per uniformare l’altezza */
+}
 
 @theme {
 	--font-family: "Bodoni Moda", serif;
