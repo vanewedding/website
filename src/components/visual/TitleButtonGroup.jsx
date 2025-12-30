@@ -5,16 +5,18 @@ export default function TitleButtonGroup({
   title,
   buttonData,
   it,
-  isDark = true,
+  isDark,
   isPink = false,
+  isWrap = true,
+  textSize = "text-4xl",
 }) {
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-6">
       <Title
         text={title}
-        textSize={"text-4xl"}
+        textSize={textSize}
         colorTxt={isPink ? "text-brand-pink" : "text-off-white"}
-        isWrap={true}
+        isWrap={isWrap}
       />
       <Button
         data={buttonData}

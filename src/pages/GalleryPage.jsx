@@ -26,6 +26,7 @@ export default function GalleryPage() {
           isMask={true}
           isPink={false}
           isDesktopMask={true}
+          isMobileOverlay={true}
           mobileLayout="title-image-button"
           desktopLayout="title-image-button"
           isRounded={false}
@@ -41,6 +42,7 @@ export default function GalleryPage() {
                 it={it}
                 isDark={false}
                 isMask={data.id === 1} // già boolean
+                isMobileOverlay={true}
                 isPink={false}
                 mobileLayout="title-image-button"
                 desktopLayout="title-image"

@@ -116,7 +116,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
                         : "opacity-0 duration-500 pointer-events-none"
                     }`}
                   >
-                    {it ? link.submenuNameIt : link.submenuNameIt}
+                    {it ? link.submenuNameIt : link.submenuNameEng}
                     <span
                       className={`transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
@@ -157,7 +157,6 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
               key={l.id}
               onClick={() => {
                 switchLang(l.lang);
-                setIsMenuOpen(false);
                 set;
               }}
               className={`${
@@ -211,12 +210,28 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="size-8 transition-all duration-200 ease-in-out hover:scale-105"
+            className={`${
+              isMenuOpen ? "block" : "hidden"
+            }  lg:block size-8 transition-all duration-200 ease-in-out hover:scale-105`}
           >
             <img src={social.svg} />
           </a>
         ))}
       </div>
+      <Link
+        to={it ? "/it/form" : "/eng/form"}
+        className={`
+    ${isMenuOpen ? "hidden" : "block"}
+    text-xl font-bold
+    transform transition-transform duration-300 ease-out
+    hover:scale-x-110
+    origin-center
+    z-1
+    lg:hidden
+  `}
+      >
+        {it ? "SCRIVIMI" : "WRITE ME"}
+      </Link>
     </nav>
   );
 }

@@ -46,10 +46,10 @@ export default function AlbumPage() {
 
   if (!album)
     return (
-      <div className="m-6">
+      <div className="mx-5 flex justify-center items-center h-[calc(100vh-8rem)]">
         {it
           ? "Non ci sono ancora foto in questo album"
-          : "There are still no picutres in this album"}
+          : "There are still no pictures in this album"}
       </div>
     );
 

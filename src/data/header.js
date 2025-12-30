@@ -24,8 +24,8 @@ export const navLinks = [
     nameEng: "GALLERY",
     svg: "",
     submenu: true,
-    submenuNameIt: "ALBUMS",
-    submenuNameEng: "ALBUMS",
+    submenuNameIt: "SERVIZI",
+    submenuNameEng: "SERVICES",
     submenuItems: [
       {
         id: 1,

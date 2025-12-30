@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import logo from "../../assets/svg/logo_lite_w.svg";
+import logo from "../../assets/svg/logo_nocircle_white.svg";
 
 export default function Loader({ isLoading }) {
   useEffect(() => {

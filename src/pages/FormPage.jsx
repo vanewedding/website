@@ -136,9 +136,11 @@ export default function FormPage() {
     const message = messageLines.join("\n");
 
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = CELL_PHONE;
+
     window.open(
-      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+      `https://wa.me/${
+        import.meta.env.VITE_CELL_SENDER
+      }?text=${encodedMessage}`,
       "_blank"
     );
   };
@@ -170,10 +172,11 @@ export default function FormPage() {
     const encodedMessage = encodeURIComponent(message);
 
     const subject = encodeURIComponent("Nuova richiesta di evento");
-    const toEmail = "jhonniest741@gmail.com";
 
     window.open(
-      `mailto:${toEmail}?subject=${subject}&body=${encodedMessage}`,
+      `mailto:${
+        import.meta.env.VITE_EMAIL_SENDER
+      }?subject=${subject}&body=${encodedMessage}`,
       "_blank"
     );
   };
