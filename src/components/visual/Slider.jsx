@@ -52,7 +52,7 @@ export default function Slider({
   const speedConfig = customSpeed;
 
   return (
-    <section className="pt-4 w-screen overflow-visible lg:block min-h-80 py-5 bg-gray-700">
+    <section className="pt-4 w-screen overflow-visible lg:block min-h-80 py-5">
       {/* MAIN SWIPER */}
       <Swiper
         thumbs={{ swiper: thumbsSwiper }}
@@ -97,7 +97,7 @@ export default function Slider({
         pagination={paginationConfig}
         speed={speedConfig}
         onSlideChange={(swiper) => setActiveThumb(swiper.realIndex)} // qui aggiorniamo l'activeThumb
-        className={`bg-red-500 mx-4
+        className={`mx-4
           max-h-80
           relative         
           ${isMobile ? "w-full" : "w-full "} 
@@ -109,7 +109,7 @@ export default function Slider({
       >
         {photos.map((photo, idx) => (
           <SwiperSlide key={idx}>
-            <div className="w-full bg-green-500 ">
+            <div className="w-full ">
               <img
                 src={photo.src}
                 alt={photo.alt}
