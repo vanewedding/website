@@ -98,7 +98,7 @@ export default function Slider({
         speed={speedConfig}
         onSlideChange={(swiper) => setActiveThumb(swiper.realIndex)} // qui aggiorniamo l'activeThumb
         className={`mx-4
-          max-h-80
+          h-full
           relative         
           ${isMobile ? "w-full" : "w-full "} 
           ${isMaskTop ? "mask-t-from-80%" : ""}
