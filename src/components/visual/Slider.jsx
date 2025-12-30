@@ -52,7 +52,7 @@ export default function Slider({
   const speedConfig = customSpeed;
 
   return (
-    <section className="pt-4 w-screen overflow-visible lg:block min-h-80 py-5">
+    <section className="pt-4 w-screen overflow-visible lg:block min-h-90 py-5">
       {/* MAIN SWIPER */}
       <Swiper
         thumbs={{ swiper: thumbsSwiper }}
