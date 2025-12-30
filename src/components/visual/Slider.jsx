@@ -98,9 +98,11 @@ export default function Slider({
         speed={speedConfig}
         onSlideChange={(swiper) => setActiveThumb(swiper.realIndex)} // qui aggiorniamo l'activeThumb
         className={`mx-4
-          h-full
-          relative         
-          ${isMobile ? "w-full" : "w-full "} 
+         
+          relative   
+        
+                       ${isOrginalSize ? "" : "h-full"}
+          ${isMobile ? "w-full" : "w-full"} 
           ${isMaskTop ? "mask-t-from-80%" : ""}
 		  ${isMaskHorizontal ? "mask-x-from-90%" : ""}
 		  ${customStyleBox}
@@ -108,20 +110,18 @@ export default function Slider({
         `} // rimosso w-screen
       >
         {photos.map((photo, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="w-full ">
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className={`
-				${isOrginalSize ? "object-contain object-center" : "object-cover"}
+          <SwiperSlide key={idx} className="">
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              className={`
+				${isOrginalSize ? "object-contain object-center h-full m-auto" : "object-cover"}
                   ${
                     isMobile
-                      ? "h-full w-full object-[10%_90%]"
+                      ? "object-[10%_90%]"
                       : "my-4 rounded-2xl shadow-md shadow-bordeaux/60"
                   }`}
-              />
-            </div>
+            />
           </SwiperSlide>
         ))}
 
