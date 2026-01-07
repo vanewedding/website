@@ -31,7 +31,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						>
 							{link.id === 1 ? (
 								<div className="size-12">
-									<img src={link.svg} alt="Logo" />
+									<img src={link.svg} alt="Logo Vanè Wedding & Event" />
 								</div>
 							) : (
 								<div className="font-semibold transition-all duration-300 hover:font-black">
@@ -175,6 +175,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						>
 							<img
 								src={l.svg}
+								alt={it ? l.alt.it : l.alt.eng}
 								className={`transition-opacity duration-300 
 					${
 						isMenuOpen
@@ -207,6 +208,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						>
 							<img
 								src={l.svg}
+								alt={it ? l.alt.it : l.alt.eng}
 								className={`transition-opacity duration-300 
 					${l.lang === lang ? "opacity-100" : "opacity-25 hover:opacity-100"}`}
 							/>
@@ -226,7 +228,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						}  lg:block size-8 transition-all duration-200 ease-in-out hover:scale-105`}
 						aria-label={it ? social.ariaLabel.it : social.ariaLabel.eng}
 					>
-						<img src={social.svg} />
+						<img src={social.svg} alt={it ? social.alt.it : social.alt.eng} />
 					</a>
 				))}
 			</div>

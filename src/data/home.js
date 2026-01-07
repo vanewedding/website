@@ -36,6 +36,10 @@ export const hero = {
 		it: "ESPLORA IL SITO WEB",
 		eng: "EXPLORE THE WEBSITE",
 	},
+	alt: {
+		it: "icona freccia giù",
+		eng: "down arrow icon",
+	},
 };
 
 export const gallery = {

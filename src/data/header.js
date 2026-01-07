@@ -126,6 +126,10 @@ export const socials = [
 		id: 1,
 		url: "https://wa.me/393281323219",
 		svg: wa,
+		alt: {
+			it: "icona WhatsApp",
+			eng: "WhatsApp icon",
+		},
 		ariaLabel: {
 			it: "Contatta su WhatsApp",
 			eng: "Contact via WhatsApp",
@@ -135,6 +139,10 @@ export const socials = [
 		id: 2,
 		url: "https://www.facebook.com/vanessafronterre",
 		svg: fb,
+		alt: {
+			it: "icona Facebook",
+			eng: "Facebook icon",
+		},
 		ariaLabel: {
 			it: "Visita pagina Facebook",
 			eng: "Visit Facebook page",
@@ -144,6 +152,10 @@ export const socials = [
 		id: 3,
 		url: "https://www.instagram.com/vane.wedding",
 		svg: ig,
+		alt: {
+			it: "icona Instagram",
+			eng: "Instagram icon",
+		},
 		ariaLabel: {
 			it: "Visita pagina Instagram",
 			eng: "Visit Instagram page",
@@ -160,6 +172,10 @@ export const langs = [
 			it: "Cambia lingua in Italiano",
 			eng: "Change language to Italian",
 		},
+		alt: {
+			it: "icona lingua italiana",
+			eng: "italian language icon",
+		},
 	},
 	{
 		id: 2,
@@ -168,6 +184,10 @@ export const langs = [
 		ariaLabel: {
 			it: "Cambia lingua in Inglese",
 			eng: "Change language to English",
+		},
+		alt: {
+			it: "icona lingua inglese",
+			eng: "english language icon",
 		},
 	},
 ];
