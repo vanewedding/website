@@ -13,13 +13,13 @@ export default function CookiePolicyPage() {
       <div className={style.date}>
         <span>
           {lang === "it"
-            ? "Ultimo aggiornamento: 18-Agosto-2025"
-            : "Last Updated: 18-Aug-2025"}
+            ? "Ultimo aggiornamento: 07-Gennaio-2026"
+            : "Last Updated: 07-Gennaio-2026"}
         </span>
         <span>
           {lang === "it"
-            ? "Data di entrata in vigore: 18-Agosto-2025"
-            : "Effective Date: 18-Aug-2025"}
+            ? "Data di entrata in vigore: 07-Gennaio-2026"
+            : "Effective Date: 07-Gennaio-2026"}
         </span>
       </div>
 
@@ -119,10 +119,6 @@ export default function CookiePolicyPage() {
             Utilizziamo solo cookie tecnici essenziali, necessari per:
           </p>
           <ul className={style.cookiePolicyul}>
-            <li>
-              Recuperare i dati dal nostro backend per mostrare contenuti come
-              le pizze;
-            </li>
             <li>Mantenere il corretto funzionamento del sito;</li>
             <li>Garantire la sicurezza delle interazioni con il sito.</li>
           </ul>
@@ -133,18 +129,29 @@ export default function CookiePolicyPage() {
             Cookies are small text files stored on your device. They help the
             website function properly and enhance user experience.
           </p>
-          We only use essential technical cookies necessary to:
+          <p>We only use essential technical cookies necessary to:</p>
           <ul className={style.cookiePolicyul}>
-            <li>
-              Fetch data from our backend to display content such as pizzas;
-            </li>
             <li>Keep the website functioning correctly;</li>
             <li>Ensure secure interactions with the website.</li>
           </ul>
         </>
       )}
 
-      <h5 className={style.title} style={{ marginBottom: "20px" }}>
+      <h5 className={style.title}>
+        {lang === "it" ? "Cookie di terze parti" : "Third-Party Cookies"}
+      </h5>
+      {lang === "it" ? (
+        <p>
+          Visitando questi link, eventuali cookie impostati saranno gestiti dai
+          servizi di terze parti.
+        </p>
+      ) : (
+        <p>
+          By visiting these links, any cookies set will be managed by the
+          third-party services.
+        </p>
+      )}
+      <h5 className={`${style.title} mt-2`}>
         {lang === "it"
           ? "Gestisci le preferenze sui cookie"
           : "Manage cookie preferences"}

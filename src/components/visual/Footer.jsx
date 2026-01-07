@@ -6,10 +6,15 @@ import { footerData, bottomSection } from "../../data/footer";
 import Title from "./Title";
 
 export default function Footer() {
-  const { it, isFormPage, isNotFound } = useContext(GlobalContext);
+  const { it, isFormPage, isNotFound, isPolicyPage } =
+    useContext(GlobalContext);
   return (
     <footer className="w-full">
-      <div className={`${isFormPage || isNotFound ? "hidden" : ""}`}>
+      <div
+        className={`${
+          isFormPage || isNotFound || isPolicyPage ? "hidden" : ""
+        }`}
+      >
         {/* Titolo */}
         <Title
           text={it ? footerData.title.it : footerData.title.eng}

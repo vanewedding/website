@@ -22,6 +22,7 @@ export default function GlobalContextProvider({ children }) {
   const [isHome, setIsHome] = useState(false);
   const [isFormPage, setIsFormPage] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
+  const [isPolicyPage, setIsPolicyPage] = useState(false);
 
   useEffect(() => {
     setIsHome(location.pathname == "/it/" || location.pathname == "/eng/");
@@ -29,6 +30,15 @@ export default function GlobalContextProvider({ children }) {
   useEffect(() => {
     setIsFormPage(
       location.pathname == "/it/form" || location.pathname == "/eng/form"
+    );
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setIsPolicyPage(
+      location.pathname == "/it/privacy-policy" ||
+        location.pathname == "/eng/privacy-policy" ||
+        location.pathname == "/it/cookie-policy" ||
+        location.pathname == "/eng/cookie-policy"
     );
   }, [location.pathname]);
 
@@ -56,6 +66,7 @@ export default function GlobalContextProvider({ children }) {
         isHome,
         isFormPage,
         isNotFound,
+        isPolicyPage,
       }}
     >
       {children}
