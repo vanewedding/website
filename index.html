@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/public/logo_full_pink.svg" />
-		<!-- Font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- Bodoni -->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
-			rel="stylesheet"
-		/>
-		<!-- Start cookieyes banner -->
-		<script
-			id="cookieyes"
-			type="text/javascript"
-			src="https://cdn-cookieyes.com/client_data/069b4c2ded7cb1b4909d7550cc45c6b1/script.js"
-		></script>
-		<!-- End cookieyes banner -->
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>vanewedding</title>
-	</head>
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/main.jsx"></script>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo_full_pink.svg" />
+
+  <!-- Preconnect per font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Caricamento font non-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Preload immagini critiche -->
+  <link rel="preload" as="image" href="/img/about1.jpg">
+  <link rel="preload" as="image" href="/img/hero.jpg">
+  <link rel="preload" as="image" href="/logo_lite_w.svg">
+  <link rel="preload" as="image" href="/img/footer.jpg">
+  <link rel="preload" as="image" href="/logo_nocircle_white.svg">
+
+
+  <!-- Cookieyes banner -->
+  <script
+    id="cookieyes"
+    type="text/javascript"
+    src="https://cdn-cookieyes.com/client_data/069b4c2ded7cb1b4909d7550cc45c6b1/script.js"
+    async
+  ></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vanewedding</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

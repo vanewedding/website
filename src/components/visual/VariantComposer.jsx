@@ -27,6 +27,7 @@ export default function VariantComposer({
   isShadowed = false,
   isMargin = true,
   textSize,
+  isFastLoad,
 }) {
   console.log(data);
   // ---------------- MOBILE ----------------
@@ -48,6 +49,7 @@ export default function VariantComposer({
                     customStyleImg={customStyleImg}
                     isMobileRounded={isMobileRounded}
                     isMobileOverlay={isMobileOverlay}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
                 <Button
@@ -78,6 +80,7 @@ export default function VariantComposer({
                       customStyleImg={customStyleImg}
                       customStyleBox={customStyleBox}
                       isMobileOverlay={isMobileOverlay}
+                      isFastLoad={isFastLoad}
                     />
                   </>
                 ))}
@@ -114,6 +117,7 @@ export default function VariantComposer({
                   listSize={data.images.length}
                   isMask={isMask}
                   customStyleImg={customStyleImg}
+                  isFastLoad={isFastLoad}
                 />
               ))}
 
@@ -189,6 +193,7 @@ export default function VariantComposer({
                       customStyleImg={customStyleImg}
                       isDesktopOverlay={true}
                       isDesktopMask={isDesktopMask}
+                      isFastLoad={isFastLoad}
                     />
                   ))}
                 </div>
@@ -258,6 +263,7 @@ export default function VariantComposer({
                     isMobileOverlay={isMobileOverlay}
                     isDesktopOverlay={isDesktopOverlay}
                     isDesktopMask={isDesktopMask}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
               </div>
@@ -292,6 +298,7 @@ export default function VariantComposer({
                     isDesktopOverlay={isDesktopOverlay}
                     isDesktopMask={isDesktopMask}
                     isShadowed={isShadowed}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
               </div>
@@ -327,6 +334,7 @@ export default function VariantComposer({
                     isDesktopRounded={isDesktopRounded}
                     customStyleImg={customStyleImg}
                     isShadowed={isShadowed}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
               </div>
@@ -379,6 +387,7 @@ export default function VariantComposer({
                     isDesktopRounded={isDesktopRounded}
                     customStyleImg={customStyleImg}
                     isShadowed={isShadowed}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
               </div>
@@ -429,6 +438,7 @@ export default function VariantComposer({
                     isDesktopRounded={isDesktopRounded}
                     isMobileRounded={isMobileRounded}
                     customStyleImg={customStyleImg}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
               </div>
@@ -454,6 +464,7 @@ export default function VariantComposer({
                     customStyleBox={customStyleBox}
                     isDesktopOverlay={true}
                     isDesktopMask={isDesktopMask}
+                    isFastLoad={isFastLoad}
                   />
                 ))}
               </div>
