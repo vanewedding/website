@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 //Context
@@ -90,7 +90,7 @@ export default function App() {
           showContent ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <HashRouter>
+        <BrowserRouter>
           <ScrollToTop />
           <GlobalContextProvider>
             <Routes>
@@ -118,7 +118,7 @@ export default function App() {
               <Route path="*" element={<Navigate to="/it/" />} />
             </Routes>
           </GlobalContextProvider>
-        </HashRouter>
+        </BrowserRouter>
       </div>
     </>
   );
