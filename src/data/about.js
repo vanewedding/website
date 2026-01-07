@@ -16,6 +16,11 @@ import logoWedding from "../assets/svg/logo2.svg";
 import logoCatania from "../assets/svg/logo1.svg";
 import logoVanePink from "../assets/svg/logo_pink.svg";
 
+export const helmetData = {
+	title: "About | Vanè Wedding & Event",
+	description: "...",
+};
+
 export const aboutData = {
 	title: {
 		it: "SU DI ME",
