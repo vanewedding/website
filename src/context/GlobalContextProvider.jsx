@@ -18,7 +18,6 @@ export default function GlobalContextProvider({ children }) {
 
   // salva la location
   const location = useLocation();
-  console.log(useLocation().pathname);
   const [isHome, setIsHome] = useState(false);
   const [isFormPage, setIsFormPage] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
@@ -46,14 +45,6 @@ export default function GlobalContextProvider({ children }) {
     const matches = matchRoutes(routesConfig, location.pathname);
     setIsNotFound(!matches);
   }, [location.pathname]);
-
-  useEffect(() => {
-    console.log("isHome: ", isHome);
-  }, [isHome]);
-
-  useEffect(() => {
-    console.log("isNotFound: ", isNotFound);
-  }, [isNotFound]);
 
   return (
     <GlobalContext.Provider

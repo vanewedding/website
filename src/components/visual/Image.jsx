@@ -13,9 +13,11 @@ export default function Image({
   isDesktopRounded = false,
   isMobileRounded = false,
   isShadowed = false,
-  isFastLoad = false, // indica se l'immagine deve essere LCP
+  isFastLoad = false,
 }) {
-  const [loaded, setLoaded] = useState(isFastLoad); // se fast load, parte già caricata
+  const [loaded, setLoaded] = useState(false);
+
+  const isLCP = isFastLoad;
 
   return (
     <div
@@ -25,17 +27,21 @@ export default function Image({
         ${customStyleBox}
       `}
     >
-      {/* Placeholder solo se l'immagine non è fast load e non è ancora caricata */}
-      {!loaded && !isFastLoad && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+      {/* placeholder SOLO per immagini non-LCP */}
+      {!loaded && !isLCP && (
+        <div className="absolute inset-0 bg-brand-pink animate-pulse" />
       )}
 
       <img
         src={src}
         alt={alt}
+        decoding="async"
+        onLoad={() => setLoaded(true)}
         className={`
-          w-full object-cover transition-opacity duration-700 ease-in-out
-          ${loaded ? "opacity-100" : "opacity-0"}
+        
+          w-full object-cover
+          ${!isLCP && "transition-opacity duration-700"}
+          ${isLCP || loaded ? "opacity-100" : "opacity-0"}
           ${isDesktopOverlay ? "lg:brightness-50" : "lg:brightness-100"}
           ${isMobileOverlay ? "brightness-50" : "brightness-100"}
           ${isMask && "mask-t-from-50%"}
@@ -45,10 +51,7 @@ export default function Image({
           ${isShadowed && "shadow-md shadow-bordeaux/60"}
           ${customStyleImg}
         `}
-        {...(isFastLoad
-          ? { fetchPriority: "high" } // caricamento immediato
-          : { loading: "lazy" })} // lazy load solo se non fast load
-        onLoad={() => setLoaded(true)}
+        {...(isLCP ? { fetchPriority: "high" } : { loading: "lazy" })}
       />
     </div>
   );

@@ -17,7 +17,6 @@ export default function Loader({ isLoading }) {
       window.removeEventListener("touchmove", preventScroll);
     };
   }, []);
-  console.log("isLoading in loader", isLoading);
 
   const strokeWidth = 4;
   const r = 50 - strokeWidth / 2;

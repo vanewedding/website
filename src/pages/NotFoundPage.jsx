@@ -6,8 +6,6 @@ import VariantComposer from "../components/visual/VariantComposer";
 
 export default function NotFoundPage() {
   const { it } = useContext(GlobalContext);
-
-  console.log("notFoundData: ", notFoundData);
   return (
     <>
       <div className="my-6 ">

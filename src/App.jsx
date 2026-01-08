@@ -23,14 +23,7 @@ import ScrollToTop from "./components/technical/scrollToTop/ScrollToTop";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  console.log("is loading: ", isLoading);
   const [showContent, setShowContent] = useState(false);
-
-  // CARICAMENTO SIMULATO
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setIsLoading(false), 3000); // loader finisce dopo 3s
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   //CARICAMENTO REALE
   useEffect(() => {

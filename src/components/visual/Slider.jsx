@@ -122,7 +122,7 @@ export default function Slider({
             <div className="relative w-full h-full overflow-hidden">
               {/* Placeholder shimmer */}
               {!loaded[idx] && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse z-20 rounded-2xl" />
+                <div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-2xl" />
               )}
 
               <img
@@ -183,7 +183,7 @@ export default function Slider({
               <div className="relative h-20 w-full overflow-hidden">
                 {/* Placeholder anche nei thumbs */}
                 {!loaded[idx] && (
-                  <div className="absolute inset-0 bg-gray-200 animate-pulse z-20 rounded-lg" />
+                  <div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-lg" />
                 )}
                 <img
                   src={photo.src}
