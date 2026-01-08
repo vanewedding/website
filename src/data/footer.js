@@ -80,7 +80,7 @@ export const bottomSection = {
     line1: "Via Rodolfo Morandi, 1",
     line2: "97016 Pozzallo (RG), Sicilia, Italia",
   },
-  iva: "Vanè Wedding and event creator P.IVA xxxxxxxxxxx",
+  iva: `Vanè Wedding and event creator P.IVA ${import.meta.env.VITE_PIVA}`,
 
   cookies: "/cookie-policy",
 
