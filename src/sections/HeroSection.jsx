@@ -21,7 +21,7 @@ export default function HeroSection({ it }) {
 			{/* logo */}
 			<img
 				src={logo}
-				alt={it ? hero.logoAlt.it : hero.logoAlt.eng}
+				alt="Logo Vanè Wedding & Event Creator"
 				className="size-16 lg:size-32 z-1"
 				fetchpriority="high"
 			/>
@@ -44,7 +44,7 @@ export default function HeroSection({ it }) {
 				</p>
 				<img
 					src={arrow}
-					alt={it ? hero.alt.it : hero.alt.eng}
+					alt={it ? hero.iconAlt.it : hero.iconAlt.eng}
 					className="size-6 animate-bouncy"
 					fetchpriority="high"
 				></img>

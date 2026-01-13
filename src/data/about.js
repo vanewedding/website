@@ -48,12 +48,12 @@ export const aboutData = {
 	logoVane: {
 		id: 1,
 		src: logoVane,
-		alt: "Logo Vanè Wedding & Event Creation",
+		alt: "Logo Vanè Wedding & Event Creator",
 	},
 	logoVanePink: {
 		id: 4,
 		src: logoVanePink,
-		alt: "Logo Vanè Wedding & Event Creation",
+		alt: "Logo Vanè Wedding & Event Creator",
 	},
 	line1: {
 		mobile: {

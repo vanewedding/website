@@ -42,7 +42,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										customStyleImg={customStyleImg}
@@ -73,7 +73,7 @@ export default function VariantComposer({
 										<Image
 											key={img.id}
 											src={img.src}
-											alt={img.alt}
+											alt={it ? img.alt.it : img.alt.eng}
 											listSize={data.images.length}
 											isMask={isMask}
 											customStyleImg={customStyleImg}
@@ -112,7 +112,7 @@ export default function VariantComposer({
 								<Image
 									key={img.id}
 									src={img.src}
-									alt={img.alt}
+									alt={it ? img.alt.it : img.alt.eng}
 									listSize={data.images.length}
 									isMask={isMask}
 									customStyleImg={customStyleImg}
@@ -185,7 +185,7 @@ export default function VariantComposer({
 										<Image
 											key={img.id}
 											src={img.src}
-											alt={img.alt}
+											alt={it ? img.alt.it : img.alt.eng}
 											listSize={data.images.length}
 											isMask={isMask}
 											isMobileRounded={isMobileRounded}
@@ -253,7 +253,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -288,7 +288,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -327,7 +327,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -380,7 +380,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -430,7 +430,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										isShadowed={isShadowed}
@@ -455,7 +455,7 @@ export default function VariantComposer({
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}

@@ -53,7 +53,7 @@ export default function Loader({ isLoading }) {
 				<img
 					className="w-50 h-50 z-10"
 					src={logo}
-					alt="Logo Vanè Wedding & Event Creation"
+					alt="Logo Vanè Wedding & Event Creator"
 				/>
 			</div>
 		</div>

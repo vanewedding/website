@@ -53,7 +53,7 @@ export const footerData = {
 export const bottomSection = {
 	logo: {
 		svg: logoLiteWhite,
-		alt: "Logo Vanè Wedding & Event Creation",
+		alt: "Logo Vanè Wedding & Event Creator",
 	},
 	links: [
 		{
