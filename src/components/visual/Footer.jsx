@@ -31,6 +31,7 @@ export default function Footer() {
           desktopLayout="text-right"
           isDesktopRounded={true}
           isShadowed={true}
+          isFastLoad={true}
         />
       </div>
 

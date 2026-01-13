@@ -1,6 +1,5 @@
-import Title from "../components/visual/Title";
 import { LINK_TYPE } from "../constants/enum";
-import notFound from "../assets/img/404.png";
+import notFound from "/img/404.png";
 export const notFoundData = {
 	title: {
 		it: "PAGINA NON TROVATA",

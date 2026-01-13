@@ -8,7 +8,7 @@ import GlobalContext from "../../context/GlobalContext";
 
 export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 	const switchLang = useSwitchLang();
-	const { lang, it, eng } = useContext(GlobalContext);
+	const { lang, it } = useContext(GlobalContext);
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
 	return (

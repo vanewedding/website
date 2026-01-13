@@ -1,6 +1,6 @@
-import logo from "../assets/svg/logo_lite_w.svg";
+import logo from "/logo_lite_w.svg";
 import arrow from "../assets/svg/arrow.svg";
-import herobg from "../assets/img/hero.jpg";
+import herobg from "/img/hero.jpg";
 import Title from "../components/visual/Title";
 import { hero } from "../data/home";
 
@@ -14,18 +14,16 @@ export default function HeroSection({ it }) {
 			{/* immagine di background */}
 			<img
 				src={herobg}
-				alt={
-					it
-						? hero.bgAlt.it
-						: "Wedding table decorated with flowers and candles outdoors with sea view"
-				}
+				alt={it ? hero.bgAlt.it : hero.bgAlt.eng}
 				className="absolute h-full w-full object-cover object-[90%_10%]  brightness-50"
+				fetchpriority="high"
 			/>
 			{/* logo */}
 			<img
 				src={logo}
-				alt="Logo Vanè Wedding & Event Creation"
+				alt={it ? hero.logoAlt.it : hero.logoAlt.eng}
 				className="size-16 lg:size-32 z-1"
+				fetchpriority="high"
 			/>
 			<div className="w-full z-1">
 				<Title
@@ -46,8 +44,9 @@ export default function HeroSection({ it }) {
 				</p>
 				<img
 					src={arrow}
-					alt={it ? hero.iconAlt.it : hero.iconAlt.eng}
+					alt={it ? hero.alt.it : hero.alt.eng}
 					className="size-6 animate-bouncy"
+					fetchpriority="high"
 				></img>
 			</div>
 		</section>

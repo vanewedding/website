@@ -27,8 +27,8 @@ export default function VariantComposer({
 	isShadowed = false,
 	isMargin = true,
 	textSize,
+	isFastLoad,
 }) {
-	console.log(data);
 	// ---------------- MOBILE ----------------
 	const renderMobile = () => {
 		switch (mobileLayout) {
@@ -38,16 +38,17 @@ export default function VariantComposer({
 						<div className="lg:hidden">
 							{/* Foto con bottone */}
 							<div className="relative flex justify-center mt-4">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										customStyleImg={customStyleImg}
 										isMobileRounded={isMobileRounded}
 										isMobileOverlay={isMobileOverlay}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 								<Button
@@ -67,17 +68,18 @@ export default function VariantComposer({
 						<div className="lg:hidden">
 							{/* Foto con bottone */}
 							<div className="relative flex justify-center">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<>
 										<Image
 											key={img.id}
 											src={img.src}
-											alt={it ? img.alt.it : img.alt.eng}
+											alt={img.alt}
 											listSize={data.images.length}
 											isMask={isMask}
 											customStyleImg={customStyleImg}
 											customStyleBox={customStyleBox}
 											isMobileOverlay={isMobileOverlay}
+											isFastLoad={isFastLoad && index === 0}
 										/>
 									</>
 								))}
@@ -106,14 +108,15 @@ export default function VariantComposer({
 						</p>
 
 						<div className="relative flex justify-center mt-4">
-							{data.images.map((img) => (
+							{data.images.map((img, index) => (
 								<Image
 									key={img.id}
 									src={img.src}
-									alt={it ? img.alt.it : img.alt.eng}
+									alt={img.alt}
 									listSize={data.images.length}
 									isMask={isMask}
 									customStyleImg={customStyleImg}
+									isFastLoad={isFastLoad && index === 0}
 								/>
 							))}
 
@@ -178,17 +181,18 @@ export default function VariantComposer({
 							<div>
 								{/* immagine */}
 								<div className=" flex justify-end">
-									{data.images.map((img) => (
+									{data.images.map((img, index) => (
 										<Image
 											key={img.id}
 											src={img.src}
-											alt={it ? img.alt.it : img.alt.eng}
+											alt={img.alt}
 											listSize={data.images.length}
 											isMask={isMask}
 											isMobileRounded={isMobileRounded}
 											customStyleImg={customStyleImg}
 											isDesktopOverlay={true}
 											isDesktopMask={isDesktopMask}
+											isFastLoad={isFastLoad && index === 0}
 										/>
 									))}
 								</div>
@@ -245,11 +249,11 @@ export default function VariantComposer({
 						>
 							{/* immagine */}
 							<div className="m-3 flex gap-6 justify-end">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -258,6 +262,7 @@ export default function VariantComposer({
 										isMobileOverlay={isMobileOverlay}
 										isDesktopOverlay={isDesktopOverlay}
 										isDesktopMask={isDesktopMask}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 							</div>
@@ -279,11 +284,11 @@ export default function VariantComposer({
 						<div className="relative hidden lg:block">
 							{/* immagine */}
 							<div className="my-4 flex gap-6 justify-end">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -292,6 +297,7 @@ export default function VariantComposer({
 										isDesktopOverlay={isDesktopOverlay}
 										isDesktopMask={isDesktopMask}
 										isShadowed={isShadowed}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 							</div>
@@ -317,16 +323,17 @@ export default function VariantComposer({
 							} `}
 						>
 							<div className="flex-[0.60] my-4 flex gap-6">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
 										isShadowed={isShadowed}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 							</div>
@@ -369,16 +376,17 @@ export default function VariantComposer({
 							</div>
 							{/* immagine */}
 							<div className="flex-[0.60] my-4 flex gap-6 justify-end">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
 										customStyleImg={customStyleImg}
 										isShadowed={isShadowed}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 							</div>
@@ -418,17 +426,18 @@ export default function VariantComposer({
 							</div>
 							{/* immagine */}
 							<div className="flex-[0.50] my-4 flex gap-6 justify-center">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										isShadowed={isShadowed}
 										isDesktopRounded={isDesktopRounded}
 										isMobileRounded={isMobileRounded}
 										customStyleImg={customStyleImg}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 							</div>
@@ -442,11 +451,11 @@ export default function VariantComposer({
 						<div className="relative hidden lg:block">
 							{/* immagine */}
 							<div className="flex gap-6 justify-end">
-								{data.images.map((img) => (
+								{data.images.map((img, index) => (
 									<Image
 										key={img.id}
 										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
+										alt={img.alt}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -454,6 +463,7 @@ export default function VariantComposer({
 										customStyleBox={customStyleBox}
 										isDesktopOverlay={true}
 										isDesktopMask={isDesktopMask}
+										isFastLoad={isFastLoad && index === 0}
 									/>
 								))}
 							</div>
@@ -462,7 +472,7 @@ export default function VariantComposer({
 									<img
 										className="w-full"
 										src={data.logoVane.src}
-										alt={it ? data.logoVane.alt.it : data.logoVane.alt.eng}
+										alt={data.logoVane.alt}
 									></img>
 								</div>
 								<Title

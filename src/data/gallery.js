@@ -1,5 +1,5 @@
 import gallery1 from "/img/gallery1.jpg";
-import gallery2 from "../assets/img/footer.jpg";
+import gallery2 from "/img/footer.jpg";
 import { LINK_TYPE } from "../constants/enum";
 export const helmetData = {
 	title: "Gallery | Vanè Wedding & Event",

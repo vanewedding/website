@@ -1,5 +1,5 @@
-import footer from "../assets/img/footer.jpg";
-import logoLiteWhite from "../assets/svg/logo_lite_w.svg";
+import footer from "/img/footer.jpg";
+import logoLiteWhite from "/logo_lite_w.svg";
 import fb from "../assets/svg/fb.svg";
 import ig from "../assets/svg/ig.svg";
 import wa from "../assets/svg/wa.svg";

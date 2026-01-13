@@ -11,10 +11,10 @@ import gallery3 from "/img/gallery3.jpg";
 import gallery4 from "/img/gallery4.jpg";
 import gallery5 from "/img/gallery5.jpg";
 import gallery6 from "/img/gallery6.jpg";
-import logoVane from "../assets/svg/logo_lite_w.svg";
+import logoVane from "/logo_lite_w.svg";
 import logoWedding from "../assets/svg/logo2.svg";
 import logoCatania from "../assets/svg/logo1.svg";
-import logoVanePink from "../assets/svg/logo_pink.svg";
+import logoVanePink from "/logo_pink.svg";
 
 export const helmetData = {
 	title: "About | Vanè Wedding & Event",

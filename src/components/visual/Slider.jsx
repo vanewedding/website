@@ -15,6 +15,8 @@ import "swiper/css/thumbs";
 import arrow from "../../assets/svg/arrow.svg";
 import { useState, useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
+import { useState, useContext } from "react";
+import GlobalContext from "../../context/GlobalContext";
 
 export default function Slider({
 	photos,
@@ -32,9 +34,19 @@ export default function Slider({
 	customSpeed = 2000,
 }) {
 	const { it } = useContext(GlobalContext);
-
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const [activeThumb, setActiveThumb] = useState(activePicture);
+
+	// Stato per gestire il caricamento delle immagini
+	const [loaded, setLoaded] = useState(Array(photos.length).fill(false));
+
+	const handleLoad = (idx) => {
+		setLoaded((prev) => {
+			const copy = [...prev];
+			copy[idx] = true;
+			return copy;
+		});
+	};
 
 	const autoplayConfig =
 		isMobile && isAutoplay
@@ -52,10 +64,11 @@ export default function Slider({
 			: false;
 
 	const spaceBetween = isMobile ? 0 : 36;
-	const speedConfig = customSpeed;
 
 	return (
-		<section className="pt-4 w-screen overflow-visible lg:block min-h-90 py-5">
+		<section
+			className={`pt-4 w-screen overflow-visible lg:block min-h-90 py-5`}
+		>
 			{/* MAIN SWIPER */}
 			<Swiper
 				thumbs={{ swiper: thumbsSwiper }}
@@ -68,9 +81,9 @@ export default function Slider({
 					FreeMode,
 				]}
 				effect="coverflow"
-				grabCursor={true}
+				grabCursor
 				centeredSlides={false}
-				loop={true}
+				loop
 				initialSlide={activePicture}
 				breakpoints={
 					isSingleSlide
@@ -98,39 +111,47 @@ export default function Slider({
 				autoplay={autoplayConfig}
 				navigation={navigationConfig}
 				pagination={paginationConfig}
-				speed={speedConfig}
-				onSlideChange={(swiper) => setActiveThumb(swiper.realIndex)} // qui aggiorniamo l'activeThumb
-				className={`mx-4
-         
-          relative   
-        
-                       ${isOrginalSize ? "" : "h-full"}
-          ${isMobile ? "w-full" : "w-full"} 
-          ${isMaskTop ? "mask-t-from-80%" : ""}
-		  ${isMaskHorizontal ? "mask-x-from-90%" : ""}
-		  ${customStyleBox}
-		 
-        `} // rimosso w-screen
+				speed={customSpeed}
+				onSlideChange={(swiper) => setActiveThumb(swiper.realIndex)}
+				className={`mx-4 relative ${
+					isOrginalSize ? "" : "h-full"
+				} ${customStyleBox} ${isMaskTop ? "mask-t-from-80%" : ""} ${
+					isMaskHorizontal ? "mask-x-from-90%" : ""
+				}`}
 			>
 				{photos.map((photo, idx) => (
-					<SwiperSlide key={idx} className="">
-						<img
-							src={photo.src}
-							alt={it ? photo.alt.it : photo.alt.eng}
-							className={`
-				${isOrginalSize ? "object-contain object-center h-full m-auto" : "object-cover"}
-                  ${
-										isMobile
-											? "object-[10%_90%]"
-											: "my-4 rounded-2xl shadow-md shadow-bordeaux/60"
-									}`}
-						/>
+					<SwiperSlide key={idx}>
+						<div className="relative w-full h-full overflow-hidden">
+							{/* Placeholder shimmer */}
+							{!loaded[idx] && (
+								<div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-2xl" />
+							)}
+
+							<img
+								src={photo.src}
+								alt={photo.alt}
+								loading="lazy"
+								onLoad={() => handleLoad(idx)}
+								className={`w-full h-full transition-opacity duration-700 ease-in-out ${
+									loaded[idx] ? "opacity-100" : "opacity-0"
+								} ${
+									isOrginalSize
+										? "object-contain object-center m-auto"
+										: "object-cover"
+								} ${
+									isMobile
+										? "object-[10%_90%]"
+										: "my-4 rounded-2xl shadow-md shadow-bordeaux/60"
+								}`}
+							/>
+						</div>
 					</SwiperSlide>
 				))}
 
+				{/* Navigation frecce */}
 				{isMobile && !isOrginalSize && (
 					<>
-						<div className="prev-btn absolute left-4 top-1/2 -translate-y-1/2 z-50 text-3xl rounded-full p-2 ">
+						<div className="prev-btn absolute left-4 top-1/2 -translate-y-1/2 z-50 text-3xl rounded-full p-2">
 							<img
 								src={arrow}
 								className="rotate-90 size-6 cursor-pointer"
@@ -155,19 +176,27 @@ export default function Slider({
 					modules={[Navigation, Thumbs, FreeMode]}
 					spaceBetween={5}
 					slidesPerView={5}
-					freeMode={true}
-					watchSlidesProgress={true}
+					freeMode
+					watchSlidesProgress
 					className="mt-2 mask-x-from-90%"
 				>
 					{photos.map((photo, idx) => (
 						<SwiperSlide key={idx}>
-							<div className="h-20 cursor-pointer">
+							<div className="relative h-20 w-full overflow-hidden">
+								{/* Placeholder anche nei thumbs */}
+								{!loaded[idx] && (
+									<div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-lg" />
+								)}
 								<img
 									src={photo.src}
-									alt={it ? photo.alt.it : photo.alt.eng}
-									className={`w-full h-full object-cover object-center transition-all duration-300 ${
+									alt={photo.alt}
+									loading="lazy"
+									className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
+										loaded[idx] ? "opacity-100" : "opacity-0"
+									} ${
 										idx === activeThumb ? "brightness-100" : "brightness-50"
 									}`}
+									onLoad={() => handleLoad(idx)}
 								/>
 							</div>
 						</SwiperSlide>

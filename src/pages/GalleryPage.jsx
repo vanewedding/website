@@ -10,7 +10,6 @@ import VariantComposer from "../components/visual/VariantComposer";
 export default function GalleryPage() {
 	const { it } = useContext(GlobalContext);
 	const { title, album } = galleryData;
-	console.log(title);
 	return (
 		<>
 			<Helmet>
