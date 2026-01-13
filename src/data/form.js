@@ -1,6 +1,15 @@
 export const helmetData = {
 	title: "Form | Vanè Wedding & Event",
-	description: "...",
+	description:
+		"Compila il form per organizzare il tuo appuntamento con Vanessa. Disponibile via WhatsApp e email.",
+	keywords:
+		"contatta wedding planner, prenota matrimonio, consulenza matrimoni, organizza evento, contatti Vanessa, whatsapp wedding planner, form contatti",
+	ogtitle: "Form | Vanè Wedding & Event",
+	ogtype: "website",
+	ogdescription:
+		"Compila il form per organizzare il tuo appuntamento con Vanessa. Disponibile via WhatsApp e email.",
+	ogurl: "https://www.vanewedding.it/#/it/form",
+	ogimage: "https://www.vanewedding.it/logo_full_pink.svg",
 };
 
 export const eventTypeOptions = [

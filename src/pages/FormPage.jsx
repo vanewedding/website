@@ -194,6 +194,20 @@ export default function FormPage() {
 			<Helmet>
 				<title>{helmetData.title}</title>
 				<meta name="description" content={helmetData.description} />
+				<meta name="keywords" content={helmetData.keywords}></meta>
+				{/* Open Graph Tags */}
+				<meta property="og:title" content={helmetData.ogtitle} />
+				<meta property="og:type" content={helmetData.ogtype} />
+				<meta property="og:description" content={helmetData.ogdescription} />
+				<meta property="og:url" content={helmetData.ogurl} />
+				<meta property="og:image" content={helmetData.ogimage} />
+				{/* Meta Robots */}
+				<meta name="robots" content="index, follow" />
+				{/* Canonical Link - Per evitare duplicati */}
+				<link rel="canonical" href="https://www.vanewedding.it/#/it/form" />
+				{/* Opzionale: Meta per form optimization */}
+				<meta name="format-detection" content="telephone=yes" />
+				<meta name="format-detection" content="email=yes" />
 			</Helmet>
 			<section className="my-6">
 				<Title

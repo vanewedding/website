@@ -20,7 +20,16 @@ import { LINK_TYPE } from "../constants/enum";
 
 export const helmetData = {
 	title: "Home | Vanè Wedding & Event",
-	description: "...",
+	description:
+		"Servizi di wedding planning e event creation a Pozzallo. Lasciate che vi aiuti a rendere unico il vostro giorno.",
+	keywords:
+		"wedding planner Sicilia, event creator Pozzallo, matrimoni Ragusa, organizzazione matrimoni, wedding design, event planning, cerimonie Sicilia",
+	ogtitle: "Vanè Wedding & Event Creator",
+	ogtype: "website",
+	ogdescription:
+		"Servizi di wedding planning e event creation a Pozzallo. Lasciate che vi aiuti a rendere unico il vostro giorno.",
+	ogurl: "https://www.vanewedding.it/",
+	ogimage: "https://www.vanewedding.it/logo_full_pink.svg",
 };
 
 export const hero = {
@@ -36,7 +45,11 @@ export const hero = {
 		it: "ESPLORA IL SITO WEB",
 		eng: "EXPLORE THE WEBSITE",
 	},
-	alt: {
+	bgAlt: {
+		it: "Tavolo matrimoniale decorato con fiori e candele all'aperto vista mare",
+		eng: "Wedding table decorated with flowers and candles outdoors with sea view",
+	},
+	iconAlt: {
 		it: "icona freccia giù",
 		eng: "down arrow icon",
 	},
@@ -49,12 +62,12 @@ export const gallery = {
 	},
 
 	photos: [
-		{ src: gallery1, alt: "Gallery photo 1" },
-		{ src: gallery2, alt: "Gallery photo 2" },
-		{ src: gallery3, alt: "Gallery photo 3" },
-		{ src: gallery4, alt: "Gallery photo 4" },
-		{ src: gallery5, alt: "Gallery photo 5" },
-		{ src: gallery6, alt: "Gallery photo 6" },
+		{ src: gallery1, alt: { it: "", eng: "" } },
+		{ src: gallery2, alt: { it: "", eng: "" } },
+		{ src: gallery3, alt: { it: "", eng: "" } },
+		{ src: gallery4, alt: { it: "", eng: "" } },
+		{ src: gallery5, alt: { it: "", eng: "" } },
+		{ src: gallery6, alt: { it: "", eng: "" } },
 	],
 	buttonData: {
 		it: "SFOGLIA LA GALLERY",
@@ -70,12 +83,39 @@ export const studio = {
 		eng: "THE DESIGN STUDIO",
 	},
 	photos: [
-		{ src: studio1, alt: "Studio photo 1" },
-		{ src: studio2, alt: "Studio photo 2" },
-		{ src: studio3, alt: "Studio photo 3" },
-		{ src: studio4, alt: "Studio photo 4" },
-		{ src: studio5, alt: "Studio photo 5" },
-		{ src: studio6, alt: "Studio photo 6" },
+		{
+			src: studio1,
+			alt: {
+				it: "Insegna con logo Vanè accanto alla porta d'ingresso dello studio",
+				eng: "Sign with Vanè logo next to the studio entrance door",
+			},
+		},
+		{
+			src: studio2,
+			alt: { it: "Porta d'ingresso dello studio", eng: "Studio entrance door" },
+		},
+		{
+			src: studio3,
+			alt: {
+				it: "Interni dello studio in cui Vanessa riceve i clienti per gli appuntamenti",
+				eng: "Interior of the studio where Vanessa meets clients for appointments",
+			},
+		},
+		{
+			src: studio4,
+			alt: { it: "Porta d'ingresso dello studio", eng: "Studio entrance door" },
+		},
+		{
+			src: studio5,
+			alt: { it: "Porta d'ingresso dello studio", eng: "Studio entrance door" },
+		},
+		{
+			src: studio6,
+			alt: {
+				it: "Insegna con logo Vanè accanto alla porta d'ingresso dello studio",
+				eng: "Sign with Vanè logo next to the studio entrance door",
+			},
+		},
 	],
 	line1: {
 		mobile: {
@@ -118,12 +158,12 @@ export const aboutMe = {
 	},
 	line1: {
 		mobile: {
-			it: "VANESSA FRONTERRÉ",
-			eng: "VANESSA FRONTERRÉ",
+			it: "VANESSA FRONTERRÈ",
+			eng: "VANESSA FRONTERRÈ",
 		},
 		desktop: {
-			it: "VANESSA FRONTERRÉ",
-			eng: "VANESSA FRONTERRÉ",
+			it: "VANESSA FRONTERRÈ",
+			eng: "VANESSA FRONTERRÈ",
 		},
 	},
 	line2: {
@@ -137,8 +177,22 @@ export const aboutMe = {
 		},
 	},
 	images: [
-		{ id: 1, src: about1, alt: "" },
-		{ id: 2, src: about2, alt: "" },
+		{
+			id: 1,
+			src: about1,
+			alt: {
+				it: "Vanessa Fronterrè, wedding planner, mentre realizza un allestimento floreale con margherite e fiori rosa",
+				eng: "Vanessa Fronterrè, wedding planner, while creating a floral arrangement with daisies and pink flowers",
+			},
+		},
+		{
+			id: 2,
+			src: about2,
+			alt: {
+				it: "Vanessa Fronterrè, wedding planner, mentre decora un tavolo con rose bianche",
+				eng: "Vanessa Fronterrè, wedding planner, while decorating a table with white roses",
+			},
+		},
 	],
 	logos: [
 		{

@@ -23,7 +23,7 @@ export default function BottomSection({ bottomSection, it }) {
 						>
 							<img
 								src={l.svg}
-								alt={l.alt}
+								alt={it ? l.alt.it : l.alt.eng}
 								className="size-8 lg:size-6 lg:mb-6"
 							/>
 						</a>

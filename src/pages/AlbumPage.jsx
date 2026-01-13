@@ -57,7 +57,6 @@ export default function AlbumPage() {
 		<>
 			<Helmet>
 				<title>{album.helmetData.title}</title>
-				<meta name="description" content={album.helmetData.description} />
 			</Helmet>
 			<section className="my-6">
 				<Title
@@ -84,7 +83,7 @@ export default function AlbumPage() {
 										>
 											<Image
 												src={img.src}
-												alt={img.alt}
+												alt={it ? img.alt.it : img.alt.eng}
 												isMask={false}
 												isMobileRounded={true}
 												isDesktopRounded={true}
@@ -152,7 +151,7 @@ export default function AlbumPage() {
 								>
 									<Image
 										src={img.src}
-										alt={img.alt}
+										alt={it ? img.alt.it : img.alt.eng}
 										isMask={false}
 										isMobileRounded={true}
 										isDesktopRounded={true}
@@ -187,7 +186,11 @@ export default function AlbumPage() {
 									<div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
 										<img
 											src={album.photos[activePicture - 1].src}
-											alt={album.photos[activePicture - 1].alt}
+											alt={
+												it
+													? album.photos[activePicture - 1].alt.it
+													: album.photos[activePicture - 1].alt.eng
+											}
 											className="h-5/6 rounded-xl object-cover"
 										/>
 									</div>

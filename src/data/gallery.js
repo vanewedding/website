@@ -3,7 +3,16 @@ import gallery2 from "../assets/img/footer.jpg";
 import { LINK_TYPE } from "../constants/enum";
 export const helmetData = {
 	title: "Gallery | Vanè Wedding & Event",
-	description: "...",
+	description:
+		"Esplora la galleria fotografica di matrimoni, eventi e cerimonie curati da Vanessa Fronterrè. Portfolio completo di wedding design a Pozzallo, Ragusa, Sicilia.",
+	keywords:
+		"galleria matrimoni, foto matrimoni Sicilia, portfolio wedding, fotografie matrimoni Pozzallo, eventi Ragusa, wedding photography, gallery matrimoni, cerimonie",
+	ogtitle: "Gallery | Vanè Wedding & Event",
+	ogtype: "website",
+	ogdescription:
+		"Esplora la galleria fotografica di matrimoni, eventi e cerimonie curati da Vanessa Fronterrè. Portfolio completo di wedding design a Pozzallo, Ragusa, Sicilia.",
+	ogurl: "https://www.vanewedding.it/#/it/gallery",
+	ogimage: "https://www.vanewedding.it/img/gallery1.jpg",
 };
 export const galleryData = {
 	title: {
@@ -27,7 +36,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -53,7 +62,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -79,7 +88,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -105,7 +114,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -131,7 +140,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -157,7 +166,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -183,7 +192,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -209,7 +218,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -235,7 +244,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -261,7 +270,7 @@ export const galleryData = {
 				{
 					id: 1,
 					src: gallery1,
-					alt: "mappa",
+					alt: "",
 				},
 			],
 			buttonData: {
@@ -278,7 +287,6 @@ export const albumData = {
 	wedding: {
 		helmetData: {
 			title: "Album | Vanè Wedding & Event",
-			description: "...",
 		},
 		title: {
 			it: "WEDDING",

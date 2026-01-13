@@ -18,7 +18,16 @@ import logoVanePink from "../assets/svg/logo_pink.svg";
 
 export const helmetData = {
 	title: "About | Vanè Wedding & Event",
-	description: "...",
+	description:
+		"Scopri la storia di Vanessa Fronterrè, wedding planner e event creator specializzata in graphic design, con formazione all'Accademia delle Belle Arti di Catania e all'Accademia del Wedding.",
+	keywords:
+		"Vanessa Fronterrè, wedding planner Pozzallo, event creator Sicilia, graphic designer matrimoni, Accademia del Wedding, event creation, designer matrimoni",
+	ogtitle: "About | Vanè Wedding & Event",
+	ogtype: "website",
+	ogdescription:
+		"Scopri la storia di Vanessa Fronterrè, wedding planner e event creator specializzata in graphic design, con formazione all'Accademia delle Belle Arti di Catania e all'Accademia del Wedding.",
+	ogurl: "https://www.vanewedding.it/#/it/about",
+	ogimage: "https://www.vanewedding.it/img/about1.jpg",
 };
 
 export const aboutData = {
@@ -26,16 +35,25 @@ export const aboutData = {
 		it: "SU DI ME",
 		eng: "ABOUT ME",
 	},
-	images: [{ id: 1, src: about1, alt: "" }],
+	images: [
+		{
+			id: 1,
+			src: about1,
+			alt: {
+				it: "Vanessa Fronterrè, wedding planner, mentre realizza un allestimento floreale con margherite e fiori rosa",
+				eng: "Vanessa Fronterrè, wedding planner, while creating a floral arrangement with daisies and pink flowers",
+			},
+		},
+	],
 	logoVane: {
 		id: 1,
 		src: logoVane,
-		alt: "",
+		alt: "Logo Vanè Wedding & Event Creation",
 	},
 	logoVanePink: {
 		id: 4,
 		src: logoVanePink,
-		alt: "",
+		alt: "Logo Vanè Wedding & Event Creation",
 	},
 	line1: {
 		mobile: {
@@ -61,14 +79,26 @@ export const aboutData = {
 
 export const aboutWeddingData = {
 	images: [
-		{ id: 1, src: studio1, alt: "" },
-		{ id: 2, src: studio2, alt: "" },
-		{ id: 3, src: studio3, alt: "" },
+		{
+			id: 1,
+			src: studio1,
+			alt: "",
+		},
+		{
+			id: 2,
+			src: studio2,
+			alt: "",
+		},
+		{
+			id: 3,
+			src: studio3,
+			alt: "",
+		},
 	],
 	logo: {
 		id: 1,
 		src: logoWedding,
-		alt: "",
+		alt: "Logo Wedding Academy di Cira Lombardo",
 	},
 	line1: {
 		mobile: {
@@ -84,9 +114,21 @@ export const aboutWeddingData = {
 
 export const aboutContestData = {
 	images: [
-		{ id: 1, src: studio4, alt: "" },
-		{ id: 2, src: studio5, alt: "" },
-		{ id: 3, src: studio6, alt: "" },
+		{
+			id: 1,
+			src: studio4,
+			alt: "",
+		},
+		{
+			id: 2,
+			src: studio5,
+			alt: "",
+		},
+		{
+			id: 3,
+			src: studio6,
+			alt: "",
+		},
 	],
 	line1: {
 		mobile: {
@@ -109,7 +151,7 @@ export const aboutCataniaData = {
 	logo: {
 		id: 1,
 		src: logoCatania,
-		alt: "",
+		alt: "Logo Accademia delle Belle Arti di Catania",
 	},
 	line1: {
 		mobile: {

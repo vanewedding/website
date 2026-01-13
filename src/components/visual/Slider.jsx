@@ -13,7 +13,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import arrow from "../../assets/svg/arrow.svg";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import GlobalContext from "../../context/GlobalContext";
 
 export default function Slider({
 	photos,
@@ -30,6 +31,8 @@ export default function Slider({
 	customStyleBox = "h-[75vh]",
 	customSpeed = 2000,
 }) {
+	const { it } = useContext(GlobalContext);
+
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const [activeThumb, setActiveThumb] = useState(activePicture);
 
@@ -113,7 +116,7 @@ export default function Slider({
 					<SwiperSlide key={idx} className="">
 						<img
 							src={photo.src}
-							alt={photo.alt}
+							alt={it ? photo.alt.it : photo.alt.eng}
 							className={`
 				${isOrginalSize ? "object-contain object-center h-full m-auto" : "object-cover"}
                   ${
@@ -161,7 +164,7 @@ export default function Slider({
 							<div className="h-20 cursor-pointer">
 								<img
 									src={photo.src}
-									alt={photo.alt}
+									alt={it ? photo.alt.it : photo.alt.eng}
 									className={`w-full h-full object-cover object-center transition-all duration-300 ${
 										idx === activeThumb ? "brightness-100" : "brightness-50"
 									}`}

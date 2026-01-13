@@ -14,11 +14,19 @@ export default function HeroSection({ it }) {
 			{/* immagine di background */}
 			<img
 				src={herobg}
-				alt="hero"
+				alt={
+					it
+						? hero.bgAlt.it
+						: "Wedding table decorated with flowers and candles outdoors with sea view"
+				}
 				className="absolute h-full w-full object-cover object-[90%_10%]  brightness-50"
 			/>
 			{/* logo */}
-			<img src={logo} alt="logo" className="size-16 lg:size-32 z-1" />
+			<img
+				src={logo}
+				alt="Logo Vanè Wedding & Event Creation"
+				className="size-16 lg:size-32 z-1"
+			/>
 			<div className="w-full z-1">
 				<Title
 					text={it ? hero.title.it : hero.title.eng}
@@ -38,7 +46,7 @@ export default function HeroSection({ it }) {
 				</p>
 				<img
 					src={arrow}
-					alt={it ? hero.alt.it : hero.alt.eng}
+					alt={it ? hero.iconAlt.it : hero.iconAlt.eng}
 					className="size-6 animate-bouncy"
 				></img>
 			</div>

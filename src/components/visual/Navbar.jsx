@@ -31,7 +31,10 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						>
 							{link.id === 1 ? (
 								<div className="size-12">
-									<img src={link.svg} alt="Logo Vanè Wedding & Event" />
+									<img
+										src={link.svg}
+										alt="Logo Vanè Wedding & Event Creation"
+									/>
 								</div>
 							) : (
 								<div className="font-semibold transition-all duration-300 hover:font-black">
