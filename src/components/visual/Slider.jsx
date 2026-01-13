@@ -15,8 +15,6 @@ import "swiper/css/thumbs";
 import arrow from "../../assets/svg/arrow.svg";
 import { useState, useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
-import { useState, useContext } from "react";
-import GlobalContext from "../../context/GlobalContext";
 
 export default function Slider({
 	photos,
