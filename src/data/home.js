@@ -1,9 +1,9 @@
-import gallery1 from "/img/gallery1.jpg";
-import gallery2 from "/img/gallery2.jpg";
-import gallery3 from "/img/gallery3.jpg";
-import gallery4 from "/img/gallery4.jpg";
-import gallery5 from "/img/gallery5.jpg";
-import gallery6 from "/img/gallery6.jpg";
+import gallery1 from "/img/comunioni/comunioni-1.jpg";
+import gallery2 from "/img/wedding/wedding-2.jpg";
+import gallery3 from "/img/party/party-2.jpg";
+import gallery4 from "/img/wedding/wedding-16.jpg";
+import gallery5 from "/img/cresime/cresime-10.jpg";
+import gallery6 from "/img/18esimi/18esimo-3.jpg";
 import studio1 from "/img/studio1.jpg";
 import studio2 from "/img/studio2.jpg";
 import studio3 from "/img/studio3.jpg";
@@ -62,12 +62,48 @@ export const gallery = {
 	},
 
 	photos: [
-		{ src: gallery1, alt: { it: "", eng: "" } },
-		{ src: gallery2, alt: { it: "", eng: "" } },
-		{ src: gallery3, alt: { it: "", eng: "" } },
-		{ src: gallery4, alt: { it: "", eng: "" } },
-		{ src: gallery5, alt: { it: "", eng: "" } },
-		{ src: gallery6, alt: { it: "", eng: "" } },
+		{
+			src: gallery1,
+			alt: {
+				it: "Allestimento esterno con fiori rosa",
+				eng: "Outdoor setup with pink flowers",
+			},
+		},
+		{
+			src: gallery2,
+			alt: {
+				it: "Segnaposto della sposa e rose bianche",
+				eng: "Bride's place card and white roses",
+			},
+		},
+		{
+			src: gallery3,
+			alt: {
+				it: "Festeggiata avvolta da una pioggia di lucine",
+				eng: "Birthday girl surrounded by a shower of fairy lights",
+			},
+		},
+		{
+			src: gallery4,
+			alt: {
+				it: "Tavoli del ricevimento apparecchiati con candele e rose rosa",
+				eng: "Reception tables set with candles and pink roses",
+			},
+		},
+		{
+			src: gallery5,
+			alt: {
+				it: "Tavolo di legno decorato con piante e fiori bianchi davanti a vetrata che da sul giardino",
+				eng: "Wooden table decorated with plants and white flowers in front of a window overlooking the garden",
+			},
+		},
+		{
+			src: gallery6,
+			alt: {
+				it: "Tavola decorata con candele e fiori bianchi",
+				eng: "Table decorated with candles and white flowers",
+			},
+		},
 	],
 	buttonData: {
 		it: "SFOGLIA LA GALLERY",
@@ -181,16 +217,16 @@ export const aboutMe = {
 			id: 1,
 			src: about1,
 			alt: {
-				it: "Vanessa Fronterrè, wedding planner, mentre realizza un allestimento floreale con margherite e fiori rosa",
-				eng: "Vanessa Fronterrè, wedding planner, while creating a floral arrangement with daisies and pink flowers",
+				it: "Vanessa Fronterrè, wedding planner, mentre sistema sul tavolo i regali per gli invitati a un matrimonio in Sicilia",
+				eng: "Vanessa Fronterrè, wedding planner, while arranging the gifts for the guests on the table at a wedding in Sicily",
 			},
 		},
 		{
 			id: 2,
 			src: about2,
 			alt: {
-				it: "Vanessa Fronterrè, wedding planner, mentre decora un tavolo con rose bianche",
-				eng: "Vanessa Fronterrè, wedding planner, while decorating a table with white roses",
+				it: "Vanessa Fronterrè, wedding planner, mentre sistema una composizione floreale di fiori rosa, lilla e viola per un 30esimo compleanno a bordo piscina",
+				eng: "Vanessa Fronterrè, wedding planner, while arranging a floral composition of pink, lilac, and purple flowers for a 30th birthday by the pool",
 			},
 		},
 	],

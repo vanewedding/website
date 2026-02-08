@@ -90,13 +90,13 @@ export default function Slider({
 								1024: { slidesPerView: 1 },
 								768: { slidesPerView: 1 },
 								566: { slidesPerView: 1 },
-						  }
+							}
 						: {
 								1280: { slidesPerView: 5 },
 								1024: { slidesPerView: 5 },
 								768: { slidesPerView: 3 },
 								566: { slidesPerView: 3 },
-						  }
+							}
 				}
 				slidesPerView={1}
 				spaceBetween={spaceBetween}
@@ -127,7 +127,7 @@ export default function Slider({
 
 							<img
 								src={photo.src}
-								alt={photo.alt}
+								alt={it ? photo.alt.it : photo.alt.eng}
 								loading="lazy"
 								onLoad={() => handleLoad(idx)}
 								className={`w-full h-full transition-opacity duration-700 ease-in-out ${
@@ -187,7 +187,7 @@ export default function Slider({
 								)}
 								<img
 									src={photo.src}
-									alt={photo.alt}
+									alt={it ? photo.alt.it : photo.alt.eng}
 									loading="lazy"
 									className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
 										loaded[idx] ? "opacity-100" : "opacity-0"

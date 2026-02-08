@@ -49,7 +49,7 @@ export default function AboutPage() {
 					isRounded
 					mobileLayout="logo-title-image"
 					desktopLayout="logo-title-image"
-					customStyleImg="h-[calc((100vh-6rem))] object-cover object-[85%_15%]"
+					customStyleImg="h-[calc((100vh-6rem))] object-cover object-[70%_30%]"
 				/>
 			</section>
 
@@ -72,12 +72,12 @@ export default function AboutPage() {
 					hasButton={false}
 					hasLine2={false}
 					mobileLayout="slider"
-					desktopLayout="text-right"
+					desktopLayout="text-left"
 					customStyleImg="rounded-xl"
 					isShadowed={true}
 					isMargin={false}
 				/>
-				<VariantComposer
+				{/* <VariantComposer
 					style=""
 					data={aboutContestData}
 					it={it}
@@ -93,7 +93,7 @@ export default function AboutPage() {
 					customStyleImg="rounded-xl"
 					isShadowed={true}
 					isMargin={false}
-				/>
+				/> */}
 			</section>
 
 			<section className="">
