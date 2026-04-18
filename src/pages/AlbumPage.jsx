@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useRef, useState, useContext } from "react";
-import Macy from "macy";
+import { useEffect, useRef, useState, useContext, useCallback } from "react";
 import Title from "../components/visual/Title";
 import { albumData } from "../data/gallery";
 import Image from "../components/visual/Image";
@@ -44,7 +43,6 @@ function AlbumPageContent({
   isTablet,
   isCompactViewport,
 }) {
-  const containerRef = useRef(null);
   const shouldScrollToTopRef = useRef(false);
   const eagerImageCount = isCompactViewport ? 2 : 6;
   const [activeLayout, setActiveLayout] = useState(
@@ -56,26 +54,24 @@ function AlbumPageContent({
 
   useBodyScrollLock(isLightBoxOpen);
 
-  // inizializza Macy
-  useEffect(() => {
-    if (!album || !containerRef.current || isCompactViewport) return;
+  const closeLightbox = useCallback(() => {
+    setIsLightBoxOpen(false);
+    setSelectedPhoto(null);
+  }, []);
 
-    const macyInstance = Macy({
-      container: containerRef.current,
-      trueOrder: false, // mantiene l’ordine naturale o meno
-      waitForImages: true, // attende il caricamento delle immagini
-      columns: 4, // default numero di colonne
-      margin: 0,
-      padding: 0,
-      breakAt: {
-        1024: 4,
-        768: 3,
-        480: 2,
-      },
-    });
+  const showPreviousPhoto = useCallback(() => {
+    const previousIndex =
+      activePicture === 0 ? album.photos.length - 1 : activePicture - 1;
+    setActivePicture(previousIndex);
+    setSelectedPhoto(album.photos[previousIndex]);
+  }, [activePicture, album.photos]);
 
-    return () => macyInstance.remove(); // cleanup
-  }, [album, isCompactViewport]);
+  const showNextPhoto = useCallback(() => {
+    const nextIndex =
+      activePicture === album.photos.length - 1 ? 0 : activePicture + 1;
+    setActivePicture(nextIndex);
+    setSelectedPhoto(album.photos[nextIndex]);
+  }, [activePicture, album.photos]);
 
   useEffect(() => {
     if (
@@ -98,6 +94,89 @@ function AlbumPageContent({
     return () => window.cancelAnimationFrame(frameId);
   }, [activeLayout, isCompactViewport]);
 
+  useEffect(() => {
+    if (isCompactViewport || !isLightBoxOpen) {
+      return;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowLeft") {
+        showPreviousPhoto();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextPhoto();
+      }
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [
+    closeLightbox,
+    isCompactViewport,
+    isLightBoxOpen,
+    showNextPhoto,
+    showPreviousPhoto,
+  ]);
+
+  const gridColumnsClass = isCompactViewport
+    ? "columns-2 md:columns-3 gap-0"
+    : "columns-2 lg:columns-3 xl:columns-4 gap-0";
+
+  const handleCompactGridPhotoClick = (index) => {
+    shouldScrollToTopRef.current = true;
+    if (activeLayout !== "layoutSlider") {
+      setActiveLayout("layoutSlider");
+    }
+    setActivePicture(index);
+  };
+
+  const handleDesktopGridPhotoClick = (photo, index) => {
+    setActivePicture(index);
+    setSelectedPhoto(photo);
+    setIsLightBoxOpen(true);
+  };
+
+  const renderAlbumGrid = (isDesktopGrid = false) => (
+    <div className={gridColumnsClass}>
+      {album.photos.map((img, index) => (
+        <div
+          key={img.src}
+          onClick={() => {
+            if (isDesktopGrid) {
+              handleDesktopGridPhotoClick(img, index);
+              return;
+            }
+
+            handleCompactGridPhotoClick(index);
+          }}
+          className="cursor-pointer break-inside-avoid p-3"
+        >
+          <Image
+            src={img.thumbSrc || img.src}
+            alt={it ? img.alt.it : img.alt.eng}
+            isFastLoad={index === 0}
+            isMask={false}
+            isMobileRounded={true}
+            isDesktopRounded={true}
+            isMobileOverlay={false}
+            isDesktopOverlay={false}
+            isDesktopMask={false}
+            isShadowed
+            isLazy={index >= eagerImageCount}
+            customStyleBox="w-full"
+            customStyleImg=""
+          />
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <>
       <Helmet>
@@ -115,37 +194,7 @@ function AlbumPageContent({
             <>
               {/* Layout condizionale */}
               {activeLayout === "layoutGrid" ? (
-                <div ref={containerRef}>
-                  {album.photos.map((img, index) => (
-                    <div
-                      key={img.src}
-                      onClick={() => {
-                        shouldScrollToTopRef.current = true;
-                        if (activeLayout !== "layoutSlider") {
-                          setActiveLayout("layoutSlider");
-                        }
-                        setActivePicture(index);
-                      }}
-                      className="cursor-pointer"
-                    >
-                      <Image
-                        src={img.src}
-                        alt={it ? img.alt.it : img.alt.eng}
-                        isFastLoad={index === 0}
-                        isMask={false}
-                        isMobileRounded={true}
-                        isDesktopRounded={true}
-                        isMobileOverlay={false}
-                        isDesktopOverlay={false}
-                        isDesktopMask={false}
-                        isShadowed
-                        isLazy={index >= eagerImageCount}
-                        customStyleBox="w-full p-3"
-                        customStyleImg=""
-                      />
-                    </div>
-                  ))}
-                </div>
+                renderAlbumGrid()
               ) : (
                 <Slider
                   activePicture={activePicture}
@@ -188,61 +237,57 @@ function AlbumPageContent({
             </>
           ) : (
             // DESKTOP
-            <div ref={containerRef}>
-              {album.photos.map((img, index) => (
-                <div
-                  key={img.src}
-                  onClick={() => {
-                    setActivePicture(index);
-                    setSelectedPhoto(img);
-                    setIsLightBoxOpen(true);
-                  }}
-                  className="cursor-pointer"
-                >
-                  <Image
-                    src={img.src}
-                    alt={it ? img.alt.it : img.alt.eng}
-                    isFastLoad={index === 0}
-                    isMask={false}
-                    isMobileRounded={true}
-                    isDesktopRounded={true}
-                    customStyleBox="w-full p-3"
-                    isMobileOverlay={false}
-                    isDesktopOverlay={false}
-                    isDesktopMask={false}
-                    isShadowed
-                    isLazy={index >= eagerImageCount}
-                  />
-                </div>
-              ))}
-            </div>
+            renderAlbumGrid(true)
           )}
           {/* Lightbox */}
           {isLightBoxOpen && selectedPhoto && (
             <>
               <div className="relative w-screen h-screen">
-                <div className="fixed top-16 w-screen h-screen bg-black/85 ">
+                <div
+                  className="fixed top-16 w-screen h-screen bg-black/85 "
+                  onClick={closeLightbox}
+                >
                   <div className="absolute right-0 mr-6 mt-6">
                     <svg
                       className="size-8 cursor-pointer text-off-white"
-                      fill=""
+                      fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
                       viewBox="0 0 24 24"
-                      onClick={() => {
-                        setIsLightBoxOpen(false);
-                        setSelectedPhoto(null);
-                      }}
+                      onClick={closeLightbox}
                     >
                       <line x1="18" y1="6" x2="6" y2="18" />
                       <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
                   </div>
+                  <button
+                    type="button"
+                    aria-label="Foto precedente"
+                    className="absolute left-6 top-1/2 -translate-y-1/2 text-off-white text-5xl cursor-pointer"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      showPreviousPhoto();
+                    }}
+                  >
+                    ‹
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Foto successiva"
+                    className="absolute right-6 top-1/2 -translate-y-1/2 text-off-white text-5xl cursor-pointer"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      showNextPhoto();
+                    }}
+                  >
+                    ›
+                  </button>
                   <div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
                     <img
-                      src={selectedPhoto.src}
+                      src={selectedPhoto.fullSrc || selectedPhoto.src}
                       alt={it ? selectedPhoto.alt.it : selectedPhoto.alt.eng}
                       className="h-5/6 rounded-xl object-cover"
+                      onClick={(event) => event.stopPropagation()}
                     />
                   </div>
                 </div>

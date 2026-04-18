@@ -126,7 +126,7 @@ export default function Slider({
 							)}
 
 							<img
-								src={photo.src}
+								src={photo.slideSrc || photo.src}
 								alt={it ? photo.alt.it : photo.alt.eng}
 								loading="lazy"
 								onLoad={() => handleLoad(idx)}
@@ -186,7 +186,7 @@ export default function Slider({
 									<div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-lg" />
 								)}
 								<img
-									src={photo.src}
+									src={photo.thumbSrc || photo.slideSrc || photo.src}
 									alt={it ? photo.alt.it : photo.alt.eng}
 									loading="lazy"
 									className={`w-full h-full object-cover object-center transition-opacity duration-700 ${

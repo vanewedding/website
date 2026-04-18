@@ -1,6 +1,6 @@
 import { navLinks, socials, langs } from "../../data/header";
-import { NavLink, Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
 import { useSwitchLang } from "../../hooks/useSwitchLang";
 import SubMenu from "./SubMenu";
 
@@ -10,10 +10,16 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 	const switchLang = useSwitchLang();
 	const { lang, it } = useContext(GlobalContext);
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+	const location = useLocation();
+
+	useEffect(() => {
+		setIsMenuOpen(false);
+		setIsSubmenuOpen(false);
+	}, [location.pathname, setIsMenuOpen]);
 
 	return (
 		<nav
-			className={`w-full flex items-center justify-between transition-all duration-500`}
+			className={`relative z-50 w-full flex items-center justify-between transition-all duration-500`}
 		>
 			{/* Desktop Left */}
 			<div className="hidden lg:flex items-center justify-around gap-4 lg:gap-8">
@@ -79,7 +85,12 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 				className={`no-scrollbar fixed top-16 left-0 flex flex-col items-center lg:hidden
 			 h-[calc(100vh-4rem)] w-full justify-center  text-off-white text-base font-semibold 
 			transition-all duration-800 overflow-y-auto 
-			${isMenuOpen ? `translate-y-0 ${bgColor}` : "-translate-y-full "}`}
+			${
+				isMenuOpen
+					? `translate-y-0 ${bgColor} pointer-events-auto z-40`
+					: "-translate-y-full pointer-events-none"
+			}`}
+				aria-hidden={!isMenuOpen}
 			>
 				{/* Links */}
 				{navLinks.map((link) => {
@@ -166,7 +177,8 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 							key={l.id}
 							onClick={() => {
 								switchLang(l.lang);
-								set;
+								setIsMenuOpen(false);
+								setIsSubmenuOpen(false);
 							}}
 							className={`${
 								l.lang === lang ? "pointer-events-none" : ""

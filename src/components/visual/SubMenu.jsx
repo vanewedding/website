@@ -6,7 +6,7 @@ export default function SubMenu({ bgColor, link, it }) {
 			className={`
 			no-scrollbar
             absolute top-16 flex flex-col  items-center gap-4 
-            p-4 w-64  ${bgColor}
+            z-40 p-4 w-64  ${bgColor}
             border-b-2 rounded-b-lg  border-l-2 border-r-2  border-off-white drop-shadow-xl shadow-overlay-black
             transition-all duration-300 opacity-0 pointer-events-none
             group-hover:opacity-100 group-hover:pointer-events-auto 

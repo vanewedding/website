@@ -1644,80 +1644,96 @@ const showcaseAltTexts = [
 	},
 ];
 
-const weddingPhotos = Array.from({ length: 42 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/wedding/wedding-${i + 1}.jpg`,
-	alt: weddingAltTexts[i] || { it: "Wedding", eng: "Wedding" },
-}));
+const createPhotoSources = (src) => ({
+	src,
+	fullSrc: src,
+	slideSrc: src.replace("/img/", "/img-optimized/slides/"),
+	thumbSrc: src.replace("/img/", "/img-optimized/thumbs/"),
+});
 
-const genderPhotos = Array.from({ length: 5 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/gender/gender-${i + 1}.jpg`,
-	alt: genderAltTexts[i] || { it: "Gender Reveal", eng: "Gender Reveal" },
-}));
+const createAlbumPhotos = (length, srcFactory, altTexts, fallbackAlt) =>
+	Array.from({ length }, (_, i) => ({
+		id: i + 1,
+		...createPhotoSources(srcFactory(i)),
+		alt: altTexts[i] || fallbackAlt,
+	}));
 
-const babyPhotos = Array.from({ length: 1 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/baby/baby-${i + 1}.jpg`,
-	alt: babyAltTexts[i] || { it: "Baby Shower", eng: "Baby Shower" },
-}));
+const weddingPhotos = createAlbumPhotos(
+	42,
+	(i) => `/img/wedding/wedding-${i + 1}.jpg`,
+	weddingAltTexts,
+	{ it: "Wedding", eng: "Wedding" }
+);
 
-const welcomePhotos = Array.from({ length: 18 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/welcome/welcome-${i + 1}.jpg`,
-	alt: welcomeAltTexts[i] || { it: "Welcome Home", eng: "Welcome Home" },
-}));
+const genderPhotos = createAlbumPhotos(
+	5,
+	(i) => `/img/gender/gender-${i + 1}.jpg`,
+	genderAltTexts,
+	{ it: "Gender Reveal", eng: "Gender Reveal" }
+);
 
-const baptismPhotos = Array.from({ length: 32 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/baptism/baptism-${i + 1}.jpg`,
-	alt: baptismAltTexts[i] || { it: "Battesimo", eng: "Baptism" },
-}));
+const babyPhotos = createAlbumPhotos(
+	1,
+	(i) => `/img/baby/baby-${i + 1}.jpg`,
+	babyAltTexts,
+	{ it: "Baby Shower", eng: "Baby Shower" }
+);
 
-const communionPhotos = Array.from({ length: 38 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/comunioni/comunioni-${i + 1}.jpg`,
-	alt: communionAltTexts[i] || {
-		it: "Prima Comunione",
-		eng: "First Communion",
-	},
-}));
+const welcomePhotos = createAlbumPhotos(
+	18,
+	(i) => `/img/welcome/welcome-${i + 1}.jpg`,
+	welcomeAltTexts,
+	{ it: "Welcome Home", eng: "Welcome Home" }
+);
 
-const confirmationPhotos = Array.from({ length: 17 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/cresime/cresime-${i + 1}.jpg`,
-	alt: confirmationAltTexts[i] || {
-		it: "Cresima",
-		eng: "Confirmation",
-	},
-}));
+const baptismPhotos = createAlbumPhotos(
+	32,
+	(i) => `/img/baptism/baptism-${i + 1}.jpg`,
+	baptismAltTexts,
+	{ it: "Battesimo", eng: "Baptism" }
+);
 
-const bdayPhotos = Array.from({ length: 56 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/18esimi/18esimo-${i + 1}.jpg`,
-	alt: bdayAltTexts[i] || {
-		it: "Diciottesimo Compleanno",
-		eng: "18th Birthday",
-	},
-}));
+const communionPhotos = createAlbumPhotos(
+	38,
+	(i) => `/img/comunioni/comunioni-${i + 1}.jpg`,
+	communionAltTexts,
+	{ it: "Prima Comunione", eng: "First Communion" }
+);
 
-const graduationPhotos = Array.from({ length: 11 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/graduation/graduation-${i + 1}.jpg`,
-	alt: graduationAltTexts[i] || { it: "Laurea", eng: "Graduation" },
-}));
+const confirmationPhotos = createAlbumPhotos(
+	17,
+	(i) => `/img/cresime/cresime-${i + 1}.jpg`,
+	confirmationAltTexts,
+	{ it: "Cresima", eng: "Confirmation" }
+);
 
-const partyPhotos = Array.from({ length: 84 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/party/party-${i + 1}.jpg`,
-	alt: partyAltTexts[i] || { it: "Festa", eng: "Party" },
-}));
+const bdayPhotos = createAlbumPhotos(
+	56,
+	(i) => `/img/18esimi/18esimo-${i + 1}.jpg`,
+	bdayAltTexts,
+	{ it: "Diciottesimo Compleanno", eng: "18th Birthday" }
+);
 
-const showcasePhotos = Array.from({ length: 14 }, (_, i) => ({
-	id: i + 1,
-	src: `/img/vetrine/vetrine-${i + 1}.jpg`,
-	alt: showcaseAltTexts[i] || { it: "Vetrina", eng: "Showcase" },
-}));
+const graduationPhotos = createAlbumPhotos(
+	11,
+	(i) => `/img/graduation/graduation-${i + 1}.jpg`,
+	graduationAltTexts,
+	{ it: "Laurea", eng: "Graduation" }
+);
+
+const partyPhotos = createAlbumPhotos(
+	84,
+	(i) => `/img/party/party-${i + 1}.jpg`,
+	partyAltTexts,
+	{ it: "Festa", eng: "Party" }
+);
+
+const showcasePhotos = createAlbumPhotos(
+	14,
+	(i) => `/img/vetrine/vetrine-${i + 1}.jpg`,
+	showcaseAltTexts,
+	{ it: "Vetrina", eng: "Showcase" }
+);
 
 export const albumData = {
 	wedding: {
