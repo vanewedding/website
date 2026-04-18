@@ -75,8 +75,8 @@ export const galleryData = {
 					id: 1,
 					src: gender,
 					alt: {
-						it: "Foto stock di scarpette blu su un pancione",
-						eng: "Stock photo of blue baby shoes on a baby bump",
+						it: "Biscotti, bocce di confetti e palloncini rosa e azzurri",
+						eng: "Pink and blue cookies, candy bowls and balloons",
 					},
 				},
 			],
@@ -104,8 +104,8 @@ export const galleryData = {
 					id: 1,
 					src: baby,
 					alt: {
-						it: "Foto stock di torta colorata",
-						eng: "Stock photo of colorful cake",
+						it: "Tavolo di legno con dolcetti, palloncini bianchi e beige e peluche di orso",
+						eng: "Wooden table with sweets, white and beige balloons, and teddy bear plush",
 					},
 				},
 			],
@@ -162,8 +162,8 @@ export const galleryData = {
 					id: 1,
 					src: baptism,
 					alt: {
-						it: "Foto stock di mani di neonato che stringono una crocetta",
-						eng: "Stock photo of baby's hands holding a small cross pendant",
+						it: "Dolcetti e confetti a tema coniglietti",
+						eng: "Bunny-themed sweets and candies",
 					},
 				},
 			],
@@ -278,8 +278,8 @@ export const galleryData = {
 					id: 1,
 					src: graduation,
 					alt: {
-						it: "Foto stock di laureata con tocco e pergamena",
-						eng: "Stock photo of graduate with cap and diploma",
+						it: "Arco dorato con scritta 'Laurea', lucine e drappeggio rosso",
+						eng: "Golden arch with 'Graduation' sign, fairy lights and red drapery",
 					},
 				},
 			],
@@ -431,16 +431,12 @@ const weddingAltTexts = [
 		eng: "The bride and groom descend the stairs surrounded by the sparks of the torches",
 	},
 	{
-		it: "Allestimento notturno con candele sospese da un albero in un pozzo di pietra",
-		eng: "Night setup with candles hanging from a tree in a stone well",
-	},
-	{
-		it: "Allestimento notturno con lucine, lune e tende di pizzo",
-		eng: "Night setup with fairy lights, moons, and lace curtains",
-	},
-	{
 		it: "Tavolo della torta nuziale con bouquet di rose bianche e candelabri",
 		eng: "Wedding cake table with white rose bouquet and candelabras",
+	},
+	{
+		it: "Cerchio con mappa dei tavoli",
+		eng: "Circle with table map",
 	},
 	{
 		it: "Biscotti personalizzati con fiori e iniziali degli sposi",
@@ -483,6 +479,10 @@ const weddingAltTexts = [
 		eng: "Wedding cake decorated with candles and white and pink roses",
 	},
 	{
+		it: "Cartolina personalizzata con i nomi degli sposi",
+		eng: "Personalized card with the couple's names",
+	},
+	{
 		it: "Pacchetti dei confetti con i nomi degli sposi",
 		eng: "Confetti packages with the couple's names",
 	},
@@ -514,13 +514,33 @@ const weddingAltTexts = [
 		it: "Cartolina personalizzata con i nomi degli sposi",
 		eng: "Personalized card with the couple's names",
 	},
+];
+const genderAltTexts = [
 	{
-		it: "Cartolina personalizzata con i nomi degli sposi",
-		eng: "Personalized card with the couple's names",
+		it: "Biscotti, bocce di confetti e palloncini rosa e azzurri",
+		eng: "Pink and blue cookies, candy bowls, and balloons",
 	},
 	{
-		it: "Panello con dedica davanti alla casa della sposa",
-		eng: "Panel with quote in front of the bride's house",
+		it: "Biscotti a forma di tutina rosa e azzurra",
+		eng: "Cookies in the shape of pink and blue pajamas",
+	},
+	{
+		it: "Quadretto con tutine rosa e azzurra",
+		eng: "Square with pink and blue pajamas",
+	},
+	{
+		it: "Alzatina decorata con metà tovaglia rosa e metà azzurra davanti a palloncini con scritta 'Boy' e 'Girl'",
+		eng: "Stand decorated with half pink and half blue tablecloth in front of 'Boy' and 'Girl' balloons",
+	},
+	{
+		it: "Vanessa che scatta una foto all'allestimento del gender reveal",
+		eng: "Vanessa taking a photo of the gender reveal setup",
+	},
+];
+const babyAltTexts = [
+	{
+		it: "Tavolo di legno con dolcetti, palloncini bianchi e beige e peluche di orso",
+		eng: "Wooden table with sweets, white and beige balloons, and teddy bear plush",
 	},
 ];
 const welcomeAltTexts = [
@@ -549,6 +569,18 @@ const welcomeAltTexts = [
 		eng: "Blue and white balloons and golden arch with 'Welcome' written on it",
 	},
 	{
+		it: "Biscotti personalizzati a forma di luna e orsetto",
+		eng: "Personalized cookies in the shape of a moon and teddy bear",
+	},
+	{
+		it: "Tavolo di benvenuto con tovagliato azzurro, nome dorato del bambino e dolcetti",
+		eng: "Welcome table with blue tablecloth, golden baby's name, and sweets",
+	},
+	{
+		it: "Tavolo di benvenuto con tovagliato azzurro, nome dorato del bambino e dolcetti davanti a un arco dorato con scritto 'Benvenuto'",
+		eng: "Welcome table with blue tablecloth, golden baby's name, and sweets in front of a golden arch with 'Welcome' written on it",
+	},
+	{
 		it: "Tavolo con fiocchi lilla e arco dorato con scritto 'Benvenuta'",
 		eng: "Table with lilac bows and golden arch with 'Welcome' written on it",
 	},
@@ -567,6 +599,152 @@ const welcomeAltTexts = [
 	{
 		it: "Scatoline con il nome della bambina e il fiocco rosa in una scatola con il coperchio di vetro e l'impugnatura a forma di iniziale del nome",
 		eng: "Boxes with the baby's name and pink bow in a glass lid box with handle in the shape of the initial of the name",
+	},
+	{
+		it: "Dolcetti e biscotti",
+		eng: "Sweets and cookies",
+	},
+	{
+		it: "Biscotto con scarpette di danza",
+		eng: "Cookie with ballet shoes",
+	},
+	{
+		it: "Biscotto con scritto 'Eccomi'",
+		eng: "Cookie with 'Here I am' written on it",
+	},
+	{
+		it: "Biscotto a forma di fiocco rosa",
+		eng: "Cookie in the shape of a pink bow",
+	},
+];
+const baptismAltTexts = [
+	{
+		it: "Dolcetti e confetti a tema coniglietti",
+		eng: "Bunny-themed sweets and candies",
+	},
+	{
+		it: "Battesimo a tema coniglietti con alzatine trasparenti e cartonato di coniglietto",
+		eng: "Bunny-themed baptism with transparent stands and bunny-themed card",
+	},
+	{
+		it: "Decorazioni a tema schiaccianoci",
+		eng: "Nutcracker-themed decorations",
+	},
+	{
+		it: "Torta a forma di fiocco bianco con scritto 'Battesimo' e il nome della bambina",
+		eng: "White ribbon-shaped cake with 'Baptism' and the baby's name written on it",
+	},
+	{
+		it: "Battesimo a tema schiaccianoci con cartonati raffiguranti i personaggi della favola",
+		eng: "Nutcracker-themed baptism with cards depicting the characters from the story",
+	},
+	{
+		it: "Stanza decorata a tema schiaccianoci",
+		eng: "Nutcracker-themed room decoration",
+	},
+	{
+		it: "Cartonato principessa dello schiaccianoci",
+		eng: "Princess card from the nutcracker story",
+	},
+	{
+		it: "Torta dorata con orsacchiotto e cerchio dorato decorato con palloncini",
+		eng: "Golden cake with teddy bear and golden circle decorated with balloons",
+	},
+	{
+		it: "Battesimo a tema orsacchiotto con palloncini dorati, bianchi e verdi",
+		eng: "Teddy bear-themed baptism with golden, white and green balloons",
+	},
+	{
+		it: "Tavolo della torta a tema arcobaleno",
+		eng: "Rainbow-themed cake table",
+	},
+	{
+		it: "Torta decorata con rose rosa",
+		eng: "Cake decorated with pink roses",
+	},
+	{
+		it: "Composizione floreale con margherite e fiori lilla",
+		eng: "Floral arrangement with daisies and lilac flowers",
+	},
+	{
+		it: "Palloncini rosa, arco dorato e scritta 'Battesimo'",
+		eng: "Pink balloons, golden arch and 'Baptism' sign",
+	},
+	{
+		it: "Biscotto personalizzato con il nome della bambina",
+		eng: "Personalized cookie with the baby's name",
+	},
+	{
+		it: "Torta con orsacchiotto che tiene un palloncino",
+		eng: "Cake with teddy bear holding a balloon",
+	},
+	{
+		it: "Alzatine a forma di colonne bianche, arco dorato e palloncini rosa",
+		eng: "White column-shaped stands, golden arch and pink balloons",
+	},
+	{
+		it: "Fiore in organza rosa",
+		eng: "Pink flower in tulle",
+	},
+	{
+		it: "Fiore in organza rosa",
+		eng: "Pink flower in tulle",
+	},
+	{
+		it: "Battesimo a tema barchetta",
+		eng: "Boat-themed baptism",
+	},
+	{
+		it: "Biscotto a forma di barchetta e barchetta di carta",
+		eng: "Cookie in the shape of a boat and paper boat",
+	},
+	{
+		it: "Tavolo apparecchiato decorato con barchetta di carta e vasi con rose bianche",
+		eng: "Table setting decorated with paper boat and vases with white roses",
+	},
+	{
+		it: "Biscotti personalizzati con il nome del bambino",
+		eng: "Personalized cookies with the child's name",
+	},
+	{
+		it: "Festa di battesimo in riva al mare",
+		eng: "Baptism party by the sea",
+	},
+	{
+		it: "Candele lilla con fiocchi rosa e quadretto con il nome della bambina battezzata",
+		eng: "Lilac candles with pink ribbons and frame with the baptized child's name",
+	},
+	{
+		it: "Festa di battesimo in riva al mare",
+		eng: "Baptism party by the sea",
+	},
+	{
+		it: "Battesimo a tema fatine",
+		eng: "Fairy-themed baptism",
+	},
+	{
+		it: "Arco dorato con cartonato di fatina e palloncini rosa e bianchi",
+		eng: "Golden arch with fairy-themed card and pink and white balloons",
+	},
+	{
+		it: "Torta decorata con fiori rosa e bianchi",
+		eng: "Cake decorated with pink and white flowers",
+	},
+	{
+		it: "Alzatine a forma di colonne bianche, archi dorati e grandi fiori rosa di carta",
+		eng: "White column-shaped stands, golden arches and large pink paper flowers",
+	},
+	{
+		it: "Torta decorata con fiori rosa e bianchi",
+		eng: "Cake decorated with pink and white flowers",
+	},
+	{
+		it: "Biscotti personalizzati con il nome della bambina",
+		eng: "Personalized cookies with the girl's name",
+	},
+	{
+		it: "Biscotti personalizzati con il nome della bambina e cake-pop",
+		eng: "Personalized cookies with the girl's name and cake-pop",
 	},
 ];
 const communionAltTexts = [
@@ -694,6 +872,34 @@ const communionAltTexts = [
 		it: "Scritta con il nome del bambino sulla torta",
 		eng: "Sign with the child's name on the cake",
 	},
+	{
+		it: "Alzatine dorate davanti a un pannello di peonie",
+		eng: "Golden stands in front of a peony panel",
+	},
+	{
+		it: "Scritta 'La mia Prima Comunione' su un pannello di peonie",
+		eng: "Sign 'My First Communion' on a peony panel",
+	},
+	{
+		it: "Scritta 'La mia Prima Comunione' su un pannello di peonie",
+		eng: "Sign 'My First Communion' on a peony panel",
+	},
+	{
+		it: "Tavolo di legno decorato con tulle verde e nebbiolina",
+		eng: "Wooden table decorated with green tulle and baby's breath",
+	},
+	{
+		it: "Pannello di legno con ciambelle glassate appese",
+		eng: "Iced donuts on a wooden panel",
+	},
+	{
+		it: "Alzatine bianche davanti a un cerchio decorato con palloncini azzurri e rampicanti",
+		eng: "White stands in front of a circle decorated with blue balloons and climbing plants",
+	},
+	{
+		it: "Quadretto con la scritta 'La mia Prima Comunione' e piccolo cerchio decorato con fiori bianchi e nebbiolina",
+		eng: "Frame with the sign 'My First Communion' and a small circle decorated with white flowers and baby's breath",
+	},
 ];
 const confirmationAltTexts = [
 	{
@@ -755,6 +961,14 @@ const confirmationAltTexts = [
 	{
 		it: "Confettata",
 		eng: "Candy table",
+	},
+	{
+		it: "Tavolo della torta davanti a archi dorati decorati con nebbiolina e rampicanti",
+		eng: "Cake table in front of golden arches decorated with baby's breath and climbing plants",
+	},
+	{
+		it: "Fiore di carta e nebbiolina",
+		eng: "Paper flower and baby's breath",
 	},
 ];
 const bdayAltTexts = [
@@ -859,6 +1073,10 @@ const bdayAltTexts = [
 		eng: "Travel-themed place cards",
 	},
 	{
+		it: "Mappa dei posti a sedere a tema viaggio",
+		eng: "Travel-themed seating chart",
+	},
+	{
 		it: "Alzatine a tema vespa",
 		eng: "Vespa-themed cake stands",
 	},
@@ -920,7 +1138,109 @@ const bdayAltTexts = [
 	},
 	{
 		it: "Setup torta decorato con tappeto di paglia, bouquet di fieno e palloncini verdi e dorati",
-		eng: "Cake setup decorated with straw carpet, hay bouquet, and green and gold balloons",
+		eng: "Cake setup decorated with straw mat, hay bouquet, and green and golden balloons",
+	},
+	{
+		it: "Scritta neon 'Happy Birthday' su pannello a tasselli neri",
+		eng: "Neon 'Happy Birthday' sign on black tile panel",
+	},
+	{
+		it: "Stanza decorata con palloncini, 18 luminoso e scritta neon 'Happy Birthday'",
+		eng: "Room decorated with balloons, illuminated number 18, and neon 'Happy Birthday' sign",
+	},
+	{
+		it: "Grande fiocco blu su pannello a tasselli argentati e scritta neon 'Happy Birthday'",
+		eng: "Large blue bow on silver tile panel and neon 'Happy Birthday' sign",
+	},
+	{
+		it: "Stanza decorata con grande fiocco blu, pannello a tasselli argentati, 18 luminoso, palloncini bianchi e scritta neon 'Happy Birthday'",
+		eng: "Room decorated with large blue bow, silver tile panel, illuminated number 18, white balloons, and neon 'Happy Birthday' sign",
+	},
+	{
+		it: "Fialetta di profumo come segna posto con nome del festeggiato e numero 18",
+		eng: "Fragrance bottle as a place card with the birthday person's name and number 18",
+	},
+	{
+		it: "Maschera del Carnevale di Venezia per un diciottesimo a tema ballo in maschera",
+		eng: "Venetian Carnival mask for an 18th birthday theme party",
+	},
+	{
+		it: "Nome della festeggiata dorato e glitterato su un pannello di tasselli neri",
+		eng: "Golden and glittered name of the birthday girl on a black tile panel",
+	},
+	{
+		it: "Maschera in pizzo nero e quadretto con nome della festeggiata e numero 18",
+		eng: "Black lace mask and frame featuring the birthday girl's name and the number 18",
+	},
+	{
+		it: "Vasi con rose bianche e candele",
+		eng: "Vases with white roses and candles",
+	},
+	{
+		it: "Quadretto del tavolo dei dolci e candela con nastro nero",
+		eng: "Frame of the dessert table and candle with black ribbon",
+	},
+	{
+		it: "Tavolo dei dolci con candelabri, vasi con rose bianche e runner di tulle nero",
+		eng: "Dessert table with candelabras, vases with white roses, and black tulle runner",
+	},
+	{
+		it: "Setup torta con alzatine trasparenti, grandi piume bianche e nere e nome dorato della festeggiata",
+		eng: "Cake setup with transparent stands, large white and black feathers, and golden name of the birthday girl",
+	},
+	{
+		it: "Tavolo apparecchiato e decorato con vasi di rose bianche",
+		eng: "Table set and decorated with vases of white roses",
+	},
+	{
+		it: "Setup torta con alzatine trasparenti, arco di palloncini e lucine e scritta neon 'Happy Birthday'",
+		eng: "Cake setup with transparent stands, balloon and fairy lights arch, and neon 'Happy Birthday' sign",
+	},
+];
+const graduationAltTexts = [
+	{
+		it: "Arco dorato con scritta 'Laurea', lucine e drappeggio rosso",
+		eng: "Golden arch with 'Graduation' sign, fairy lights and red drapery",
+	},
+	{
+		it: "Biscotti a forma di camice e stetoscopio",
+		eng: "Cookies in the shape of a lab coat and stethoscope",
+	},
+	{
+		it: "Cofanetto con confetti rossi e biscotto con disegnata una siringa",
+		eng: "Box with red confetti and cookie with a syringe drawn on it",
+	},
+	{
+		it: "Menù su tavolo apparecchiato con tovaglia bianca e runner di tulle rosso",
+		eng: "Menu on a table set with a white tablecloth and red tulle runner",
+	},
+	{
+		it: "Tavolo decorato con runner di tulle rosso e vasi con rose rosse e candele bianche",
+		eng: "Table decorated with red tulle runner and vases with red roses and white candles",
+	},
+	{
+		it: "Tavolo decorato con runner di tulle rosso e vasi con rose rosse e candele bianche",
+		eng: "Table decorated with red tulle runner and vases with red roses and white candles",
+	},
+	{
+		it: "Segnaposto con fiocco rosso, cartellino rotondo con su scritto 'Thank you' e cartellino con il nome della laureata",
+		eng: "Place card with red bow, round card with 'Thank you' written on it, and card with the graduate's name",
+	},
+	{
+		it: "Menù con nome della laureata",
+		eng: "Menu with the graduate's name",
+	},
+	{
+		it: "Cartellini con il nome della laureata e l'indicazione del corso di studi",
+		eng: "Place cards with the graduate's name and field of study",
+	},
+	{
+		it: "Arco dorato con scritta 'Laurea', lucine e drappeggio rosso",
+		eng: "Golden arch with 'Graduation' sign, fairy lights and red drapery",
+	},
+	{
+		it: "Vanessa sistema il drappeggio rosso dell'arco",
+		eng: "Vanessa arranges the red drapery of the arch",
 	},
 ];
 const partyAltTexts = [
@@ -1029,12 +1349,28 @@ const partyAltTexts = [
 		eng: "Birthday girl's name, number 60, and purple flowers on the birthday cake",
 	},
 	{
+		it: "Setup torta per un primo compleanno in giardino ",
+		eng: "Cake setup for a first birthday in the garden",
+	},
+	{
 		it: "Arco dorato con nome della festeggiata, palloncini e fiocchi rosa dietro all'alzatina con la torta",
 		eng: "Golden arch with birthday girl's name, balloons, and pink bows behind the cake stand",
 	},
 	{
 		it: "Fondale oro glitterato con torre di palloncini verde scuro dietro all'alzatina con la torta",
 		eng: "Glittery gold backdrop with dark green balloon tower behind the cake stand",
+	},
+	{
+		it: "Torta del primo compleanno",
+		eng: "First birthday cake",
+	},
+	{
+		it: "Setup con alzatine e cerchio di palloncini rosa, bianchi e lilla",
+		eng: "Setup with cake stands and a circle of pink, white, and lilac balloons",
+	},
+	{
+		it: "Setup con alzatine e cerchio di palloncini rosa, bianchi e lilla",
+		eng: "Setup with cake stands and a circle of pink, white, and lilac balloons",
 	},
 	{
 		it: "Palloncini, fiori e tulle intorno alla torta del primo compleanno",
@@ -1047,6 +1383,10 @@ const partyAltTexts = [
 	{
 		it: "Composizione di farfalle e palloncini avvolta in una luce blu vista dall'esterno del locale",
 		eng: "Composition of butterflies and balloons wrapped in blue light seen from outside the venue",
+	},
+	{
+		it: "Tavolo bianco con drappeggio nero davanti a un fondale con drappeggi neri e argento",
+		eng: "White table with black drapery in front of a backdrop with black and silver drapery",
 	},
 	{
 		it: "Scritta 'Hello 40' sulla torta del festeggiato",
@@ -1073,16 +1413,32 @@ const partyAltTexts = [
 		eng: "Ariel-themed backdrop behind the first birthday cake",
 	},
 	{
+		it: "Fiore rosa e boccetta di confetti",
+		eng: "Pink flower and confetti bottle",
+	},
+	{
+		it: "Tavolo della torta con tovaglia azzurra e fiori rosa",
+		eng: "Cake table with blue tablecloth and pink flowers",
+	},
+	{
+		it: "Vasetti con fiori rosa e candele lilla",
+		eng: "Vases with pink flowers and lilac candles",
+	},
+	{
+		it: "Torta con fiori rosa, numero 40 e nome della festeggiata",
+		eng: "Cake with pink flowers, the number 40, and the celebrant's name",
+	},
+	{
 		it: "Fiori rosa e candele viola decorano la torta di compleanno",
 		eng: "Pink flowers and purple candles decorate the birthday cake",
 	},
 	{
-		it: "Lettere illuminate che compongono la parola ONE, nuvolette, stelle e palloncini con coriandoli",
-		eng: "Illuminated letters forming the word ONE, clouds, stars, and balloons with confetti",
+		it: "Scenografia a tema unicorno per un primo compleanno",
+		eng: "Unicorn-themed setup for a first birthday",
 	},
 	{
-		it: "Setup torta e foto a tema Looney Tunes",
-		eng: "Looney Tunes-themed cake and photo setup",
+		it: "Lettere illuminate che compongono la parola ONE, nuvolette, stelle e palloncini con coriandoli",
+		eng: "Illuminated letters forming the word ONE, clouds, stars, and balloons with confetti",
 	},
 	{
 		it: "Setup torta a tema Inside Out per un sesto compleanno",
@@ -1109,6 +1465,18 @@ const partyAltTexts = [
 		eng: "Customized keychain with the girl's name and number 1",
 	},
 	{
+		it: "Torta del primo compleanno a tema margherite",
+		eng: "First birthday cake with daisy theme",
+	},
+	{
+		it: "Grande margherita davanti all'alzatina con la torta",
+		eng: "Large daisy in front of the cake stand with the cake",
+	},
+	{
+		it: "Caramelle a forma di margherita",
+		eng: "Daisy-shaped candies",
+	},
+	{
 		it: "Caramelle a forma di margherita e portachiavi personalizzato",
 		eng: "Customized daisy-shaped candies and keychains",
 	},
@@ -1119,6 +1487,102 @@ const partyAltTexts = [
 	{
 		it: "Tavolo della torta a tema circo",
 		eng: "Circus-themed cake table",
+	},
+	{
+		it: "Torta a tema circo",
+		eng: "Circus-themed cake",
+	},
+	{
+		it: "Tavolo della torta decorato con rose arancioni e merletti bianchi",
+		eng: "Cake table decorated with orange roses and white lace",
+	},
+	{
+		it: "Alzatina trasparente davanti a un fondale nero e arco di palloncini neri e dorati",
+		eng: "Transparent cake stand in front of a black backdrop and a arch of black and golden balloons",
+	},
+	{
+		it: "Tavolo della torta con tovagliato bianco e dorato e arco con numero 50",
+		eng: "Cake table with white and golden tablecloth and arch with the number 50",
+	},
+	{
+		it: "Scenografia per un primo compleanno a tema safari",
+		eng: "Safari-themed setup for a first birthday",
+	},
+	{
+		it: "Scenografia per un primo compleanno a tema safari",
+		eng: "Safari-themed setup for a first birthday",
+	},
+	{
+		it: "Torre di palloncini bianchi con tucano sulla cima",
+		eng: "Tower of white balloons with a toucan on top",
+	},
+	{
+		it: "Tavolo di legno con merletti bianchi, fiori rosa e candelabro",
+		eng: "Wooden table with white lace, pink flowers, and candelabra",
+	},
+	{
+		it: "Vaso in ottone con fiori rosa e ulivo",
+		eng: "Bronze vase with pink flowers and olive branches",
+	},
+	{
+		it: "Quadretto con il nome della festeggiata e rose lilla",
+		eng: "Picture with the celebrant's name and lilac roses",
+	},
+	{
+		it: "Setup torta per un primo compleanno in giardino ",
+		eng: "Cake setup for a first birthday in the garden",
+	},
+	{
+		it: "Compleanno a tema PokèMon",
+		eng: "PokèMon-themed birthday party",
+	},
+	{
+		it: "Scenografia per un compleanno in riva al mare",
+		eng: "Setup for a birthday by the sea",
+	},
+	{
+		it: "Orsacchiotto gigante su una vespa azzurra",
+		eng: "Giant teddy bear on a blue scooter",
+	},
+	{
+		it: "Scenografia a tema bosco per un compleanno in una grotta",
+		eng: "Forest-themed setup for a birthday in a cave",
+	},
+	{
+		it: "Vanessa scatta una foto alla scenografia a tema bosco",
+		eng: "Vanessa takes a photo of the forest-themed setup",
+	},
+	{
+		it: "Tavolo con tovagliato rosa, fiori rosa e arco dorato con scritta luminosa 'Happy Birthday'",
+		eng: "Table with pink tablecloth, pink flowers, and golden arch with luminous 'Happy Birthday' sign",
+	},
+	{
+		it: "Fiori rosa",
+		eng: "Pink flowers",
+	},
+	{
+		it: "Tavolo di legno con tovaglia di merletto bianco e cerchio decorato con fiori e merletti bianchi",
+		eng: "Wooden table with white lace tablecloth and a circle decorated with flowers and white lace",
+	},
+	{
+		it: "Primo compleanno a tema orsacchiotti",
+		eng: "First birthday party with teddy bear theme",
+	},
+	{
+		it: "Cartonato di un panda per la cerimonia di cambio cintura di una palestra di judo",
+		eng: "Panda cutout for the belt change ceremony at a judo gym",
+	},
+	{
+		it: "Scenografia a tema api",
+		eng: "Bee-themed setup",
+	},
+	{
+		it: "Arco di cartone con sole, palloncini e nebbiolina rosa",
+		eng: "Cardboard arch with sun, balloons, and pink baby-breath",
+	},
+	{
+		it: "Torta del primo compleanno con sole",
+		eng: "First birthday cake with sun",
 	},
 ];
 const showcaseAltTexts = [
@@ -1162,21 +1626,55 @@ const showcaseAltTexts = [
 		it: "Vetrina di un negozio decorata con renne luminose, ghirlande e stelle di natale",
 		eng: "Store window decorated with illuminated reindeer, wreaths, and Christmas stars",
 	},
+	{
+		it: "Vetrina natalizia con albero di Natale",
+		eng: "Christmas showcase with Christmas tree",
+	},
+	{
+		it: "Vetrina natalizia con casetta di Babbo Natale",
+		eng: "Christmas showcase with Santa's house",
+	},
+	{
+		it: "Composizione floreale con margherite in una vetrina di un negozio d'abbigliamento",
+		eng: "Floral arrangement with daisies in a clothing store window",
+	},
+	{
+		it: "Grandi margherite di carta decorano la vetrina di un negozio di abbigliamento",
+		eng: "Large paper daisies decorate the window of a clothing store",
+	},
 ];
 
-const weddingPhotos = Array.from({ length: 44 }, (_, i) => ({
+const weddingPhotos = Array.from({ length: 42 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/wedding/wedding-${i + 1}.jpg`,
 	alt: weddingAltTexts[i] || { it: "Wedding", eng: "Wedding" },
 }));
 
-const welcomePhotos = Array.from({ length: 11 }, (_, i) => ({
+const genderPhotos = Array.from({ length: 5 }, (_, i) => ({
+	id: i + 1,
+	src: `/img/gender/gender-${i + 1}.jpg`,
+	alt: genderAltTexts[i] || { it: "Gender Reveal", eng: "Gender Reveal" },
+}));
+
+const babyPhotos = Array.from({ length: 1 }, (_, i) => ({
+	id: i + 1,
+	src: `/img/baby/baby-${i + 1}.jpg`,
+	alt: babyAltTexts[i] || { it: "Baby Shower", eng: "Baby Shower" },
+}));
+
+const welcomePhotos = Array.from({ length: 18 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/welcome/welcome-${i + 1}.jpg`,
 	alt: welcomeAltTexts[i] || { it: "Welcome Home", eng: "Welcome Home" },
 }));
 
-const communionPhotos = Array.from({ length: 31 }, (_, i) => ({
+const baptismPhotos = Array.from({ length: 32 }, (_, i) => ({
+	id: i + 1,
+	src: `/img/baptism/baptism-${i + 1}.jpg`,
+	alt: baptismAltTexts[i] || { it: "Battesimo", eng: "Baptism" },
+}));
+
+const communionPhotos = Array.from({ length: 38 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/comunioni/comunioni-${i + 1}.jpg`,
 	alt: communionAltTexts[i] || {
@@ -1185,7 +1683,7 @@ const communionPhotos = Array.from({ length: 31 }, (_, i) => ({
 	},
 }));
 
-const confirmationPhotos = Array.from({ length: 15 }, (_, i) => ({
+const confirmationPhotos = Array.from({ length: 17 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/cresime/cresime-${i + 1}.jpg`,
 	alt: confirmationAltTexts[i] || {
@@ -1194,7 +1692,7 @@ const confirmationPhotos = Array.from({ length: 15 }, (_, i) => ({
 	},
 }));
 
-const bdayPhotos = Array.from({ length: 41 }, (_, i) => ({
+const bdayPhotos = Array.from({ length: 56 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/18esimi/18esimo-${i + 1}.jpg`,
 	alt: bdayAltTexts[i] || {
@@ -1203,13 +1701,19 @@ const bdayPhotos = Array.from({ length: 41 }, (_, i) => ({
 	},
 }));
 
-const partyPhotos = Array.from({ length: 49 }, (_, i) => ({
+const graduationPhotos = Array.from({ length: 11 }, (_, i) => ({
+	id: i + 1,
+	src: `/img/graduation/graduation-${i + 1}.jpg`,
+	alt: graduationAltTexts[i] || { it: "Laurea", eng: "Graduation" },
+}));
+
+const partyPhotos = Array.from({ length: 84 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/party/party-${i + 1}.jpg`,
 	alt: partyAltTexts[i] || { it: "Festa", eng: "Party" },
 }));
 
-const showcasePhotos = Array.from({ length: 10 }, (_, i) => ({
+const showcasePhotos = Array.from({ length: 14 }, (_, i) => ({
 	id: i + 1,
 	src: `/img/vetrine/vetrine-${i + 1}.jpg`,
 	alt: showcaseAltTexts[i] || { it: "Vetrina", eng: "Showcase" },
@@ -1226,6 +1730,27 @@ export const albumData = {
 		},
 		photos: weddingPhotos,
 	},
+	"gender-reveal": {
+		helmetData: {
+			title: "Album | Vanè Wedding & Event",
+		},
+		title: {
+			it: "GENDER REVEAL",
+			eng: "GENDER REVEAL",
+		},
+		photos: genderPhotos,
+	},
+
+	"baby-shower": {
+		helmetData: {
+			title: "Album | Vanè Wedding & Event",
+		},
+		title: {
+			it: "BABY SHOWER",
+			eng: "BABY SHOWER",
+		},
+		photos: babyPhotos,
+	},
 	"welcome-home": {
 		helmetData: {
 			title: "Album | Vanè Wedding & Event",
@@ -1235,6 +1760,16 @@ export const albumData = {
 			eng: "WELCOME HOME",
 		},
 		photos: welcomePhotos,
+	},
+	baptism: {
+		helmetData: {
+			title: "Album | Vanè Wedding & Event",
+		},
+		title: {
+			it: "BATTESIMO",
+			eng: "BAPTISM",
+		},
+		photos: baptismPhotos,
 	},
 	communion: {
 		helmetData: {
@@ -1265,6 +1800,16 @@ export const albumData = {
 			eng: "18TH BIRTHDAY",
 		},
 		photos: bdayPhotos,
+	},
+	graduation: {
+		helmetData: {
+			title: "Album | Vanè Wedding & Event",
+		},
+		title: {
+			it: "LAUREA",
+			eng: "GRADUATION",
+		},
+		photos: graduationPhotos,
 	},
 	party: {
 		helmetData: {
