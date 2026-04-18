@@ -15,7 +15,7 @@ export default function useViewport() {
     const handleResize = () => {
       // check window dimension
       setActualViewPort(setIsMobile, 0, 567);
-      setActualViewPort(setIsTablet, 568, 768);
+      setActualViewPort(setIsTablet, 568, 1023);
     };
 
     // inizialize Dinamic view port

@@ -28,35 +28,51 @@ export default function App() {
   //CARICAMENTO REALE
   useEffect(() => {
     const startTime = performance.now(); // quando inizia il loader
-    const images = document.images;
+    const images = Array.from(document.images).filter(
+      (img) => img.loading !== "lazy"
+    );
     const totalImages = images.length;
     let loadedImages = 0;
+    let didFinish = false;
 
-    if (totalImages === 0) {
-      // se non ci sono immagini, comunque aspetta almeno 1s
+    const finishLoading = () => {
+      if (didFinish) return;
+      didFinish = true;
       const elapsed = performance.now() - startTime;
       const remaining = Math.max(1000 - elapsed, 0);
       setTimeout(() => setIsLoading(false), remaining);
+    };
+
+    if (totalImages === 0) {
+      // se non ci sono immagini bloccanti, comunque aspetta almeno 1s
+      finishLoading();
       return;
     }
 
     const imageLoaded = () => {
       loadedImages++;
       if (loadedImages === totalImages) {
-        const elapsed = performance.now() - startTime;
-        const remaining = Math.max(1000 - elapsed, 0); // minimo 1s
-        setTimeout(() => setIsLoading(false), remaining);
+        finishLoading();
       }
     };
 
-    Array.from(images).forEach((img) => {
+    images.forEach((img) => {
       if (img.complete) {
         imageLoaded();
       } else {
-        img.addEventListener("load", imageLoaded);
-        img.addEventListener("error", imageLoaded);
+        img.addEventListener("load", imageLoaded, { once: true });
+        img.addEventListener("error", imageLoaded, { once: true });
       }
     });
+
+    // fallback di sicurezza: evita loader infinito se un asset resta appeso
+    const safetyTimer = setTimeout(() => {
+      finishLoading();
+    }, 5000);
+
+    return () => {
+      clearTimeout(safetyTimer);
+    };
   }, []);
 
   // quando isLoading diventa false, aspetta 1s per far scendere il loader

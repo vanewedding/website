@@ -11,194 +11,246 @@ import useBodyScrollLock from "../hooks/useBodyScrollLock";
 import { Helmet } from "react-helmet-async";
 
 export default function AlbumPage() {
-	const { it, isMobile, isTablet } = useContext(GlobalContext);
-	const { slug } = useParams();
-	const album = albumData[slug];
-	const containerRef = useRef(null);
-	const defaultLayout = isMobile || isTablet ? "layoutSlider" : "layoutGrid";
-	const [activeLayout, setActiveLayout] = useState(defaultLayout);
-	const [activePicture, setActivePicture] = useState(1);
-	const [isLightBoxOpen, setIsLightBoxOpen] = useState(false);
+  const { it, isMobile, isTablet } = useContext(GlobalContext);
+  const { slug } = useParams();
+  const album = albumData[slug];
+  const isCompactViewport = isMobile || isTablet;
 
-	useBodyScrollLock(isLightBoxOpen);
+  if (!album)
+    return (
+      <div className="mx-5 flex justify-center items-center h-[calc(100vh-8rem)]">
+        {it
+          ? "Non ci sono ancora foto in questo album"
+          : "There are still no pictures in this album"}
+      </div>
+    );
 
-	// inizializza Macy
-	useEffect(() => {
-		if (!album || !containerRef.current) return;
+  return (
+    <AlbumPageContent
+      key={`${slug}-${isCompactViewport ? "compact" : "desktop"}`}
+      album={album}
+      it={it}
+      isMobile={isMobile}
+      isTablet={isTablet}
+      isCompactViewport={isCompactViewport}
+    />
+  );
+}
 
-		const macyInstance = Macy({
-			container: containerRef.current,
-			trueOrder: false, // mantiene l’ordine naturale o meno
-			waitForImages: true, // attende il caricamento delle immagini
-			columns: 4, // default numero di colonne
-			margin: 0,
-			padding: 0,
-			breakAt: {
-				1024: 4,
-				768: 3,
-				480: 2,
-			},
-		});
+function AlbumPageContent({
+  album,
+  it,
+  isMobile,
+  isTablet,
+  isCompactViewport,
+}) {
+  const containerRef = useRef(null);
+  const shouldScrollToTopRef = useRef(false);
+  const eagerImageCount = isCompactViewport ? 2 : 6;
+  const [activeLayout, setActiveLayout] = useState(
+    isCompactViewport ? "layoutSlider" : "layoutGrid"
+  );
+  const [activePicture, setActivePicture] = useState(0);
+  const [isLightBoxOpen, setIsLightBoxOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-		return () => macyInstance.remove(); // cleanup
-	}, [album, activeLayout]);
+  useBodyScrollLock(isLightBoxOpen);
 
-	if (!album)
-		return (
-			<div className="mx-5 flex justify-center items-center h-[calc(100vh-8rem)]">
-				{it
-					? "Non ci sono ancora foto in questo album"
-					: "There are still no pictures in this album"}
-			</div>
-		);
-	return (
-		<>
-			<Helmet>
-				<title>{album.helmetData.title}</title>
-				<meta name="description" content={album.helmetData.description} />
-			</Helmet>
-			<section className="my-6">
-				<Title
-					text={it ? album.title.it : album.title.eng}
-					colorBg={"bg-bordeaux"}
-				/>
-				<div className="my-3">
-					{/* pulsanti layout */}
-					{isMobile || isTablet ? (
-						<>
-							{/* Layout condizionale */}
-							{activeLayout === "layoutGrid" ? (
-								<div ref={containerRef}>
-									{album.photos.map((img) => (
-										<div
-											key={img.id}
-											onClick={() => {
-												if (activeLayout !== "layoutSlider") {
-													setActiveLayout("layoutSlider");
-												}
-												setActivePicture(img.id);
-											}}
-											className="cursor-pointer"
-										>
-											<Image
-												src={img.src}
-												alt={it ? img.alt.it : img.alt.eng}
-												isMask={false}
-												isMobileRounded={true}
-												isDesktopRounded={true}
-												isMobileOverlay={false}
-												isDesktopOverlay={false}
-												isDesktopMask={false}
-												isShadowed
-												customStyleBox="w-full p-3"
-												customStyleImg=""
-											/>
-										</div>
-									))}
-								</div>
-							) : (
-								<Slider
-									activePicture={activePicture}
-									photos={album.photos}
-									showThumbs={true}
-									isMobile={true}
-									isNavigation={true}
-									isSingleSlide={true}
-									isMaskTop={false}
-									isMaskHorizontal={true}
-									isOrginalSize={true}
-									customStyleBox="h-[calc(100vh-22rem)]"
-									customSpeed={500}
-								/>
-							)}
+  // inizializza Macy
+  useEffect(() => {
+    if (!album || !containerRef.current || isCompactViewport) return;
 
-							<div className="fixed top-18 right-0 z-20 flex gap-3 mx-2">
-								{activeLayout === "layoutGrid" ? (
-									<div
-										className="bg-off-white rounded-full p-2 text-4xl text-brand-pink cursor-pointer"
-										onClick={() =>
-											activeLayout !== "layoutSlider" &&
-											setActiveLayout("layoutSlider")
-										}
-									>
-										<RiLayoutBottomFill />
-									</div>
-								) : (
-									<div
-										className="bg-off-white  rounded-full p-2 text-4xl text-brand-pink cursor-pointer"
-										onClick={() =>
-											activeLayout !== "layoutGrid" &&
-											setActiveLayout("layoutGrid")
-										}
-									>
-										<RiLayoutMasonryFill />
-									</div>
-								)}
-							</div>
-						</>
-					) : (
-						// DESKTOP
-						<div ref={containerRef}>
-							{album.photos.map((img) => (
-								<div
-									key={img.id}
-									onClick={() => {
-										setActivePicture(img.id);
-										setIsLightBoxOpen(true);
-									}}
-									className="cursor-pointer"
-								>
-									<Image
-										src={img.src}
-										alt={it ? img.alt.it : img.alt.eng}
-										isMask={false}
-										isMobileRounded={true}
-										isDesktopRounded={true}
-										customStyleBox="w-full p-3"
-										isMobileOverlay={false}
-										isDesktopOverlay={false}
-										isDesktopMask={false}
-										isShadowed
-									/>
-								</div>
-							))}
-						</div>
-					)}
-					{/* Lightbox */}
-					{isLightBoxOpen && (
-						<>
-							<div className="relative w-screen h-screen">
-								<div className="fixed top-16 w-screen h-screen bg-black/85 ">
-									<div className="absolute right-0 mr-6 mt-6">
-										<svg
-											className="size-8 cursor-pointer text-off-white"
-											fill=""
-											stroke="currentColor"
-											strokeWidth="2"
-											viewBox="0 0 24 24"
-											onClick={() => setIsLightBoxOpen(false)}
-										>
-											<line x1="18" y1="6" x2="6" y2="18" />
-											<line x1="6" y1="6" x2="18" y2="18" />
-										</svg>
-									</div>
-									<div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
-										<img
-											src={album.photos[activePicture - 1].src}
-											alt={
-												it
-													? album.photos[activePicture - 1].alt.it
-													: album.photos[activePicture - 1].alt.eng
-											}
-											className="h-5/6 rounded-xl object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-						</>
-					)}
-				</div>
-			</section>
-		</>
-	);
+    const macyInstance = Macy({
+      container: containerRef.current,
+      trueOrder: false, // mantiene l’ordine naturale o meno
+      waitForImages: true, // attende il caricamento delle immagini
+      columns: 4, // default numero di colonne
+      margin: 0,
+      padding: 0,
+      breakAt: {
+        1024: 4,
+        768: 3,
+        480: 2,
+      },
+    });
+
+    return () => macyInstance.remove(); // cleanup
+  }, [album, isCompactViewport]);
+
+  useEffect(() => {
+    if (
+      !isCompactViewport ||
+      activeLayout !== "layoutSlider" ||
+      !shouldScrollToTopRef.current
+    ) {
+      return;
+    }
+
+    shouldScrollToTopRef.current = false;
+
+    const frameId = window.requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [activeLayout, isCompactViewport]);
+
+  return (
+    <>
+      <Helmet>
+        <title>{album.helmetData.title}</title>
+        <meta name="description" content={album.helmetData.description} />
+      </Helmet>
+      <section className="my-6">
+        <Title
+          text={it ? album.title.it : album.title.eng}
+          colorBg={"bg-bordeaux"}
+        />
+        <div className="my-3">
+          {/* pulsanti layout */}
+          {isMobile || isTablet ? (
+            <>
+              {/* Layout condizionale */}
+              {activeLayout === "layoutGrid" ? (
+                <div ref={containerRef}>
+                  {album.photos.map((img, index) => (
+                    <div
+                      key={img.src}
+                      onClick={() => {
+                        shouldScrollToTopRef.current = true;
+                        if (activeLayout !== "layoutSlider") {
+                          setActiveLayout("layoutSlider");
+                        }
+                        setActivePicture(index);
+                      }}
+                      className="cursor-pointer"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={it ? img.alt.it : img.alt.eng}
+                        isFastLoad={index === 0}
+                        isMask={false}
+                        isMobileRounded={true}
+                        isDesktopRounded={true}
+                        isMobileOverlay={false}
+                        isDesktopOverlay={false}
+                        isDesktopMask={false}
+                        isShadowed
+                        isLazy={index >= eagerImageCount}
+                        customStyleBox="w-full p-3"
+                        customStyleImg=""
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <Slider
+                  activePicture={activePicture}
+                  photos={album.photos}
+                  showThumbs={true}
+                  isMobile={true}
+                  isNavigation={true}
+                  isSingleSlide={true}
+                  isMaskTop={false}
+                  isMaskHorizontal={true}
+                  isOrginalSize={true}
+                  customStyleBox="h-[calc(100vh-22rem)]"
+                  customSpeed={500}
+                />
+              )}
+
+              <div className="fixed top-18 right-0 z-20 flex gap-3 mx-2">
+                {activeLayout === "layoutGrid" ? (
+                  <div
+                    className="bg-off-white rounded-full p-2 text-4xl text-brand-pink cursor-pointer"
+                    onClick={() =>
+                      activeLayout !== "layoutSlider" &&
+                      setActiveLayout("layoutSlider")
+                    }
+                  >
+                    <RiLayoutBottomFill />
+                  </div>
+                ) : (
+                  <div
+                    className="bg-off-white  rounded-full p-2 text-4xl text-brand-pink cursor-pointer"
+                    onClick={() =>
+                      activeLayout !== "layoutGrid" &&
+                      setActiveLayout("layoutGrid")
+                    }
+                  >
+                    <RiLayoutMasonryFill />
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            // DESKTOP
+            <div ref={containerRef}>
+              {album.photos.map((img, index) => (
+                <div
+                  key={img.src}
+                  onClick={() => {
+                    setActivePicture(index);
+                    setSelectedPhoto(img);
+                    setIsLightBoxOpen(true);
+                  }}
+                  className="cursor-pointer"
+                >
+                  <Image
+                    src={img.src}
+                    alt={it ? img.alt.it : img.alt.eng}
+                    isFastLoad={index === 0}
+                    isMask={false}
+                    isMobileRounded={true}
+                    isDesktopRounded={true}
+                    customStyleBox="w-full p-3"
+                    isMobileOverlay={false}
+                    isDesktopOverlay={false}
+                    isDesktopMask={false}
+                    isShadowed
+                    isLazy={index >= eagerImageCount}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+          {/* Lightbox */}
+          {isLightBoxOpen && selectedPhoto && (
+            <>
+              <div className="relative w-screen h-screen">
+                <div className="fixed top-16 w-screen h-screen bg-black/85 ">
+                  <div className="absolute right-0 mr-6 mt-6">
+                    <svg
+                      className="size-8 cursor-pointer text-off-white"
+                      fill=""
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      onClick={() => {
+                        setIsLightBoxOpen(false);
+                        setSelectedPhoto(null);
+                      }}
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </div>
+                  <div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
+                    <img
+                      src={selectedPhoto.src}
+                      alt={it ? selectedPhoto.alt.it : selectedPhoto.alt.eng}
+                      className="h-5/6 rounded-xl object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    </>
+  );
 }

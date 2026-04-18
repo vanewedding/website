@@ -1,7 +1,7 @@
 import Title from "../components/visual/Title";
 import { aboutMe } from "../data/home";
 import VariantComposer from "../components/visual/VariantComposer";
-export default function Aboutme(it) {
+export default function Aboutme({ it }) {
   return (
     <section>
       <Title

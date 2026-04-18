@@ -14,6 +14,7 @@ export default function Image({
   isMobileRounded = false,
   isShadowed = false,
   isFastLoad = false,
+  isLazy = true,
 }) {
   const [loaded, setLoaded] = useState(false);
 
@@ -22,7 +23,7 @@ export default function Image({
   return (
     <div
       className={`
-        relative overflow-hidden
+        relative 
         ${listSize === 1 ? "w-full" : "w-64"}
         ${customStyleBox}
       `}
@@ -51,7 +52,11 @@ export default function Image({
           ${isShadowed && "shadow-md shadow-bordeaux/60"}
           ${customStyleImg}
         `}
-        {...(isLCP ? { fetchPriority: "high" } : { loading: "lazy" })}
+        {...(isLCP
+          ? { fetchPriority: "high" }
+          : isLazy
+          ? { loading: "lazy" }
+          : { loading: "eager" })}
       />
     </div>
   );

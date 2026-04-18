@@ -3,7 +3,7 @@ import { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 import { Helmet } from "react-helmet-async";
 // data
-import { galleryData, helmetData } from "../data/gallery";
+import { galleryData, helmetData, albumData } from "../data/gallery";
 // components
 import Title from "../components/visual/Title";
 import VariantComposer from "../components/visual/VariantComposer";
@@ -48,7 +48,9 @@ export default function GalleryPage() {
 					customStyleImg="h-[calc(100vh-8rem)]"
 				/>
 				<div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:m-4">
-					{album.map((data) =>
+					{album
+						.filter((data) => albumData[data.buttonData.url])
+						.map((data) =>
 						data.id !== 1 ? (
 							<VariantComposer
 								key={data.id}
