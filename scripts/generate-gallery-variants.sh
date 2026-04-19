@@ -20,7 +20,7 @@ album_dirs=(
   "vetrine"
 )
 
-thumb_size=480
+thumb_size=720
 slide_size=1440
 
 mkdir -p "$TARGET_DIR/thumbs" "$TARGET_DIR/slides"
@@ -33,7 +33,7 @@ for album_dir in "${album_dirs[@]}"; do
 
     mkdir -p "$(dirname "$thumb_target")" "$(dirname "$slide_target")"
 
-    sips -s format jpeg -s formatOptions 45 -Z "$thumb_size" "$source_file" --out "$thumb_target" >/dev/null 2>/dev/null
+    sips -s format jpeg -s formatOptions 66 -Z "$thumb_size" "$source_file" --out "$thumb_target" >/dev/null 2>/dev/null
     sips -s format jpeg -s formatOptions 72 -Z "$slide_size" "$source_file" --out "$slide_target" >/dev/null 2>/dev/null
   done < <(
     find "$SOURCE_DIR/$album_dir" -type f \

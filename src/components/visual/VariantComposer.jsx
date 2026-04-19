@@ -113,6 +113,8 @@ export default function VariantComposer({
 									key={img.id}
 									src={img.src}
 									alt={it ? img.alt.it : img.alt.eng}
+									width={img.width}
+									height={img.height}
 									listSize={data.images.length}
 									isMask={isMask}
 									customStyleImg={customStyleImg}
@@ -137,6 +139,8 @@ export default function VariantComposer({
 							<img
 								src={data.imgPropic.src}
 								alt={it ? data.imgPropic.alt.it : data.imgPropic.alt.eng}
+								width="256"
+								height="256"
 								className="size-64 rounded-full  border-brand-pink border-2 shadow-sm shadow-brand-pink"
 							/>
 						</div>
@@ -254,6 +258,8 @@ export default function VariantComposer({
 										key={img.id}
 										src={img.src}
 										alt={it ? img.alt.it : img.alt.eng}
+										width={img.width}
+										height={img.height}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -289,6 +295,8 @@ export default function VariantComposer({
 										key={img.id}
 										src={img.src}
 										alt={it ? img.alt.it : img.alt.eng}
+										width={img.width}
+										height={img.height}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -328,6 +336,8 @@ export default function VariantComposer({
 										key={img.id}
 										src={img.src}
 										alt={it ? img.alt.it : img.alt.eng}
+										width={img.width}
+										height={img.height}
 										listSize={data.images.length}
 										isMask={isMask}
 										isDesktopRounded={isDesktopRounded}
@@ -416,7 +426,13 @@ export default function VariantComposer({
 												rel="noopener noreferrer"
 												className=""
 											>
-												<img src={logo.src} alt={logo.alt} className="w-full" />
+												<img
+													src={logo.src}
+													alt={logo.alt}
+													width="192"
+													height="96"
+													className="w-full"
+												/>
 											</a>
 										</div>
 									))}

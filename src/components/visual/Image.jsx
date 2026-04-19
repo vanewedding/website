@@ -15,6 +15,8 @@ export default function Image({
   isShadowed = false,
   isFastLoad = false,
   isLazy = true,
+  width,
+  height,
 }) {
   const [loaded, setLoaded] = useState(false);
 
@@ -36,6 +38,8 @@ export default function Image({
       <img
         src={src}
         alt={alt}
+        width={width}
+        height={height}
         decoding="async"
         onLoad={() => setLoaded(true)}
         className={`

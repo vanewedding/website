@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { useLocation } from "react-router-dom";
 import useLang from "../../../hooks/useLang";
 
 const BASE_URL = "https://www.vanewedding.it";
@@ -21,16 +20,6 @@ function withBaseUrl(url = DEFAULT_IMAGE) {
 	return url;
 }
 
-function switchLang(pathname, targetLang) {
-	if (!pathname || pathname === "/") return targetLang === "it" ? "/it/" : "/eng/";
-	return pathname.replace(/^\/(it|eng)(?=\/|$)/, `/${targetLang}`);
-}
-
-function canonicalFromPath(pathname) {
-	if (!pathname || pathname === "/" || pathname === "/it/") return `${BASE_URL}/`;
-	return `${BASE_URL}/#${pathname}`;
-}
-
 export default function Seo({
 	title,
 	description,
@@ -40,11 +29,8 @@ export default function Seo({
 	noindex = false,
 	structuredData,
 }) {
-	const location = useLocation();
 	const lang = useLang();
-	const canonicalUrl = canonicalFromPath(location.pathname);
-	const italianUrl = canonicalFromPath(switchLang(location.pathname, "it"));
-	const englishUrl = canonicalFromPath(switchLang(location.pathname, "eng"));
+	const canonicalUrl = `${BASE_URL}/`;
 	const robots = noindex ? "noindex, follow" : "index, follow";
 	const jsonLd = Array.isArray(structuredData)
 		? structuredData
@@ -63,9 +49,6 @@ export default function Seo({
 			<meta name="application-name" content="Vanè Wedding & Event Creator" />
 
 			<link rel="canonical" href={canonicalUrl} />
-			<link rel="alternate" hrefLang="it" href={italianUrl} />
-			<link rel="alternate" hrefLang="en" href={englishUrl} />
-			<link rel="alternate" hrefLang="x-default" href={`${BASE_URL}/`} />
 
 			<meta property="og:site_name" content="Vanè Wedding & Event Creator" />
 			<meta property="og:title" content={title} />

@@ -1,16 +1,16 @@
-import gallery1 from "/img/comunioni/comunioni-1.jpg";
-import gallery2 from "/img/wedding/wedding-2.jpg";
-import gallery3 from "/img/party/party-2.jpg";
-import gallery4 from "/img/wedding/wedding-16.jpg";
-import gallery5 from "/img/cresime/cresime-10.jpg";
-import gallery6 from "/img/18esimi/18esimo-3.jpg";
-import studio1 from "/img/studio1.jpg";
-import studio2 from "/img/studio2.jpg";
-import studio3 from "/img/studio3.jpg";
-import studio4 from "/img/studio4.jpg";
-import studio5 from "/img/studio5.jpg";
-import studio6 from "/img/studio6.jpg";
-import maps from "/img/maps.png";
+import gallery1 from "/img-optimized/slides/comunioni/comunioni-1.jpg";
+import gallery2 from "/img-optimized/slides/wedding/wedding-2.jpg";
+import gallery3 from "/img-optimized/slides/party/party-2.jpg";
+import gallery4 from "/img-optimized/slides/wedding/wedding-16.jpg";
+import gallery5 from "/img-optimized/slides/cresime/cresime-10.jpg";
+import gallery6 from "/img-optimized/slides/18esimi/18esimo-3.jpg";
+import studio1 from "/img-optimized/home/studio/studio1.jpg";
+import studio2 from "/img-optimized/home/studio/studio2.jpg";
+import studio3 from "/img-optimized/home/studio/studio3.jpg";
+import studio4 from "/img-optimized/home/studio/studio4.jpg";
+import studio5 from "/img-optimized/home/studio/studio5.jpg";
+import studio6 from "/img-optimized/home/studio/studio6.jpg";
+import maps from "/img-optimized/home/maps.jpg";
 import about1 from "/img/about1.jpg";
 import about2 from "/img/about2.jpg";
 import logo1 from "../assets/svg/logo1.svg";
@@ -177,6 +177,8 @@ export const studio = {
 		{
 			id: 1,
 			src: maps,
+			width: 900,
+			height: 384,
 			alt: "mappa",
 		},
 	],
@@ -246,7 +248,10 @@ export const aboutMe = {
 	],
 	imgPropic: {
 		src: propic,
-		alt: "immagine di profilo",
+		alt: {
+			it: "Ritratto di Vanessa Fronterrè",
+			eng: "Portrait of Vanessa Fronterrè",
+		},
 	},
 	buttonData: {
 		it: "SCOPRI DI PIÙ",

@@ -1,6 +1,6 @@
 import logo from "/logo_lite_w.svg";
 import arrow from "../assets/svg/arrow.svg";
-import herobg from "/img/hero.jpg";
+import herobg from "/img-optimized/home/hero.jpg";
 import Title from "../components/visual/Title";
 import { hero } from "../data/home";
 
@@ -15,6 +15,8 @@ export default function HeroSection({ it }) {
 			<img
 				src={herobg}
 				alt={it ? hero.bgAlt.it : hero.bgAlt.eng}
+				width="1350"
+				height="1800"
 				className="absolute h-full w-full object-cover object-[90%_10%]  brightness-50"
 				fetchPriority="high"
 			/>
@@ -46,7 +48,8 @@ export default function HeroSection({ it }) {
 					src={arrow}
 					alt={it ? hero.iconAlt.it : hero.iconAlt.eng}
 					className="size-6 animate-bouncy"
-					fetchPriority="high"
+					loading="lazy"
+					decoding="async"
 				></img>
 			</div>
 		</section>

@@ -1,4 +1,4 @@
-import footer from "/img/footer.jpg";
+import footer from "/img-optimized/home/footer.jpg";
 import logoLiteWhite from "/logo_lite_w.svg";
 import fb from "../assets/svg/fb.svg";
 import ig from "../assets/svg/ig.svg";
@@ -36,6 +36,8 @@ export const footerData = {
     {
       id: 1,
       src: footer,
+      width: 1000,
+      height: 446,
       alt: {
         it: "Allestimento tavolo elegante con fiori e candele",
         eng: "Elegant table setting with flowers and candles",

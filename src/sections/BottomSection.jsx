@@ -9,7 +9,8 @@ export default function BottomSection({ bottomSection, it }) {
 					src={bottomSection.logo.svg}
 					alt={bottomSection.logo.alt}
 					className="size-16 lg:size-24"
-					fetchpriority="high"
+					loading="lazy"
+					decoding="async"
 				></img>
 			</div>
 			{/* Figlio 2: Social + Indirizzo */}
@@ -26,7 +27,8 @@ export default function BottomSection({ bottomSection, it }) {
 								src={l.svg}
 								alt={l.alt}
 								className="size-8 lg:size-6 lg:mb-6"
-								fetchpriority="high"
+								loading="lazy"
+								decoding="async"
 							/>
 						</a>
 					))}
