@@ -16,14 +16,14 @@ export default function HeroSection({ it }) {
 				src={herobg}
 				alt={it ? hero.bgAlt.it : hero.bgAlt.eng}
 				className="absolute h-full w-full object-cover object-[90%_10%]  brightness-50"
-				fetchpriority="high"
+				fetchPriority="high"
 			/>
 			{/* logo */}
 			<img
 				src={logo}
 				alt="Logo Vanè Wedding & Event Creator"
 				className="size-16 lg:size-32 z-1"
-				fetchpriority="high"
+				fetchPriority="high"
 			/>
 			<div className="w-full z-1">
 				<Title
@@ -46,7 +46,7 @@ export default function HeroSection({ it }) {
 					src={arrow}
 					alt={it ? hero.iconAlt.it : hero.iconAlt.eng}
 					className="size-6 animate-bouncy"
-					fetchpriority="high"
+					fetchPriority="high"
 				></img>
 			</div>
 		</section>

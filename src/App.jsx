@@ -21,6 +21,27 @@ import Loader from "./components/visual/Loader";
 //Hooks
 import ScrollToTop from "./components/technical/scrollToTop/ScrollToTop";
 
+const LOADER_SESSION_KEY = "vaneLoaderSeen";
+const FIRST_LOAD_MIN_MS = 450;
+const REPEAT_LOAD_MIN_MS = 0;
+const SAFETY_TIMEOUT_MS = 3000;
+
+function hasSeenLoader() {
+  try {
+    return window.sessionStorage.getItem(LOADER_SESSION_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function rememberLoader() {
+  try {
+    window.sessionStorage.setItem(LOADER_SESSION_KEY, "true");
+  } catch {
+    // Session storage can be unavailable in restricted browsing modes.
+  }
+}
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
@@ -39,8 +60,12 @@ export default function App() {
       if (didFinish) return;
       didFinish = true;
       const elapsed = performance.now() - startTime;
-      const remaining = Math.max(1000 - elapsed, 0);
-      setTimeout(() => setIsLoading(false), remaining);
+      const minDuration = hasSeenLoader() ? REPEAT_LOAD_MIN_MS : FIRST_LOAD_MIN_MS;
+      const remaining = Math.max(minDuration - elapsed, 0);
+      setTimeout(() => {
+        rememberLoader();
+        setIsLoading(false);
+      }, remaining);
     };
 
     if (totalImages === 0) {
@@ -68,7 +93,7 @@ export default function App() {
     // fallback di sicurezza: evita loader infinito se un asset resta appeso
     const safetyTimer = setTimeout(() => {
       finishLoading();
-    }, 5000);
+    }, SAFETY_TIMEOUT_MS);
 
     return () => {
       clearTimeout(safetyTimer);
