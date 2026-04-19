@@ -11,15 +11,15 @@ import party from "/img/party/party-1.jpg";
 import showcases from "/img/vetrine/vetrine-1.jpg";
 import { LINK_TYPE } from "../constants/enum";
 export const helmetData = {
-	title: "Gallery | Vanè Wedding & Event",
+	title: "Portfolio Matrimoni ed Eventi in Sicilia | Vanè",
 	description:
-		"Esplora la galleria fotografica di matrimoni, eventi e cerimonie curati da Vanessa Fronterrè. Portfolio completo di wedding design a Pozzallo, Ragusa, Sicilia.",
+		"Esplora matrimoni, destination wedding, cerimonie ed eventi curati da Vanè a Pozzallo, Ragusa e in Sicilia.",
 	keywords:
-		"galleria matrimoni, foto matrimoni Sicilia, portfolio wedding, fotografie matrimoni Pozzallo, eventi Ragusa, wedding photography, gallery matrimoni, cerimonie",
-	ogtitle: "Gallery | Vanè Wedding & Event",
+		"portfolio matrimoni Sicilia, gallery matrimoni Pozzallo, wedding design Ragusa, destination wedding Sicilia, eventi Pozzallo, eventi Ragusa, allestimenti matrimonio Sicilia, cerimonie Sicilia",
+	ogtitle: "Portfolio Matrimoni ed Eventi in Sicilia | Vanè",
 	ogtype: "website",
 	ogdescription:
-		"Esplora la galleria fotografica di matrimoni, eventi e cerimonie curati da Vanessa Fronterrè. Portfolio completo di wedding design a Pozzallo, Ragusa, Sicilia.",
+		"Gallery di matrimoni, destination wedding, cerimonie ed eventi progettati in Sicilia.",
 	ogurl: "https://www.vanewedding.it/#/it/gallery",
 	ogimage: "https://www.vanewedding.it/img/gallery1.jpg",
 };

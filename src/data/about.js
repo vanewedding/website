@@ -17,15 +17,15 @@ import logoCatania from "../assets/svg/logo1.svg";
 import logoVanePink from "/logo_pink.svg";
 
 export const helmetData = {
-	title: "About | Vanè Wedding & Event",
+	title: "Vanessa Fronterrè Wedding Planner a Pozzallo | Vanè",
 	description:
-		"Scopri la storia di Vanessa Fronterrè, wedding planner e event creator specializzata in graphic design, con formazione all'Accademia delle Belle Arti di Catania e all'Accademia del Wedding.",
+		"Scopri Vanessa Fronterrè, wedding planner ed event creator a Pozzallo, Ragusa, Sicilia, specializzata in design per matrimoni, destination wedding ed eventi.",
 	keywords:
-		"Vanessa Fronterrè, wedding planner Pozzallo, event creator Sicilia, graphic designer matrimoni, Accademia del Wedding, event creation, designer matrimoni",
-	ogtitle: "About | Vanè Wedding & Event",
+		"Vanessa Fronterrè, wedding planner Pozzallo, wedding planner Ragusa, event creator Sicilia, destination wedding Sicilia, designer matrimoni, graphic designer matrimoni",
+	ogtitle: "Vanessa Fronterrè Wedding Planner a Pozzallo | Vanè",
 	ogtype: "website",
 	ogdescription:
-		"Scopri la storia di Vanessa Fronterrè, wedding planner e event creator specializzata in graphic design, con formazione all'Accademia delle Belle Arti di Catania e all'Accademia del Wedding.",
+		"Wedding planner ed event creator in Sicilia per matrimoni, destination wedding ed eventi su misura.",
 	ogurl: "https://www.vanewedding.it/#/it/about",
 	ogimage: "https://www.vanewedding.it/img/about1.jpg",
 };

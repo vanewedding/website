@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../styles/datepicker.css";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/technical/seo/Seo";
 
 export default function FormPage() {
 	const { it } = useContext(GlobalContext);
@@ -191,24 +191,20 @@ export default function FormPage() {
 	}
 	return (
 		<>
-			<Helmet>
-				<title>{helmetData.title}</title>
-				<meta name="description" content={helmetData.description} />
-				<meta name="keywords" content={helmetData.keywords}></meta>
-				{/* Open Graph Tags */}
-				<meta property="og:title" content={helmetData.ogtitle} />
-				<meta property="og:type" content={helmetData.ogtype} />
-				<meta property="og:description" content={helmetData.ogdescription} />
-				<meta property="og:url" content={helmetData.ogurl} />
-				<meta property="og:image" content={helmetData.ogimage} />
-				{/* Meta Robots */}
-				<meta name="robots" content="index, follow" />
-				{/* Canonical Link - Per evitare duplicati */}
-				<link rel="canonical" href="https://www.vanewedding.it/#/it/form" />
-				{/* Opzionale: Meta per form optimization */}
-				<meta name="format-detection" content="telephone=yes" />
-				<meta name="format-detection" content="email=yes" />
-			</Helmet>
+			<Seo
+				title={it ? helmetData.title : "Contact a Wedding Planner in Sicily | Vanè"}
+				description={
+					it
+						? helmetData.description
+						: "Contact Vanè to plan weddings, destination weddings and private events in Pozzallo, Ragusa and Sicily via WhatsApp or email."
+				}
+				keywords={
+					it
+						? helmetData.keywords
+						: "contact wedding planner Sicily, wedding planner Pozzallo contact, destination wedding Sicily consultation, event planner Ragusa"
+				}
+				image={helmetData.ogimage}
+			/>
 			<section className="my-6">
 				<Title
 					text={it ? "SCRIVIMI" : "WRITE ME"}

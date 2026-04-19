@@ -1,13 +1,13 @@
 export const helmetData = {
-	title: "Form | Vanè Wedding & Event",
+	title: "Contatta Wedding Planner a Pozzallo | Vanè",
 	description:
-		"Compila il form per organizzare il tuo appuntamento con Vanessa. Disponibile via WhatsApp e email.",
+		"Contatta Vanè per organizzare matrimoni, destination wedding ed eventi a Pozzallo, Ragusa e in Sicilia. Appuntamenti via WhatsApp o email.",
 	keywords:
-		"contatta wedding planner, prenota matrimonio, consulenza matrimoni, organizza evento, contatti Vanessa, whatsapp wedding planner, form contatti",
-	ogtitle: "Form | Vanè Wedding & Event",
+		"contatta wedding planner Pozzallo, wedding planner Ragusa, consulenza matrimoni Sicilia, destination wedding Sicilia, organizza evento Pozzallo, contatti Vanè, whatsapp wedding planner",
+	ogtitle: "Contatta Wedding Planner a Pozzallo | Vanè",
 	ogtype: "website",
 	ogdescription:
-		"Compila il form per organizzare il tuo appuntamento con Vanessa. Disponibile via WhatsApp e email.",
+		"Richiedi un appuntamento per matrimoni, destination wedding ed eventi in Sicilia.",
 	ogurl: "https://www.vanewedding.it/#/it/form",
 	ogimage: "https://www.vanewedding.it/logo_full_pink.svg",
 };

@@ -1,14 +1,25 @@
 import style from "./CookiePolicyPage.module.css";
 import useLang from "../hooks/useLang";
+import Seo from "../components/technical/seo/Seo";
 
 export default function CookiePolicyPage() {
   const lang = useLang();
 
   return (
-    <div className={style.container}>
-      <h1 className={style.cookiePolicyH1}>
-        {lang === "it" ? "Cookie Policy" : "Cookie Policy"}
-      </h1>
+    <>
+      <Seo
+        title="Cookie Policy | Vanè Wedding & Event Creator"
+        description={
+          lang === "it"
+            ? "Cookie policy del sito Vanè Wedding & Event Creator."
+            : "Cookie policy for the Vanè Wedding & Event Creator website."
+        }
+        noindex
+      />
+      <div className={style.container}>
+        <h1 className={style.cookiePolicyH1}>
+          {lang === "it" ? "Cookie Policy" : "Cookie Policy"}
+        </h1>
 
       <div className={style.date}>
         <span>
@@ -238,6 +249,7 @@ export default function CookiePolicyPage() {
         </a>
         .
       </p>
-    </div>
+      </div>
+    </>
   );
 }

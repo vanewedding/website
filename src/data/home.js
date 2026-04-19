@@ -19,15 +19,15 @@ import propic from "/img/propic.jpg";
 import { LINK_TYPE } from "../constants/enum";
 
 export const helmetData = {
-	title: "Home | Vanè Wedding & Event",
+	title: "Wedding Planner Pozzallo e Sicilia | Vanè Wedding & Event",
 	description:
-		"Servizi di wedding planning e event creation a Pozzallo. Lasciate che vi aiuti a rendere unico il vostro giorno.",
+		"Wedding planner e event designer a Pozzallo, Ragusa, Sicilia. Matrimoni su misura, destination wedding ed eventi eleganti per clienti locali e internazionali.",
 	keywords:
-		"wedding planner Sicilia, event creator Pozzallo, matrimoni Ragusa, organizzazione matrimoni, wedding design, event planning, cerimonie Sicilia",
-	ogtitle: "Vanè Wedding & Event Creator",
+		"wedding planner Pozzallo, wedding planner Ragusa, wedding planner Sicilia, destination wedding Sicilia, destination wedding Italy, full service wedding planning, matrimoni Pozzallo, matrimoni Ragusa, organizzazione matrimoni Sicilia, event creator Pozzallo, wedding design Sicilia",
+	ogtitle: "Wedding Planner Pozzallo e Sicilia | Vanè Wedding & Event Creator",
 	ogtype: "website",
 	ogdescription:
-		"Servizi di wedding planning e event creation a Pozzallo. Lasciate che vi aiuti a rendere unico il vostro giorno.",
+		"Matrimoni su misura, destination wedding ed eventi eleganti a Pozzallo, Ragusa e in Sicilia.",
 	ogurl: "https://www.vanewedding.it/",
 	ogimage: "https://www.vanewedding.it/logo_full_pink.svg",
 };

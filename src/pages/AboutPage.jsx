@@ -10,28 +10,27 @@ import {
 	helmetData,
 } from "../data/about";
 import Title from "../components/visual/Title";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/technical/seo/Seo";
 
 export default function AboutPage() {
 	const { it } = useContext(GlobalContext);
+	const seoTitle = it
+		? helmetData.title
+		: "Vanessa Fronterre Wedding Planner in Pozzallo | Vanè";
+	const seoDescription = it
+		? helmetData.description
+		: "Meet Vanessa Fronterre, wedding planner and event designer in Pozzallo, Ragusa, Sicily, creating bespoke weddings, destination weddings and private events.";
+	const seoKeywords = it
+		? helmetData.keywords
+		: "Vanessa Fronterre, wedding planner Pozzallo, wedding planner Sicily, destination wedding Sicily, event designer Ragusa, wedding designer Italy";
 	return (
 		<>
-			<Helmet>
-				<title>{helmetData.title}</title>
-				<meta name="description" content={helmetData.description} />
-				<meta name="keywords" content={helmetData.keywords}></meta>
-				{/* Open Graph Tags */}
-				<meta property="og:title" content={helmetData.ogtitle} />
-				<meta property="og:type" content={helmetData.ogtype} />
-				<meta property="og:description" content={helmetData.ogdescription} />
-				<meta property="og:url" content={helmetData.ogurl} />
-				<meta property="og:image" content={helmetData.ogimage} />
-				<meta name="author" content="Vanessa Fronterrè"></meta>
-				{/* Meta Robots */}
-				<meta name="robots" content="index, follow" />
-				{/* Canonical Link - Per evitare duplicati */}
-				<link rel="canonical" href="https://www.vanewedding.it/#/it/about" />
-			</Helmet>
+			<Seo
+				title={seoTitle}
+				description={seoDescription}
+				keywords={seoKeywords}
+				image={helmetData.ogimage}
+			/>
 			<section className="my-6">
 				<Title
 					text={it ? aboutData.title.it : aboutData.title.eng}

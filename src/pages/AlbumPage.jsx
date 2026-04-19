@@ -7,7 +7,7 @@ import Slider from "../components/visual/Slider";
 import { RiLayoutMasonryFill, RiLayoutBottomFill } from "react-icons/ri";
 import GlobalContext from "../context/GlobalContext";
 import useBodyScrollLock from "../hooks/useBodyScrollLock";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/technical/seo/Seo";
 
 export default function AlbumPage() {
   const { it, isMobile, isTablet } = useContext(GlobalContext);
@@ -179,10 +179,15 @@ function AlbumPageContent({
 
   return (
     <>
-      <Helmet>
-        <title>{album.helmetData.title}</title>
-        <meta name="description" content={album.helmetData.description} />
-      </Helmet>
+      <Seo
+        title={`${it ? album.title.it : album.title.eng} | Vanè Wedding & Event Creator`}
+        description={
+          it
+            ? `Scopri l'album ${album.title.it.toLowerCase()} del portfolio Vanè: matrimoni, cerimonie ed eventi progettati a Pozzallo, Ragusa e in Sicilia.`
+            : `Discover the ${album.title.eng.toLowerCase()} portfolio album by Vanè, featuring bespoke weddings, destination weddings and events in Pozzallo, Ragusa and Sicily.`
+        }
+        image={album.photos[0]?.src}
+      />
       <section className="my-6">
         <Title
           text={it ? album.title.it : album.title.eng}

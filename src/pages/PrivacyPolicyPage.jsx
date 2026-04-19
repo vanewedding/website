@@ -1,15 +1,26 @@
 import { Link } from "react-router-dom";
 import style from "./PrivacyPolicyPage.module.css";
 import useLang from "../hooks/useLang";
+import Seo from "../components/technical/seo/Seo";
 
 export default function PrivacyPolicyPage() {
   const lang = useLang();
 
   return (
-    <div className={style.container}>
-      <h1 className={style.privacyh1}>
-        {lang === "it" ? "Informativa sulla Privacy" : "Privacy Policy"}
-      </h1>
+    <>
+      <Seo
+        title="Privacy Policy | Vanè Wedding & Event Creator"
+        description={
+          lang === "it"
+            ? "Informativa sulla privacy del sito Vanè Wedding & Event Creator."
+            : "Privacy policy for the Vanè Wedding & Event Creator website."
+        }
+        noindex
+      />
+      <div className={style.container}>
+        <h1 className={style.privacyh1}>
+          {lang === "it" ? "Informativa sulla Privacy" : "Privacy Policy"}
+        </h1>
 
       <p className={style.privacyP}>
         {lang === "it" ? (
@@ -204,6 +215,7 @@ export default function PrivacyPolicyPage() {
         </a>
         .
       </p>
-    </div>
+      </div>
+    </>
   );
 }
