@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 
 const COOKIEYES_SELECTORS = [
+  "button[class*='cky-']",
+  "a[class*='cky-']",
   ".cky-btn",
   ".cky-btn-revisit",
   ".cky-banner-element",
   ".cky-revisit-bottom-left",
   ".cky-revisit-bottom-right",
-  "[data-cky-tag]",
 ];
 
 function isNativeInteractive(element) {

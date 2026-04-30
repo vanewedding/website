@@ -8,6 +8,7 @@ export default function SubMenu({
 }) {
 	return (
 		<section
+			role="menu"
 			className={`
 			no-scrollbar
             absolute top-16 flex flex-col  items-center gap-4 
@@ -28,6 +29,7 @@ export default function SubMenu({
 					}
 					className="font-semibold text-off-white
           transition-all duration-300 hover:font-black"
+					role="menuitem"
 				>
 					{it ? sublink.nameIt : sublink.nameEng}
 				</Link>

@@ -1,6 +1,6 @@
 import { navLinks, socials, langs } from "../../data/header";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { useSwitchLang } from "../../hooks/useSwitchLang";
 import SubMenu from "./SubMenu";
 
@@ -11,6 +11,7 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 	const { lang, it } = useContext(GlobalContext);
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 	const [desktopSubmenuOpenId, setDesktopSubmenuOpenId] = useState(null);
+	const desktopNavRef = useRef(null);
 	const location = useLocation();
 
 	useEffect(() => {
@@ -27,16 +28,57 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 		};
 	}, [location.pathname, setIsMenuOpen]);
 
+	useEffect(() => {
+		if (!desktopSubmenuOpenId) return;
+
+		const getOpenDesktopItem = () =>
+			desktopNavRef.current?.querySelector(
+				`[data-desktop-menu-id="${desktopSubmenuOpenId}"]`
+			);
+
+		const closeIfOutside = (target) => {
+			const openDesktopItem = getOpenDesktopItem();
+
+			if (!openDesktopItem || !target || openDesktopItem.contains(target)) {
+				return;
+			}
+
+			setDesktopSubmenuOpenId(null);
+		};
+
+		const handlePointerMove = (event) => closeIfOutside(event.target);
+		const handleFocusIn = (event) => closeIfOutside(event.target);
+		const handleKeyDown = (event) => {
+			if (event.key === "Escape") {
+				setDesktopSubmenuOpenId(null);
+			}
+		};
+
+		document.addEventListener("pointermove", handlePointerMove);
+		document.addEventListener("focusin", handleFocusIn);
+		document.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.removeEventListener("pointermove", handlePointerMove);
+			document.removeEventListener("focusin", handleFocusIn);
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [desktopSubmenuOpenId]);
+
 	return (
 		<nav
 			className={`relative z-50 w-full flex items-center justify-between transition-all duration-500`}
 		>
 			{/* Desktop Left */}
-			<div className="hidden lg:flex items-center justify-around gap-4 lg:gap-8">
+			<div
+				ref={desktopNavRef}
+				className="hidden lg:flex items-center justify-around gap-4 lg:gap-8"
+			>
 				{/* Links */}
 				{navLinks.map((link) => (
 					<div
 						key={link.id}
+						data-desktop-menu-id={link.id}
 						className="relative flex flex-col items-center"
 						onMouseEnter={() =>
 							link.submenu ? setDesktopSubmenuOpenId(link.id) : undefined
@@ -47,6 +89,11 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						onFocus={() =>
 							link.submenu ? setDesktopSubmenuOpenId(link.id) : undefined
 						}
+						onBlur={(event) => {
+							if (!link.submenu) return;
+							if (event.currentTarget.contains(event.relatedTarget)) return;
+							setDesktopSubmenuOpenId(null);
+						}}
 					>
 						<NavLink
 							to={it ? link.pathIt : link.pathEng}
@@ -57,6 +104,10 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 							className={`flex justify-center items-center group h-16 ${
 								link.id !== 1 ? "min-w-40" : ""
 							}`}
+							aria-haspopup={link.submenu ? "menu" : undefined}
+							aria-expanded={
+								link.submenu ? desktopSubmenuOpenId === link.id : undefined
+							}
 						>
 							{link.id === 1 ? (
 								<div className="size-12">
