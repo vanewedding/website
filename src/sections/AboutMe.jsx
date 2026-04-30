@@ -5,6 +5,7 @@ export default function Aboutme({ it }) {
   return (
     <section>
       <Title
+        as="h2"
         text={it ? aboutMe.title.it : aboutMe.title.eng}
         colorBg="bg-bordeaux"
         colorText="text-bordeaux"

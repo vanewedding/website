@@ -61,28 +61,44 @@ export const bottomSection = {
     {
       id: 1,
       svg: mail,
-      alt: "email",
+      alt: "icona email",
+      ariaLabel: {
+        it: "Invia una email a Vanè Wedding",
+        eng: "Send an email to Vanè Wedding",
+      },
       url: "mailto:vanessafronterre83@gmail.com",
       linkType: LINK_TYPE.EXTERNAL,
     },
     {
       id: 2,
       svg: wa,
-      alt: "whatsapp",
+      alt: "icona WhatsApp",
+      ariaLabel: {
+        it: "Contatta Vanè Wedding su WhatsApp",
+        eng: "Contact Vanè Wedding on WhatsApp",
+      },
       url: "https://wa.me/393281323219",
       linkType: LINK_TYPE.EXTERNAL,
     },
     {
       id: 3,
       svg: fb,
-      alt: "facebook",
+      alt: "icona Facebook",
+      ariaLabel: {
+        it: "Visita la pagina Facebook di Vanè Wedding",
+        eng: "Visit Vanè Wedding Facebook page",
+      },
       url: "https://www.facebook.com/vanessafronterre",
       linkType: LINK_TYPE.EXTERNAL,
     },
     {
       id: 4,
       svg: ig,
-      alt: "instagram",
+      alt: "icona Instagram",
+      ariaLabel: {
+        it: "Visita il profilo Instagram di Vanè Wedding",
+        eng: "Visit Vanè Wedding Instagram profile",
+      },
       url: "https://www.instagram.com/vane.wedding",
       linkType: LINK_TYPE.EXTERNAL,
     },

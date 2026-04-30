@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useLang from "../../../hooks/useLang";
 
 const BASE_URL = "https://www.vanewedding.it";
-const DEFAULT_IMAGE = `${BASE_URL}/logo_full_pink.svg`;
+const DEFAULT_IMAGE = `${BASE_URL}/img-optimized/home/footer.jpg`;
 
 const htmlLang = {
 	it: "it",
@@ -56,6 +56,8 @@ export default function Seo({
 			<meta property="og:type" content={type} />
 			<meta property="og:url" content={canonicalUrl} />
 			<meta property="og:image" content={withBaseUrl(image)} />
+			<meta property="og:image:secure_url" content={withBaseUrl(image)} />
+			<meta property="og:image:type" content="image/jpeg" />
 			<meta property="og:locale" content={ogLocale[lang] || ogLocale.it} />
 
 			<meta name="twitter:card" content="summary_large_image" />

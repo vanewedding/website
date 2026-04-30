@@ -20,6 +20,7 @@ export default function NotFoundPage() {
       />
       <div className="my-6 ">
         <Title
+          as="h1"
           text={it ? notFoundData.title.it : notFoundData.title.eng}
           colorBg={"bg-brand-pink"}
         ></Title>

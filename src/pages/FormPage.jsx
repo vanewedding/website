@@ -207,6 +207,7 @@ export default function FormPage() {
 			/>
 			<section className="my-6">
 				<Title
+					as="h1"
 					text={it ? "SCRIVIMI" : "WRITE ME"}
 					colorBg="bg-bordeaux"
 					className="p-3"
@@ -218,8 +219,9 @@ export default function FormPage() {
 					{/* EVENT TYPE | GUEST NUMBER */}
 					<div className={gridRowStyle}>
 						<div className="md:col-span-2">
-							<label className={labelStyle}>{labels.eventType}</label>
+							<label htmlFor="eventType" className={labelStyle}>{labels.eventType}</label>
 							<select
+								id="eventType"
 								name="eventType"
 								value={formData.eventType}
 								onChange={setFieldValue}
@@ -238,8 +240,9 @@ export default function FormPage() {
 						</div>
 
 						<div>
-							<label className={labelStyle}>{labels.guestNumber}</label>
+							<label htmlFor="guestNumber" className={labelStyle}>{labels.guestNumber}</label>
 							<input
+								id="guestNumber"
 								type="number"
 								name="guestNumber"
 								value={formData.guestNumber}
@@ -256,8 +259,10 @@ export default function FormPage() {
 					{/* EVENT DAY | EVENT TIME */}
 					<div className={gridRowStyle}>
 						<div className="md:col-span-2">
-							<label className={labelStyle}>{labels.eventDay}</label>
+							<label htmlFor="eventDay" className={labelStyle}>{labels.eventDay}</label>
 							<DatePicker
+								id="eventDay"
+								name="eventDay"
 								selected={startDate}
 								onSelect={handleDateChange}
 								dateFormat="dd/MM/yyyy"
@@ -270,8 +275,9 @@ export default function FormPage() {
 						</div>
 
 						<div>
-							<label className={labelStyle}>{labels.eventTime}</label>
+							<label htmlFor="eventTime" className={labelStyle}>{labels.eventTime}</label>
 							<select
+								id="eventTime"
 								name="eventTime"
 								value={formData.eventTime}
 								onChange={setFieldValue}
@@ -279,7 +285,7 @@ export default function FormPage() {
 								onInvalid={validateInput}
 								onInput={validateInput}
 								className={inputValueStyle}
-								aria-label={labels.eventType}
+								aria-label={labels.eventTime}
 							>
 								{eventTimeOptions.map((opt) => (
 									<option key={opt.value} value={opt.value}>
@@ -292,8 +298,9 @@ export default function FormPage() {
 
 					{/* LOCATION */}
 					<div className={singleColRowStyle}>
-						<label className={labelStyle}>{labels.location}</label>
+						<label htmlFor="location" className={labelStyle}>{labels.location}</label>
 						<input
+							id="location"
 							type="text"
 							name="location"
 							value={formData.location}
@@ -310,8 +317,9 @@ export default function FormPage() {
 
 					{/* OTHER INFO */}
 					<div className={singleColRowStyle}>
-						<label className={labelStyle}>{labels.otherInfo}</label>
+						<label htmlFor="otherInfo" className={labelStyle}>{labels.otherInfo}</label>
 						<textarea
+							id="otherInfo"
 							name="otherInfo"
 							value={formData.otherInfo}
 							onChange={setFieldValue}
@@ -330,8 +338,9 @@ export default function FormPage() {
 					{/* NAME | PHONE */}
 					<div className={gridRowStyle}>
 						<div className="md:col-span-2">
-							<label className={labelStyle}>{labels.name}</label>
+							<label htmlFor="name" className={labelStyle}>{labels.name}</label>
 							<input
+								id="name"
 								type="text"
 								name="name"
 								value={formData.name}
@@ -344,8 +353,9 @@ export default function FormPage() {
 							/>
 						</div>
 						<div>
-							<label className={labelStyle}>{labels.phoneNumber}</label>
+							<label htmlFor="phoneNumber" className={labelStyle}>{labels.phoneNumber}</label>
 							<PhoneInput
+								id="phoneNumber"
 								name="phoneNumber"
 								value={formData.phoneNumber}
 								onInvalid={validateInput}

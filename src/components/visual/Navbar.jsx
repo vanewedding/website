@@ -10,11 +10,21 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 	const switchLang = useSwitchLang();
 	const { lang, it } = useContext(GlobalContext);
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+	const [desktopSubmenuOpenId, setDesktopSubmenuOpenId] = useState(null);
 	const location = useLocation();
 
 	useEffect(() => {
-		setIsMenuOpen(false);
-		setIsSubmenuOpen(false);
+		let isMounted = true;
+
+		queueMicrotask(() => {
+			if (!isMounted) return;
+			setIsMenuOpen(false);
+			setIsSubmenuOpen(false);
+		});
+
+		return () => {
+			isMounted = false;
+		};
 	}, [location.pathname, setIsMenuOpen]);
 
 	return (
@@ -27,10 +37,23 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 				{navLinks.map((link) => (
 					<div
 						key={link.id}
-						className="relative group flex flex-col items-center"
+						className="relative flex flex-col items-center"
+						onMouseEnter={() =>
+							link.submenu ? setDesktopSubmenuOpenId(link.id) : undefined
+						}
+						onMouseLeave={() =>
+							link.submenu ? setDesktopSubmenuOpenId(null) : undefined
+						}
+						onFocus={() =>
+							link.submenu ? setDesktopSubmenuOpenId(link.id) : undefined
+						}
 					>
 						<NavLink
 							to={it ? link.pathIt : link.pathEng}
+							onClick={() => {
+								setIsSubmenuOpen(false);
+								setIsMenuOpen(false);
+							}}
 							className={`flex justify-center items-center group h-16 ${
 								link.id !== 1 ? "min-w-40" : ""
 							}`}
@@ -47,41 +70,66 @@ export default function Navbar({ bgColor, isMenuOpen, setIsMenuOpen }) {
 						</NavLink>
 
 						{/* submenu */}
-						{link.submenu && <SubMenu bgColor={bgColor} link={link} it={it} />}
+						{link.submenu && (
+							<SubMenu
+								bgColor={bgColor}
+								isOpen={desktopSubmenuOpenId === link.id}
+								link={link}
+								it={it}
+							/>
+						)}
 					</div>
 				))}
 			</div>
 
 			{/* Mobile Menu Button */}
 			<div className={`z-50 flex items-center gap-3 lg:hidden text-off-white`}>
-				<svg
+				<button
+					type="button"
 					onClick={() => {
 						setIsMenuOpen(!isMenuOpen);
 						setIsSubmenuOpen(false);
 					}}
-					className={`size-8 cursor-pointer`}
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					viewBox="0 0 24 24"
+					className="size-8 cursor-pointer border-0 bg-transparent p-0 text-current"
+					aria-label={
+						isMenuOpen
+							? it
+								? "Chiudi menu"
+								: "Close menu"
+							: it
+							? "Apri menu"
+							: "Open menu"
+					}
+					aria-expanded={isMenuOpen}
+					aria-controls="mobile-menu"
 				>
-					{isMenuOpen ? (
-						<>
-							<line x1="18" y1="6" x2="6" y2="18" />
-							<line x1="6" y1="6" x2="18" y2="18" />
-						</>
-					) : (
-						<>
-							<line x1="4" y1="6" x2="20" y2="6" />
-							<line x1="4" y1="12" x2="20" y2="12" />
-							<line x1="4" y1="18" x2="20" y2="18" />
-						</>
-					)}
-				</svg>
+					<svg
+						className="size-8"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						{isMenuOpen ? (
+							<>
+								<line x1="18" y1="6" x2="6" y2="18" />
+								<line x1="6" y1="6" x2="18" y2="18" />
+							</>
+						) : (
+							<>
+								<line x1="4" y1="6" x2="20" y2="6" />
+								<line x1="4" y1="12" x2="20" y2="12" />
+								<line x1="4" y1="18" x2="20" y2="18" />
+							</>
+						)}
+					</svg>
+				</button>
 			</div>
 
 			{/* Mobile Menu */}
 			<div
+				id="mobile-menu"
 				className={`no-scrollbar fixed top-16 left-0 flex flex-col items-center lg:hidden
 			 h-[calc(100vh-4rem)] w-full justify-center  text-off-white text-base font-semibold 
 			transition-all duration-800 overflow-y-auto 

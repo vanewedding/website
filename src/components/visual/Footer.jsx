@@ -17,6 +17,7 @@ export default function Footer() {
       >
         {/* Titolo */}
         <Title
+          as="h2"
           text={it ? footerData.title.it : footerData.title.eng}
           colorBg="bg-bordeaux"
           colorTxt="text-bordeaux"

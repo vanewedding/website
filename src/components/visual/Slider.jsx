@@ -6,6 +6,8 @@ import {
 	Navigation,
 	Thumbs,
 	FreeMode,
+	A11y,
+	Keyboard,
 } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -13,7 +15,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import arrow from "../../assets/svg/arrow.svg";
-import { useState, useContext } from "react";
+import { useState, useContext, useId } from "react";
 import GlobalContext from "../../context/GlobalContext";
 
 export default function Slider({
@@ -32,6 +34,8 @@ export default function Slider({
 	customSpeed = 2000,
 }) {
 	const { it } = useContext(GlobalContext);
+	const sliderId = useId().replace(/:/g, "");
+	const [mainSwiper, setMainSwiper] = useState(null);
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const [activeThumb, setActiveThumb] = useState(activePicture);
 
@@ -48,12 +52,12 @@ export default function Slider({
 
 	const autoplayConfig =
 		isMobile && isAutoplay
-			? { delay: 2000, disableOnInteraction: false }
+			? { delay: 2000, disableOnInteraction: true, pauseOnMouseEnter: true }
 			: false;
 
 	const navigationConfig =
 		isMobile && isNavigation
-			? { nextEl: ".next-btn", prevEl: ".prev-btn" }
+			? { nextEl: `.next-btn-${sliderId}`, prevEl: `.prev-btn-${sliderId}` }
 			: false;
 
 	const paginationConfig =
@@ -62,6 +66,10 @@ export default function Slider({
 			: false;
 
 	const spaceBetween = isMobile ? 0 : 36;
+	const showPhoto = (idx) => {
+		mainSwiper?.slideTo(idx);
+		setActiveThumb(idx);
+	};
 
 	return (
 		<section
@@ -69,6 +77,7 @@ export default function Slider({
 		>
 			{/* MAIN SWIPER */}
 			<Swiper
+				onSwiper={setMainSwiper}
 				thumbs={{ swiper: thumbsSwiper }}
 				modules={[
 					EffectCoverflow,
@@ -77,11 +86,24 @@ export default function Slider({
 					Pagination,
 					Thumbs,
 					FreeMode,
+					A11y,
+					Keyboard,
 				]}
+				a11y={{
+					enabled: true,
+					prevSlideMessage: it ? "Foto precedente" : "Previous photo",
+					nextSlideMessage: it ? "Foto successiva" : "Next photo",
+					firstSlideMessage: it ? "Questa e' la prima foto" : "This is the first photo",
+					lastSlideMessage: it ? "Questa e' l'ultima foto" : "This is the last photo",
+					paginationBulletMessage: it
+						? "Vai alla foto {{index}}"
+						: "Go to photo {{index}}",
+				}}
+				keyboard={{ enabled: true, onlyInViewport: true }}
 				effect="coverflow"
 				grabCursor
 				centeredSlides={false}
-				loop
+				loop={false}
 				initialSlide={activePicture}
 				breakpoints={
 					isSingleSlide
@@ -119,7 +141,17 @@ export default function Slider({
 			>
 				{photos.map((photo, idx) => (
 					<SwiperSlide key={idx}>
-						<div className="relative w-full h-full overflow-hidden">
+						<button
+							type="button"
+							className="relative block w-full h-full overflow-hidden border-0 bg-transparent p-0 text-left"
+							aria-label={
+								it
+									? `Mostra foto ${idx + 1}: ${photo.alt.it}`
+									: `Show photo ${idx + 1}: ${photo.alt.eng}`
+							}
+							onFocus={() => showPhoto(idx)}
+							onClick={() => showPhoto(idx)}
+						>
 							{/* Placeholder shimmer */}
 							{!loaded[idx] && (
 								<div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-2xl" />
@@ -142,64 +174,76 @@ export default function Slider({
 										: "my-4 rounded-2xl shadow-md shadow-bordeaux/60"
 								}`}
 							/>
-						</div>
+						</button>
 					</SwiperSlide>
 				))}
 
 				{/* Navigation frecce */}
 				{isMobile && !isOrginalSize && (
 					<>
-						<div className="prev-btn absolute left-4 top-1/2 -translate-y-1/2 z-50 text-3xl rounded-full p-2">
+						<button
+							type="button"
+							className={`prev-btn-${sliderId} absolute left-4 top-1/2 -translate-y-1/2 z-50 rounded-full border-0 bg-transparent p-2 text-3xl`}
+							aria-label={it ? "Foto precedente" : "Previous photo"}
+						>
 							<img
 								src={arrow}
 								className="rotate-90 size-6 cursor-pointer"
-								alt={it ? "Freccia indietro" : "Back arrow"}
+								alt=""
+								aria-hidden="true"
 							/>
-						</div>
-						<div className="next-btn absolute right-4 top-1/2 -translate-y-1/2 z-50 text-3xl">
+						</button>
+						<button
+							type="button"
+							className={`next-btn-${sliderId} absolute right-4 top-1/2 -translate-y-1/2 z-50 border-0 bg-transparent text-3xl`}
+							aria-label={it ? "Foto successiva" : "Next photo"}
+						>
 							<img
 								src={arrow}
 								className="-rotate-90 size-6 cursor-pointer"
-								alt={it ? "Freccia avanti" : "Forward arrow"}
+								alt=""
+								aria-hidden="true"
 							/>
-						</div>
+						</button>
 					</>
 				)}
 			</Swiper>
 
 			{/* THUMBS */}
 			{showThumbs && (
-				<Swiper
-					onSwiper={setThumbsSwiper}
-					modules={[Navigation, Thumbs, FreeMode]}
-					spaceBetween={5}
-					slidesPerView={5}
-					freeMode
-					watchSlidesProgress
-					className="mt-2 mask-x-from-90%"
-				>
-					{photos.map((photo, idx) => (
-						<SwiperSlide key={idx}>
-							<div className="relative h-20 w-full overflow-hidden">
-								{/* Placeholder anche nei thumbs */}
-								{!loaded[idx] && (
-									<div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-lg" />
-								)}
-								<img
-									src={photo.thumbSrc || photo.slideSrc || photo.src}
-									alt={it ? photo.alt.it : photo.alt.eng}
-									loading="lazy"
-									className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
-										loaded[idx] ? "opacity-100" : "opacity-0"
-									} ${
-										idx === activeThumb ? "brightness-100" : "brightness-50"
-									}`}
-									onLoad={() => handleLoad(idx)}
-								/>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
+				<div aria-hidden="true">
+					<Swiper
+						onSwiper={setThumbsSwiper}
+						modules={[Navigation, Thumbs, FreeMode]}
+						spaceBetween={5}
+						slidesPerView={5}
+						freeMode
+						watchSlidesProgress
+						className="mt-2 mask-x-from-90%"
+					>
+						{photos.map((photo, idx) => (
+							<SwiperSlide key={idx}>
+								<div className="relative h-20 w-full overflow-hidden">
+									{/* Placeholder anche nei thumbs */}
+									{!loaded[idx] && (
+										<div className="absolute inset-0 bg-brand-pink animate-pulse z-20 rounded-lg" />
+									)}
+									<img
+										src={photo.thumbSrc || photo.slideSrc || photo.src}
+										alt=""
+										loading="lazy"
+										className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
+											loaded[idx] ? "opacity-100" : "opacity-0"
+										} ${
+											idx === activeThumb ? "brightness-100" : "brightness-50"
+										}`}
+										onLoad={() => handleLoad(idx)}
+									/>
+								</div>
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</div>
 			)}
 		</section>
 	);

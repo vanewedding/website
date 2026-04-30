@@ -34,9 +34,9 @@ export default function CookiePolicyPage() {
         </span>
       </div>
 
-      <h5 className={style.title}>
+      <h2 className={style.title}>
         {lang === "it" ? "Cosa sono i cookie?" : "What are cookies?"}
-      </h5>
+      </h2>
       <div className={style.cookiePolicyP}>
         {lang === "it" ? (
           <>
@@ -76,11 +76,11 @@ export default function CookiePolicyPage() {
         )}
       </div>
 
-      <h5 className={style.title}>
+      <h2 className={style.title}>
         {lang === "it"
           ? "Come utilizziamo i cookie?"
           : "How do we use cookies?"}
-      </h5>
+      </h2>
       <div className={style.cookiePolicyP}>
         {lang === "it" ? (
           <>
@@ -119,11 +119,11 @@ export default function CookiePolicyPage() {
         )}
       </div>
 
-      <h5 className={style.title}>
+      <h2 className={style.title}>
         {lang === "it"
           ? "Tipi di cookie che utilizziamo"
           : "Types of Cookies we use"}
-      </h5>
+      </h2>
       {lang === "it" ? (
         <>
           <p className={style.cookiePolicyP}>
@@ -148,9 +148,9 @@ export default function CookiePolicyPage() {
         </>
       )}
 
-      <h5 className={style.title}>
+      <h2 className={style.title}>
         {lang === "it" ? "Cookie di terze parti" : "Third-Party Cookies"}
-      </h5>
+      </h2>
       {lang === "it" ? (
         <p>
           Visitando questi link, eventuali cookie impostati saranno gestiti dai
@@ -162,11 +162,11 @@ export default function CookiePolicyPage() {
           third-party services.
         </p>
       )}
-      <h5 className={`${style.title} mt-2`}>
+      <h2 className={`${style.title} mt-2`}>
         {lang === "it"
           ? "Gestisci le preferenze sui cookie"
           : "Manage cookie preferences"}
-      </h5>
+      </h2>
 
       <p className={style.cookiePolicyP}>
         {lang === "it"
@@ -201,7 +201,9 @@ export default function CookiePolicyPage() {
             rel="noopener noreferrer"
             href="https://support.google.com/accounts/answer/32050"
           >
-            https://support.google.com/accounts/answer/32050
+            {lang === "it"
+              ? "Guida Google Chrome per eliminare i cookie"
+              : "Google Chrome guide to delete cookies"}
           </a>
         </p>
         <p>
@@ -211,7 +213,9 @@ export default function CookiePolicyPage() {
             rel="noopener noreferrer"
             href="https://support.apple.com/en-in/guide/safari/sfri11471/mac"
           >
-            https://support.apple.com/en-in/guide/safari/sfri11471/mac
+            {lang === "it"
+              ? "Guida Apple Safari per gestire i cookie"
+              : "Apple Safari guide to manage cookies"}
           </a>
         </p>
         <p>
@@ -221,7 +225,9 @@ export default function CookiePolicyPage() {
             rel="noopener noreferrer"
             href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox"
           >
-            https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox
+            {lang === "it"
+              ? "Guida Mozilla Firefox per eliminare cookie e dati dei siti"
+              : "Mozilla Firefox guide to delete cookies and site data"}
           </a>
         </p>
         <p>
@@ -231,7 +237,9 @@ export default function CookiePolicyPage() {
             rel="noopener noreferrer"
             href="https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc"
           >
-            https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer
+            {lang === "it"
+              ? "Guida Microsoft per eliminare i cookie in Internet Explorer"
+              : "Microsoft guide to delete cookies in Internet Explorer"}
           </a>
         </p>
       </div>

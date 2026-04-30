@@ -7,6 +7,7 @@ export default function StudioSection({ it, isMobile }) {
   return (
     <section className="my-8">
       <Title
+        as="h2"
         text={it ? studio.title.it : studio.title.eng}
         colorBg="bg-bordeaux"
         colorText="text-bordeaux"

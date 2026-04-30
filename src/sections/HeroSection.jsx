@@ -29,6 +29,7 @@ export default function HeroSection({ it }) {
 			/>
 			<div className="w-full z-1">
 				<Title
+					as="h1"
 					text={it ? hero.title.it : hero.title.eng}
 					colorBg="bg-off-white"
 					colorTxt="text-off-white"

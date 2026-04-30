@@ -17,6 +17,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 // components
 import Loader from "./components/visual/Loader";
+import CookieYesA11yPatch from "./components/technical/cookieyes/CookieYesA11yPatch";
 
 //Hooks
 import ScrollToTop from "./components/technical/scrollToTop/ScrollToTop";
@@ -117,6 +118,8 @@ export default function App() {
 
   return (
     <>
+      <CookieYesA11yPatch />
+
       {!showContent && <Loader isLoading={isLoading} />}
 
       <div

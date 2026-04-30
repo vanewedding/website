@@ -29,7 +29,7 @@ export const helmetData = {
 	ogdescription:
 		"Matrimoni su misura, destination wedding ed eventi eleganti a Pozzallo, Ragusa e in Sicilia.",
 	ogurl: "https://www.vanewedding.it/",
-	ogimage: "https://www.vanewedding.it/logo_full_pink.svg",
+	ogimage: "https://www.vanewedding.it/img-optimized/home/footer.jpg",
 };
 
 export const hero = {

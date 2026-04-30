@@ -1,6 +1,8 @@
 /* PrivacyPolicyPage.module.css */
 .container{
     margin: 1rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .privacyh1 {
@@ -21,5 +23,11 @@
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
+.privacyP a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}

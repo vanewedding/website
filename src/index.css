@@ -10,9 +10,16 @@
 	}
 }
 @layer base {
-  :focus-visible {
-    outline: none; /* esempio colore rosa */
-  }
+	:focus-visible {
+		outline: 2px solid var(--color-bordeaux);
+		outline-offset: 4px;
+	}
+
+	.bg-bordeaux :focus-visible,
+	.bg-brand-pink :focus-visible,
+	.text-off-white:focus-visible {
+		outline-color: var(--color-off-white);
+	}
 }
 .PhoneInput input {
   padding: 0.5rem; /* uguale a p-2 */
@@ -116,6 +123,25 @@ body {
 main {
 	position: relative;
 }
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 10000;
+	transform: translateY(-150%);
+	border: 2px solid var(--color-bordeaux);
+	border-radius: 0.75rem;
+	background: var(--color-off-white);
+	color: var(--color-bordeaux);
+	padding: 0.75rem 1rem;
+	font-weight: 600;
+	transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+	transform: translateY(0);
+}
 /*
 main.inverted {
   background-color: var(--primary-brown);
@@ -151,9 +177,22 @@ h6 {
 	font-weight: var(--font-weight-light);
 }
 
+.title-heading-reset {
+	font-size: inherit;
+	font-weight: var(--font-weight-semibold);
+}
+
 /* LISTS & LINKS */
 ul li {
 	list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-infinite-scroll,
+	.animate-bouncy,
+	.animate-pulse {
+		animation: none;
+	}
 }
 /*li a,
 a {

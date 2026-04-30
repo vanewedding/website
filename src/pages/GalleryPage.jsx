@@ -29,6 +29,7 @@ export default function GalleryPage() {
 			/>
 			<section className="my-6">
 				<Title
+					as="h1"
 					text={it ? title.it : title.eng}
 					colorBg={"bg-bordeaux"}
 					colorTxt={"text-bordeaux"}

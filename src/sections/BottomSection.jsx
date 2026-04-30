@@ -22,6 +22,7 @@ export default function BottomSection({ bottomSection, it }) {
 							href={l.url}
 							target="_blank"
 							rel="noopener noreferrer"
+							aria-label={it ? l.ariaLabel.it : l.ariaLabel.eng}
 						>
 							<img
 								src={l.svg}

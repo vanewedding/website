@@ -44,6 +44,8 @@ function AlbumPageContent({
   isCompactViewport,
 }) {
   const shouldScrollToTopRef = useRef(false);
+  const lightboxDialogRef = useRef(null);
+  const lastFocusedElementRef = useRef(null);
   const eagerImageCount = isCompactViewport ? 2 : 6;
   const [activeLayout, setActiveLayout] = useState(
     isCompactViewport ? "layoutSlider" : "layoutGrid"
@@ -57,6 +59,9 @@ function AlbumPageContent({
   const closeLightbox = useCallback(() => {
     setIsLightBoxOpen(false);
     setSelectedPhoto(null);
+    window.requestAnimationFrame(() => {
+      lastFocusedElementRef.current?.focus?.();
+    });
   }, []);
 
   const showPreviousPhoto = useCallback(() => {
@@ -111,6 +116,31 @@ function AlbumPageContent({
       if (event.key === "Escape") {
         closeLightbox();
       }
+
+      if (event.key === "Tab") {
+        const focusableElements = lightboxDialogRef.current?.querySelectorAll(
+          'button, [href], img[tabindex="0"], [tabindex]:not([tabindex="-1"])'
+        );
+        const focusable = Array.from(focusableElements || []).filter(
+          (element) => !element.disabled
+        );
+
+        if (focusable.length === 0) {
+          event.preventDefault();
+          return;
+        }
+
+        const firstElement = focusable[0];
+        const lastElement = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -137,15 +167,25 @@ function AlbumPageContent({
   };
 
   const handleDesktopGridPhotoClick = (photo, index) => {
+    lastFocusedElementRef.current = document.activeElement;
     setActivePicture(index);
     setSelectedPhoto(photo);
     setIsLightBoxOpen(true);
   };
 
+  useEffect(() => {
+    if (isCompactViewport || !isLightBoxOpen) {
+      return;
+    }
+
+    lightboxDialogRef.current?.focus();
+  }, [isCompactViewport, isLightBoxOpen]);
+
   const renderAlbumGrid = (isDesktopGrid = false) => (
     <div className={gridColumnsClass}>
       {album.photos.map((img, index) => (
-        <div
+        <button
+          type="button"
           key={img.src}
           onClick={() => {
             if (isDesktopGrid) {
@@ -155,7 +195,12 @@ function AlbumPageContent({
 
             handleCompactGridPhotoClick(index);
           }}
-          className="cursor-pointer break-inside-avoid p-3"
+          className="cursor-pointer break-inside-avoid p-3 border-0 bg-transparent text-left"
+          aria-label={
+            it
+              ? `Apri foto ${index + 1} dell'album ${album.title.it}`
+              : `Open photo ${index + 1} from ${album.title.eng}`
+          }
         >
           <Image
             src={img.thumbSrc || img.src}
@@ -172,7 +217,7 @@ function AlbumPageContent({
             customStyleBox="w-full"
             customStyleImg=""
           />
-        </div>
+        </button>
       ))}
     </div>
   );
@@ -190,6 +235,7 @@ function AlbumPageContent({
       />
       <section className="my-6">
         <Title
+          as="h1"
           text={it ? album.title.it : album.title.eng}
           colorBg={"bg-bordeaux"}
         />
@@ -218,25 +264,29 @@ function AlbumPageContent({
 
               <div className="fixed top-18 right-0 z-20 flex gap-3 mx-2">
                 {activeLayout === "layoutGrid" ? (
-                  <div
-                    className="bg-off-white rounded-full p-2 text-4xl text-brand-pink cursor-pointer"
+                  <button
+                    type="button"
+                    className="bg-off-white rounded-full p-2 text-4xl text-brand-pink cursor-pointer border-0"
+                    aria-label={it ? "Mostra layout slider" : "Show slider layout"}
                     onClick={() =>
                       activeLayout !== "layoutSlider" &&
                       setActiveLayout("layoutSlider")
                     }
                   >
                     <RiLayoutBottomFill />
-                  </div>
+                  </button>
                 ) : (
-                  <div
-                    className="bg-off-white  rounded-full p-2 text-4xl text-brand-pink cursor-pointer"
+                  <button
+                    type="button"
+                    className="bg-off-white  rounded-full p-2 text-4xl text-brand-pink cursor-pointer border-0"
+                    aria-label={it ? "Mostra layout griglia" : "Show grid layout"}
                     onClick={() =>
                       activeLayout !== "layoutGrid" &&
                       setActiveLayout("layoutGrid")
                     }
                   >
                     <RiLayoutMasonryFill />
-                  </div>
+                  </button>
                 )}
               </div>
             </>
@@ -246,58 +296,68 @@ function AlbumPageContent({
           )}
           {/* Lightbox */}
           {isLightBoxOpen && selectedPhoto && (
-            <>
-              <div className="relative w-screen h-screen">
-                <div
-                  className="fixed top-16 w-screen h-screen bg-black/85 "
-                  onClick={closeLightbox}
+            <div
+              ref={lightboxDialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={it ? "Foto album aperta" : "Open album photo"}
+              tabIndex={-1}
+              className="fixed top-16 left-0 z-50 w-screen h-screen bg-black/85"
+              onClick={closeLightbox}
+            >
+              <button
+                type="button"
+                className="absolute right-0 mr-6 mt-6 cursor-pointer border-0 bg-transparent p-0 text-off-white"
+                aria-label={it ? "Chiudi foto" : "Close photo"}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  closeLightbox();
+                }}
+              >
+                <svg
+                  className="size-8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
-                  <div className="absolute right-0 mr-6 mt-6">
-                    <svg
-                      className="size-8 cursor-pointer text-off-white"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      onClick={closeLightbox}
-                    >
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  </div>
-                  <button
-                    type="button"
-                    aria-label="Foto precedente"
-                    className="absolute left-6 top-1/2 -translate-y-1/2 text-off-white text-5xl cursor-pointer"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      showPreviousPhoto();
-                    }}
-                  >
-                    ‹
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Foto successiva"
-                    className="absolute right-6 top-1/2 -translate-y-1/2 text-off-white text-5xl cursor-pointer"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      showNextPhoto();
-                    }}
-                  >
-                    ›
-                  </button>
-                  <div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
-                    <img
-                      src={selectedPhoto.fullSrc || selectedPhoto.src}
-                      alt={it ? selectedPhoto.alt.it : selectedPhoto.alt.eng}
-                      className="h-5/6 rounded-xl object-cover"
-                      onClick={(event) => event.stopPropagation()}
-                    />
-                  </div>
-                </div>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label={it ? "Foto precedente" : "Previous photo"}
+                className="absolute left-6 top-1/2 -translate-y-1/2 text-off-white text-5xl cursor-pointer"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showPreviousPhoto();
+                }}
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                aria-label={it ? "Foto successiva" : "Next photo"}
+                className="absolute right-6 top-1/2 -translate-y-1/2 text-off-white text-5xl cursor-pointer"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showNextPhoto();
+                }}
+              >
+                ›
+              </button>
+              <div className="h-[calc(100vh-4rem)] w-[80%] m-auto flex justify-center items-center">
+                <img
+                  src={selectedPhoto.fullSrc || selectedPhoto.src}
+                  alt={it ? selectedPhoto.alt.it : selectedPhoto.alt.eng}
+                  className="h-5/6 rounded-xl object-cover"
+                  tabIndex={0}
+                  onClick={(event) => event.stopPropagation()}
+                />
               </div>
-            </>
+            </div>
           )}
         </div>
       </section>

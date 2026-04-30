@@ -9,7 +9,7 @@ export const helmetData = {
 	ogdescription:
 		"Richiedi un appuntamento per matrimoni, destination wedding ed eventi in Sicilia.",
 	ogurl: "https://www.vanewedding.it/#/it/form",
-	ogimage: "https://www.vanewedding.it/logo_full_pink.svg",
+	ogimage: "https://www.vanewedding.it/img-optimized/home/footer.jpg",
 };
 
 export const eventTypeOptions = [

@@ -4,7 +4,6 @@ import GlobalContext from "../context/GlobalContext";
 import {
 	aboutData,
 	aboutWeddingData,
-	aboutContestData,
 	aboutCataniaData,
 	aboutVaneData,
 	helmetData,
@@ -33,6 +32,7 @@ export default function AboutPage() {
 			/>
 			<section className="my-6">
 				<Title
+					as="h1"
 					text={it ? aboutData.title.it : aboutData.title.eng}
 					colorBg={"bg-bordeaux"}
 					colorTxt={"text-bordeaux"}

@@ -5,7 +5,6 @@ import GlobalContext from "./GlobalContext";
 import { useLocation, matchRoutes } from "react-router-dom";
 import useLang from "../hooks/useLang";
 import useViewport from "../hooks/useViewport";
-import { useEffect, useState } from "react";
 import { routesConfig } from "../router/routesConfig";
 
 export default function GlobalContextProvider({ children }) {
@@ -18,33 +17,15 @@ export default function GlobalContextProvider({ children }) {
 
   // salva la location
   const location = useLocation();
-  const [isHome, setIsHome] = useState(false);
-  const [isFormPage, setIsFormPage] = useState(false);
-  const [isNotFound, setIsNotFound] = useState(false);
-  const [isPolicyPage, setIsPolicyPage] = useState(false);
-
-  useEffect(() => {
-    setIsHome(location.pathname == "/it/" || location.pathname == "/eng/");
-  }, [location.pathname]);
-  useEffect(() => {
-    setIsFormPage(
-      location.pathname == "/it/form" || location.pathname == "/eng/form"
-    );
-  }, [location.pathname]);
-
-  useEffect(() => {
-    setIsPolicyPage(
-      location.pathname == "/it/privacy-policy" ||
-        location.pathname == "/eng/privacy-policy" ||
-        location.pathname == "/it/cookie-policy" ||
-        location.pathname == "/eng/cookie-policy"
-    );
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const matches = matchRoutes(routesConfig, location.pathname);
-    setIsNotFound(!matches);
-  }, [location.pathname]);
+  const isHome = location.pathname == "/it/" || location.pathname == "/eng/";
+  const isFormPage =
+    location.pathname == "/it/form" || location.pathname == "/eng/form";
+  const isPolicyPage =
+    location.pathname == "/it/privacy-policy" ||
+    location.pathname == "/eng/privacy-policy" ||
+    location.pathname == "/it/cookie-policy" ||
+    location.pathname == "/eng/cookie-policy";
+  const isNotFound = !matchRoutes(routesConfig, location.pathname);
 
   return (
     <GlobalContext.Provider
